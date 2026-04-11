@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free AI-powered website audit from Flint Digital. We'll scan your code, check your SEO, analyze competitors, and grade your AI search readiness.">
+<meta property="og:title" content="Free Website Audit — Flint Digital">
+<meta property="og:description" content="Enter your website and get an instant AI-powered audit — SEO, AEO, technical, content, and competitor analysis.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<title>Free Website Audit — Flint Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:#0c0b09;color:#e2ddd4;font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #root{min-height:100vh}
+  input:focus,select:focus{border-color:#c47a4a !important}
+  button:hover{opacity:.9}
+  @media(max-width:600px){
+    .audit-form-row{grid-template-columns:1fr !important}
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const C = {
+  bg: "#0c0b09", surface: "#121110", card: "#15140f", text: "#e2ddd4", text2: "#c8c0b4",
+  dim: "#6b6459", copper: "#c47a4a", copper2: "#d4956a", slate: "#7a8a96", sage: "#7a9478",
+  red: "#c45a4a", line: "rgba(255,255,255,.06)", line2: "rgba(255,255,255,.025)",
+};
+
+const Grade = ({ level, label }) => {
+  const styles = { good: { bg: "rgba(122,148,120,.15)", c: C.sage }, ok: { bg: "rgba(184,168,138,.15)", c: "#b8a88a" }, bad: { bg: "rgba(196,90,74,.15)", c: C.red } };
+  const s = styles[level] || styles.bad;
+  return <span style={{ background: s.bg, color: s.c, padding: "3px 10px", borderRadius: "3px", fontFamily: "'Space Mono', monospace", fontSize: "11px", fontWeight: 700, letterSpacing: "1px" }}>{label}</span>;
+};
+
+const Bar = ({ score, label }) => {
+  const color = score >= 80 ? C.sage : score >= 50 ? "#b8a88a" : C.red;
+  return (
+    <div style={{ marginBottom: "12px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+        <span style={{ fontSize: "13px", color: C.dim }}>{label}</span>
+        <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px", fontWeight: 700, color }}>{score}/100</span>
+      </div>
+      <div style={{ height: "4px", background: C.line, borderRadius: "2px" }}>
+        <div style={{ height: "4px", width: `${score}%`, background: color, borderRadius: "2px", transition: "width 1s ease" }} />
+      </div>
+    </div>
+  );
+};
+
+const Row = ({ label, value, color }) => (
+  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0" }}>
+    <span style={{ fontSize: "13px", color: C.dim }}>{label}</span>
+    <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px", fontWeight: 700, color: color || C.text2 }}>{value}</span>
+  </div>
+);
+
+const extractJSON = (text) => {
+  try { return JSON.parse(text); } catch {}
+  let clean = text.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
+  try { return JSON.parse(clean); } catch {}
+  const match = clean.match(/\{[\s\S]*\}/);
+  if (match) {
+    try { return JSON.parse(match[0]); } catch {}
+  }
+  return null;
+};
+
+function WebsiteAudit() {
+  const [url, setUrl] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState("");
+  const [results, setResults] = useState(null);
+  const [error, setError] = useState("");
+  const [dots, setDots] = useState("");
+
+  useEffect(() => {
+    if (!loading) return;
+    const t = setInterval(() => setDots(d => d.length >= 3 ? "" : d + "."), 500);
+    return () => clearInterval(t);
+  }, [loading]);
+
+  const run = async () => {
+    if (!url.trim()) return setError("Please enter a website URL.");
+    setError(""); setLoading(true); setResults(null);
+
+    const clean = url.trim().replace(/\/+$/, "");
+    const withProto = clean.startsWith("http") ? clean : `https://${clean}`;
+    const domain = withProto.replace(/https?:\/\/(www\.)?/, "").replace(/\/.*/, "");
+
+    const steps = ["Scanning website", "Checking SEO", "Analyzing competitors", "Grading AEO readiness", "Building report"];
+    let stepIdx = 0;
+    setStep(steps[0]);
+    const stepTimer = setInterval(() => {
+      stepIdx = Math.min(stepIdx + 1, steps.length - 1);
+      setStep(steps[stepIdx]);
+    }, 12000);
+
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4000,
+          tools: [{ type: "web_search_20250305", name: "web_search" }],
+          messages: [{
+            role: "user",
+            content: `You are a website auditor for Flint Digital, an AI-first agency in Kansas City.
+
+Audit the website: ${withProto} (domain: ${domain})
+
+Do these searches:
+1. Search for: ${domain}
+2. Search for the business name + location to find competitors
+3. Search for: ${domain} reviews
+
+After researching, you MUST respond with ONLY a valid JSON object. No explanation, no markdown, no backticks before or after. Just the raw JSON starting with { and ending with }.
+
+The JSON must have this structure:
+{
+  "business_name": "string",
+  "domain": "${domain}",
+  "business_type": "string",
+  "location": "string",
+  "overall_score": number 0 to 100,
+  "summary": "string with 2-3 sentences",
+  "technical": {
+    "platform": "WordPress or Squarespace or Wix or Shopify or Custom or Unknown",
+    "ssl": true or false,
+    "title_tag": "the actual title tag text",
+    "title_quality": "good or generic or missing or no-location",
+    "meta_quality": "good or generic or missing",
+    "schema_markup": true or false,
+    "schema_types": ["list of types found or empty array"],
+    "rich_results": true or false,
+    "pages_indexed": "approximate number as string",
+    "mobile_friendly": true or false,
+    "score": number 0 to 100,
+    "findings": ["string", "string", "string"]
+  },
+  "seo": {
+    "score": number 0 to 100,
+    "primary_keyword": "string",
+    "estimated_rank": "string like #3 or Page 1 or not ranking",
+    "findings": ["string", "string", "string"]
+  },
+  "local_search": {
+    "score": number 0 to 100,
+    "google_reviews": "string like 4.8 stars (23 reviews) or not found",
+    "findings": ["string", "string", "string"]
+  },
+  "aeo": {
+    "score": number 0 to 100,
+    "ai_ready": true or false,
+    "findings": ["string", "string", "string"]
+  },
+  "content": {
+    "score": number 0 to 100,
+    "findings": ["string", "string", "string"]
+  },
+  "reputation": {
+    "score": number 0 to 100,
+    "findings": ["string", "string", "string"]
+  },
+  "competitors": [
+    {"name": "string", "advantage": "string"},
+    {"name": "string", "advantage": "string"}
+  ],
+  "top_3_fixes": ["string", "string", "string"]
+}
+
+Remember: respond with ONLY the JSON object. Nothing else.`
+          }]
+        })
+      });
+
+      clearInterval(stepTimer);
+      setStep("Building report");
+
+      if (!res.ok) throw new Error(`API returned ${res.status}`);
+      const data = await res.json();
+
+      if (data.error) throw new Error(data.error.message || "API error");
+
+      const allText = (data.content || [])
+        .filter(item => item.type === "text")
+        .map(item => item.text)
+        .join("\n");
+
+      if (!allText.trim()) throw new Error("No text response from API");
+
+      const parsed = extractJSON(allText);
+      if (!parsed) throw new Error("Could not parse audit results");
+      if (!parsed.business_name && !parsed.overall_score) throw new Error("Incomplete audit data");
+
+      setResults(parsed);
+
+    } catch (err) {
+      clearInterval(stepTimer);
+      console.error("Audit error:", err);
+      setError(`Audit failed: ${err.message}. Please try again.`);
+    } finally {
+      setLoading(false);
+      setStep("");
+    }
+  };
+
+  const gradeFor = s => s >= 80 ? { level: "good", label: "STRONG" } : s >= 60 ? { level: "ok", label: "NEEDS WORK" } : { level: "bad", label: s >= 40 ? "WEAK" : "CRITICAL" };
+  const letterGrade = s => s >= 80 ? { l: "A", c: C.sage } : s >= 60 ? { l: "B", c: "#b8a88a" } : s >= 40 ? { l: "C", c: C.copper } : { l: s >= 20 ? "D" : "F", c: C.red };
+
+  const catConfig = {
+    technical: { label: "Technical", c: C.copper },
+    seo: { label: "SEO", c: C.slate },
+    local_search: { label: "Local Search", c: C.sage },
+    aeo: { label: "AEO \u00b7 AI Search", c: C.copper2 },
+    content: { label: "Content", c: "#b8a88a" },
+    reputation: { label: "Reputation", c: C.slate }
+  };
+
+  const inputStyle = { width: "100%", background: C.surface, border: `1px solid ${C.line}`, padding: "14px 18px", fontSize: "13px", color: C.text, borderRadius: "2px", outline: "none", fontFamily: "'Outfit', system-ui, sans-serif" };
+  const labelStyle = { display: "block", fontFamily: "'Space Mono', monospace", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: C.dim, marginBottom: "6px" };
+
+  return (
+    <div style={{ background: C.bg, minHeight: "100vh" }}>
+      {/* NAV */}
+      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 48px", height: "60px", borderBottom: `1px solid ${C.line}`, background: "rgba(12,11,9,.95)", backdropFilter: "blur(20px)", position: "sticky", top: 0, zIndex: 100 }}>
+        <a href="index.html" style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px", fontWeight: 700, letterSpacing: "4px", color: C.text2, textDecoration: "none", textTransform: "uppercase" }}>
+          FLINT<span style={{ color: C.copper }}>.</span><em style={{ fontStyle: "italic", fontWeight: 300, color: C.copper, fontFamily: "'Outfit', sans-serif", fontSize: "13px", letterSpacing: "1px", textTransform: "none", marginLeft: "-2px" }}>digital</em>
+        </a>
+        <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: C.dim, textTransform: "uppercase" }}>Website Audit</div>
+      </nav>
+
+      <div style={{ maxWidth: "700px", margin: "0 auto", padding: "48px 20px 80px" }}>
+
+        {/* INPUT FORM */}
+        {!results && !loading && (<>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "5px", textTransform: "uppercase", color: C.copper, marginBottom: "16px" }}>AI-Powered Website Audit</div>
+            <h1 style={{ fontSize: "clamp(28px,4vw,40px)", fontWeight: 200, color: C.text2, letterSpacing: "-1px", lineHeight: 1.1, marginBottom: "16px", fontFamily: "'Outfit', sans-serif" }}>
+              See what you're <strong style={{ fontWeight: 700, color: C.text }}>missing.</strong>
+            </h1>
+            <p style={{ fontSize: "15px", color: C.dim, fontWeight: 300, lineHeight: 1.7, maxWidth: "480px", margin: "0 auto" }}>
+              Enter your website and we'll scan your code, check your SEO, analyze your competitors, and grade your AI search readiness — in about 60 seconds.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div className="audit-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              <div><label style={labelStyle}>Your name</label><input value={name} onChange={e => setName(e.target.value)} placeholder="Jane Smith" style={inputStyle} /></div>
+              <div><label style={labelStyle}>Email</label><input value={email} onChange={e => setEmail(e.target.value)} placeholder="jane@business.com" type="email" style={inputStyle} /></div>
+            </div>
+            <div><label style={labelStyle}>Website URL</label><input value={url} onChange={e => setUrl(e.target.value)} placeholder="yourbusiness.com" style={inputStyle} onKeyDown={e => e.key === "Enter" && run()} /></div>
+            <button onClick={run} style={{ background: C.copper, color: C.bg, padding: "16px", border: "none", borderRadius: "2px", fontSize: "14px", fontWeight: 600, cursor: "pointer", letterSpacing: ".5px", marginTop: "4px", fontFamily: "'Outfit', sans-serif" }}>Run My Free Audit</button>
+            {error && <p style={{ color: C.red, fontSize: "13px", textAlign: "center", marginTop: "8px" }}>{error}</p>}
+            <p style={{ fontSize: "11px", color: C.dim, textAlign: "center", fontWeight: 300 }}>No spam. Just your audit. Powered by AI.</p>
+          </div>
+        </>)}
+
+        {/* LOADING */}
+        {loading && (
+          <div style={{ textAlign: "center", padding: "80px 0" }}>
+            <div style={{ width: "64px", height: "64px", borderRadius: "50%", border: `2px solid ${C.line}`, borderTopColor: C.copper, margin: "0 auto 24px", animation: "spin 1s linear infinite" }} />
+            <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px", color: C.copper, letterSpacing: "1px", marginBottom: "8px" }}>{step}{dots}</div>
+            <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", color: C.dim }}>This usually takes 30-60 seconds</p>
+          </div>
+        )}
+
+        {/* RESULTS */}
+        {results && (() => {
+          const g = letterGrade(results.overall_score || 0);
+          const tech = results.technical || {};
+          return (<div>
+            {/* HEADER + GRADE */}
+            <div style={{ background: C.card, border: `1px solid ${C.line}`, borderRadius: "6px", overflow: "hidden", marginBottom: "16px" }}>
+              <div style={{ padding: "20px 24px", borderBottom: `1px solid ${C.line}`, display: "flex", justifyContent: "space-between" }}>
+                <div>
+                  <h2 style={{ fontSize: "20px", fontWeight: 600, color: C.text, marginBottom: "4px" }}>{results.business_name || results.domain}</h2>
+                  <p style={{ fontSize: "12px", color: C.dim }}>{results.domain}{results.business_type ? ` \u00b7 ${results.business_type}` : ""}{results.location ? ` \u00b7 ${results.location}` : ""}</p>
+                </div>
+                <div style={{ textAlign: "right", fontFamily: "'Space Mono', monospace", fontSize: "9px", color: C.dim, letterSpacing: "1px" }}>FLINT.<span style={{ color: C.copper }}>digital</span><br/>Audit Report</div>
+              </div>
+              <div style={{ padding: "28px", textAlign: "center", borderBottom: `1px solid ${C.line}` }}>
+                <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "50%", border: `3px solid ${g.c}`, marginBottom: "8px" }}>
+                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "28px", fontWeight: 700, color: g.c }}>{g.l}</span>
+                </div>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px", color: C.dim }}>{results.overall_score} / 100</div>
+                {results.summary && <p style={{ fontSize: "13px", color: C.dim, fontWeight: 300, marginTop: "12px", lineHeight: 1.7, maxWidth: "500px", margin: "12px auto 0" }}>{results.summary}</p>}
+              </div>
+              <div style={{ padding: "24px" }}>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "3px", color: C.copper, marginBottom: "16px", fontWeight: 700 }}>BREAKDOWN</div>
+                {Object.keys(catConfig).map(k => {
+                  const cat = results[k];
+                  return cat?.score != null ? <Bar key={k} score={cat.score} label={catConfig[k].label} /> : null;
+                })}
+              </div>
+            </div>
+
+            {/* TECHNICAL SNAPSHOT */}
+            {tech.platform && (
+              <div style={{ background: C.card, border: `1px solid ${C.line}`, borderRadius: "6px", padding: "24px", marginBottom: "16px" }}>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "2px", color: C.copper, marginBottom: "16px", fontWeight: 700 }}>TECHNICAL SNAPSHOT</div>
+                <Row label="Platform" value={tech.platform} color={/custom|static|html/i.test(tech.platform) ? C.sage : C.copper} />
+                <Row label="SSL (HTTPS)" value={tech.ssl ? "\u2713 Secure" : "\u2717 Not Secure"} color={tech.ssl ? C.sage : C.red} />
+                <Row label="Schema Markup" value={tech.schema_markup ? `\u2713 ${(tech.schema_types || []).join(", ") || "Found"}` : "\u2717 Not Found"} color={tech.schema_markup ? C.sage : C.red} />
+                <Row label="Rich Results" value={tech.rich_results ? "\u2713 Yes" : "\u2717 No"} color={tech.rich_results ? C.sage : C.red} />
+                {tech.pages_indexed && <Row label="Pages Indexed" value={tech.pages_indexed} />}
+                <Row label="Mobile Friendly" value={tech.mobile_friendly === false ? "\u2717 No" : "\u2713 Yes"} color={tech.mobile_friendly === false ? C.red : C.sage} />
+                <div style={{ borderTop: `1px solid ${C.line2}`, marginTop: "8px", paddingTop: "12px" }}>
+                  <Row label="Title Tag" value={tech.title_quality === "good" ? "\u2713 Optimized" : `\u2717 ${tech.title_quality || "Needs work"}`} color={tech.title_quality === "good" ? C.sage : C.red} />
+                  {tech.title_tag && <div style={{ fontSize: "11px", color: C.dim, fontStyle: "italic", padding: "0 0 8px", fontWeight: 300 }}>"{tech.title_tag}"</div>}
+                  <Row label="Meta Description" value={tech.meta_quality === "good" ? "\u2713 Optimized" : `\u2717 ${tech.meta_quality || "Needs work"}`} color={tech.meta_quality === "good" ? C.sage : C.red} />
+                </div>
+              </div>
+            )}
+
+            {/* CATEGORY DETAIL CARDS */}
+            {Object.keys(catConfig).map(k => {
+              const cat = results[k];
+              if (!cat?.findings?.length) return null;
+              const gr = gradeFor(cat.score || 0);
+              const cfg = catConfig[k];
+              return (
+                <div key={k} style={{ background: C.card, border: `1px solid ${C.line}`, borderRadius: "6px", padding: "24px", marginBottom: "12px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                    <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: cfg.c, fontWeight: 700 }}>{cfg.label}</span>
+                    <Grade level={gr.level} label={gr.label} />
+                  </div>
+                  {k === "seo" && cat.primary_keyword && <Row label="Primary Keyword" value={cat.primary_keyword} />}
+                  {k === "seo" && cat.estimated_rank && <Row label="Estimated Rank" value={cat.estimated_rank} color={/not ranking/i.test(cat.estimated_rank) ? C.red : C.copper} />}
+                  {k === "local_search" && cat.google_reviews && <Row label="Google Reviews" value={cat.google_reviews} />}
+                  {k === "aeo" && <Row label="AI-Ready" value={cat.ai_ready ? "Yes" : "No"} color={cat.ai_ready ? C.sage : C.red} />}
+                  {cat.findings.map((f, i) => (
+                    <div key={i} style={{ display: "flex", gap: "10px", padding: "6px 0", fontSize: "13px", color: C.dim, fontWeight: 300, lineHeight: 1.6 }}>
+                      <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", color: cfg.c, flexShrink: 0 }}>&mdash;</span><span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+
+            {/* COMPETITORS */}
+            {results.competitors?.length > 0 && (
+              <div style={{ background: C.card, border: `1px solid ${C.line}`, borderRadius: "6px", padding: "24px", marginBottom: "12px" }}>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "2px", color: C.red, marginBottom: "16px", fontWeight: 700 }}>COMPETITORS OUTRANKING YOU</div>
+                {results.competitors.map((comp, i) => (
+                  <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderTop: i === 0 ? `1px solid ${C.line2}` : "none", gap: "16px" }}>
+                    <span style={{ fontSize: "14px", fontWeight: 600, color: C.text2 }}>{comp.name}</span>
+                    <span style={{ fontSize: "12px", color: C.dim, fontWeight: 300, textAlign: "right" }}>{comp.advantage}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* TOP 3 FIXES */}
+            {results.top_3_fixes?.length > 0 && (
+              <div style={{ background: "rgba(196,122,74,.04)", border: "1px solid rgba(196,122,74,.15)", borderRadius: "6px", padding: "24px", marginBottom: "24px" }}>
+                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", letterSpacing: "2px", color: C.copper, marginBottom: "16px", fontWeight: 700 }}>TOP 3 THINGS TO FIX NOW</div>
+                {results.top_3_fixes.map((f, i) => (
+                  <div key={i} style={{ display: "flex", gap: "12px", padding: "8px 0", fontSize: "14px", color: C.text2, lineHeight: 1.6 }}>
+                    <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", fontWeight: 700, color: C.copper, minWidth: "24px" }}>{i + 1}.</span><span>{f}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* CTA */}
+            <div style={{ textAlign: "center", padding: "32px 0" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: 200, color: C.text2, marginBottom: "12px", fontFamily: "'Outfit', sans-serif" }}>Want us to <em style={{ fontStyle: "italic", color: C.copper, fontWeight: 300 }}>fix this?</em></h3>
+              <p style={{ fontSize: "14px", color: C.dim, fontWeight: 300, marginBottom: "24px", lineHeight: 1.7 }}>Book a 20-minute call and we'll walk through your report live.</p>
+              <button onClick={() => { setResults(null); setUrl(""); setError(""); }} style={{ background: "transparent", border: `1px solid ${C.line}`, color: C.text2, padding: "12px 24px", borderRadius: "2px", fontSize: "12px", cursor: "pointer", marginRight: "12px", fontFamily: "'Outfit', sans-serif", letterSpacing: "1px" }}>Audit Another Site</button>
+              <a href="index.html#cta" style={{ background: C.copper, color: C.bg, padding: "12px 24px", borderRadius: "2px", fontSize: "12px", fontWeight: 600, textDecoration: "none", letterSpacing: "1px", display: "inline-block" }}>Book a Free Call</a>
+            </div>
+            <div style={{ textAlign: "center", borderTop: `1px solid ${C.line}`, paddingTop: "20px", fontFamily: "'Space Mono', monospace", fontSize: "11px", color: C.dim, letterSpacing: "1px" }}>
+              FLINT<span style={{ color: C.copper }}>.</span><em style={{ fontStyle: "italic", color: C.copper }}>digital</em> &middot; flintdigital.ai
+            </div>
+          </div>);
+        })()}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<WebsiteAudit />);
+</script>
+</body>
+</html>

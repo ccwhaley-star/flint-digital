@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /shared/
+Disallow: /current/
+Disallow: /v1-redesign/
+Disallow: /v2-incremental/
+Disallow: /og-image.html
+Disallow: /audit.html
+
+Sitemap: https://flintdigital.ai/sitemap.xml
