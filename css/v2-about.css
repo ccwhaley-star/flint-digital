@@ -4,7 +4,7 @@
 .about-hero{max-width:900px;margin:0 auto;padding:140px 48px 0;position:relative;z-index:2}
 .about-hero .section-label{color:var(--copper2)}
 
-.founder-card{display:grid;grid-template-columns:140px 1fr;gap:48px;align-items:start;margin-top:48px}
+.founder-card{margin-top:48px}
 .founder-avatar{
   width:140px;height:140px;border-radius:50%;background:var(--warm);border:2px solid var(--line);
   display:flex;align-items:center;justify-content:center;
