@@ -1,0 +1,66 @@
+/* Flint Digital V2 — About Page Styles */
+
+/* FOUNDER HERO */
+.about-hero{max-width:900px;margin:0 auto;padding:140px 48px 0;position:relative;z-index:2}
+.about-hero .section-label{color:var(--copper2)}
+
+.founder-card{display:grid;grid-template-columns:140px 1fr;gap:48px;align-items:start;margin-top:48px}
+.founder-avatar{
+  width:140px;height:140px;border-radius:50%;background:var(--warm);border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:36px;font-weight:700;color:var(--copper);flex-shrink:0;
+}
+.founder-name{font-size:32px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-.5px}
+.founder-role{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.founder-bio{font-size:16px;line-height:1.9;color:var(--dim);font-weight:300;margin-bottom:20px}
+.founder-bio strong{color:var(--text2);font-weight:500}
+
+/* WHY SECTION */
+.why{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:80px}
+.why-inner{max-width:900px;margin:0 auto;padding:100px 48px}
+.why .section-label{color:var(--copper)}
+.why-title{font-size:36px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:20px;color:var(--text2)}
+.why-title strong{font-weight:700;color:var(--text)}
+.why-intro{color:var(--dim);font-size:15px;line-height:1.85;font-weight:300;margin-bottom:48px;max-width:600px}
+.why-list{display:flex;flex-direction:column}
+.why-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line2)}
+.why-item:first-child{border-top:1px solid var(--line2)}
+.why-item:last-child{border-bottom:none}
+.why-idx{font-family:var(--mono);font-size:10px;min-width:28px;padding-top:4px;letter-spacing:2px;font-weight:400}
+.why-item:nth-child(1) .why-idx{color:var(--copper)}
+.why-item:nth-child(2) .why-idx{color:var(--slate)}
+.why-item:nth-child(3) .why-idx{color:var(--sage)}
+.why-item:nth-child(4) .why-idx{color:var(--copper2)}
+.why-item h4{font-size:16px;font-weight:600;margin-bottom:5px;color:var(--text2)}
+.why-item p{font-size:14px;line-height:1.7;color:var(--dim);font-weight:300}
+
+/* STATS */
+.stats{border-top:1px solid var(--line);position:relative;z-index:2}
+.stats-inner{
+  max-width:900px;margin:0 auto;padding:80px 48px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.stat{text-align:center;padding:24px 0;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat h3{font-family:var(--mono);font-size:28px;font-weight:400;letter-spacing:-1px}
+.stat:nth-child(1) h3{color:var(--copper)}
+.stat:nth-child(2) h3{color:var(--slate)}
+.stat:nth-child(3) h3{color:var(--sage)}
+.stat:nth-child(4) h3{color:var(--copper2)}
+.stat p{font-size:9px;color:var(--dim);margin-top:6px;text-transform:uppercase;letter-spacing:2px;font-weight:500}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .about-hero{padding:100px 20px 0}
+  .founder-card{grid-template-columns:1fr;gap:24px;text-align:center}
+  .founder-avatar{margin:0 auto}
+  .why-inner{padding:60px 20px}
+  .stats-inner{grid-template-columns:1fr 1fr;padding:40px 20px}
+  .stat{padding:20px 0}
+}
+@media(max-width:480px){
+  .stats-inner{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
+  .stat:last-child{border-bottom:none}
+}
