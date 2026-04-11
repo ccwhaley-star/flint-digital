@@ -369,7 +369,7 @@
 <section class="cta" id="cta">
   <h2 class="reveal">Ready to be <em>found?</em></h2>
   <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
-  <form class="audit-form reveal reveal-d2" name="free-audit" netlify>
+  <form class="audit-form reveal reveal-d2" id="audit-form" name="free-audit" netlify>
     <div class="form-row">
       <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required></div>
       <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required></div>
@@ -388,6 +388,11 @@
     <button type="submit">Get My Free Audit</button>
     <div class="form-note">No spam. No sales calls unless you want one. Just a free audit in your inbox.</div>
   </form>
+  <div id="form-success" style="display:none;text-align:center;padding:40px 0">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div>
+    <h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3>
+    <p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">We'll review your site and send your free audit within 24 hours.</p>
+  </div>
 </section>
 
 </main>
@@ -404,5 +409,29 @@
 <script src="shared/js/reveal.js"></script>
 <script src="shared/js/nav.js"></script>
 <script src="js/v2-interactions.js"></script>
+<script>
+(function(){
+  var form = document.getElementById('audit-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function(){
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }).catch(function(){
+      btn.textContent = 'Get My Free Audit';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    });
+  });
+})();
+</script>
 </body>
 </html>
