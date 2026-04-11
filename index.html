@@ -388,11 +388,15 @@
     <button type="submit">Get My Free Audit</button>
     <div class="form-note">No spam. No sales calls unless you want one. Just a free audit in your inbox.</div>
   </form>
-  <div id="form-success" style="display:none;text-align:center;padding:40px 0">
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div>
-    <h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3>
-    <p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p>
+  <!-- LOADING STATE -->
+  <div id="audit-loading" style="display:none;text-align:center;padding:60px 0">
+    <div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--copper);margin:0 auto 24px;animation:audit-spin 1s linear infinite"></div>
+    <style>@keyframes audit-spin{to{transform:rotate(360deg)}}</style>
+    <div id="audit-step" style="font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:1px;margin-bottom:8px"></div>
+    <p style="font-family:var(--mono);font-size:10px;color:var(--dim)">This usually takes 30–60 seconds</p>
   </div>
+  <!-- RESULTS -->
+  <div id="audit-results" style="display:none;max-width:700px;margin:0 auto;padding:40px 0"></div>
 </section>
 
 </main>
@@ -413,23 +417,139 @@
 (function(){
   var form = document.getElementById('audit-form');
   if(!form) return;
+
+  var C = {copper:'#c47a4a',copper2:'#d4956a',slate:'#7a8a96',sage:'#7a9478',red:'#c45a4a',dim:'#6b6459',text:'#e2ddd4',text2:'#c8c0b4',card:'#15140f',line:'rgba(255,255,255,.06)',line2:'rgba(255,255,255,.025)'};
+
+  function extractJSON(text){
+    try{return JSON.parse(text)}catch(e){}
+    var clean=text.replace(/```json\s*/g,'').replace(/```\s*/g,'').trim();
+    try{return JSON.parse(clean)}catch(e){}
+    var m=clean.match(/\{[\s\S]*\}/);
+    if(m)try{return JSON.parse(m[0])}catch(e){}
+    return null;
+  }
+
+  function gradeFor(s){return s>=80?{level:'good',label:'STRONG'}:s>=60?{level:'ok',label:'NEEDS WORK'}:{level:'bad',label:s>=40?'WEAK':'CRITICAL'};}
+  function letterGrade(s){return s>=80?{l:'A',c:C.sage}:s>=60?{l:'B',c:'#b8a88a'}:s>=40?{l:'C',c:C.copper}:{l:s>=20?'D':'F',c:C.red};}
+  function gradeColors(level){return level==='good'?{bg:'rgba(122,148,120,.15)',c:C.sage}:level==='ok'?{bg:'rgba(184,168,138,.15)',c:'#b8a88a'}:{bg:'rgba(196,90,74,.15)',c:C.red};}
+
+  var catConfig={technical:{label:'Technical',c:C.copper},seo:{label:'SEO',c:C.slate},local_search:{label:'Local Search',c:C.sage},aeo:{label:'AEO · AI Search',c:C.copper2},content:{label:'Content',c:'#b8a88a'},reputation:{label:'Reputation',c:C.slate}};
+
+  function renderResults(r){
+    var g=letterGrade(r.overall_score||0);
+    var h='';
+    // Header + Grade
+    h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;overflow:hidden;margin-bottom:16px">';
+    h+='<div style="padding:20px 24px;border-bottom:1px solid '+C.line+';display:flex;justify-content:space-between"><div>';
+    h+='<h2 style="font-size:20px;font-weight:600;color:'+C.text+';margin-bottom:4px">'+(r.business_name||r.domain)+'</h2>';
+    h+='<p style="font-size:12px;color:'+C.dim+'">'+r.domain+(r.business_type?' · '+r.business_type:'')+(r.location?' · '+r.location:'')+'</p>';
+    h+='</div><div style="text-align:right;font-family:monospace;font-size:9px;color:'+C.dim+';letter-spacing:1px">FLINT.<span style="color:'+C.copper+'">digital</span><br>Audit Report</div></div>';
+    h+='<div style="padding:28px;text-align:center;border-bottom:1px solid '+C.line+'">';
+    h+='<div style="display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:3px solid '+g.c+';margin-bottom:8px"><span style="font-family:monospace;font-size:28px;font-weight:700;color:'+g.c+'">'+g.l+'</span></div>';
+    h+='<div style="font-family:monospace;font-size:13px;color:'+C.dim+'">'+r.overall_score+' / 100</div>';
+    if(r.summary) h+='<p style="font-size:13px;color:'+C.dim+';font-weight:300;margin-top:12px;line-height:1.7;max-width:500px;margin-left:auto;margin-right:auto">'+r.summary+'</p>';
+    h+='</div>';
+    // Breakdown bars
+    h+='<div style="padding:24px"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:'+C.copper+';margin-bottom:16px;font-weight:700">BREAKDOWN</div>';
+    Object.keys(catConfig).forEach(function(k){
+      var cat=r[k];if(!cat||cat.score==null)return;
+      var bc=cat.score>=80?C.sage:cat.score>=50?'#b8a88a':C.red;
+      h+='<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;color:'+C.dim+'">'+catConfig[k].label+'</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:'+bc+'">'+cat.score+'/100</span></div>';
+      h+='<div style="height:4px;background:'+C.line+';border-radius:2px"><div style="height:4px;width:'+cat.score+'%;background:'+bc+';border-radius:2px;transition:width 1s ease"></div></div></div>';
+    });
+    h+='</div></div>';
+    // Category cards
+    Object.keys(catConfig).forEach(function(k){
+      var cat=r[k];if(!cat||!cat.findings||!cat.findings.length)return;
+      var gr=gradeFor(cat.score||0);var gc=gradeColors(gr.level);var cfg=catConfig[k];
+      h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;padding:24px;margin-bottom:12px">';
+      h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-family:monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+cfg.c+';font-weight:700">'+cfg.label+'</span>';
+      h+='<span style="background:'+gc.bg+';color:'+gc.c+';padding:3px 10px;border-radius:3px;font-family:monospace;font-size:11px;font-weight:700;letter-spacing:1px">'+gr.label+'</span></div>';
+      cat.findings.forEach(function(f){
+        h+='<div style="display:flex;gap:10px;padding:6px 0;font-size:13px;color:'+C.dim+';font-weight:300;line-height:1.6"><span style="font-family:monospace;font-size:10px;color:'+cfg.c+';flex-shrink:0">&mdash;</span><span>'+f+'</span></div>';
+      });
+      h+='</div>';
+    });
+    // Top 3 fixes
+    if(r.top_3_fixes&&r.top_3_fixes.length){
+      h+='<div style="background:rgba(196,122,74,.04);border:1px solid rgba(196,122,74,.15);border-radius:6px;padding:24px;margin-bottom:24px">';
+      h+='<div style="font-family:monospace;font-size:10px;letter-spacing:2px;color:'+C.copper+';margin-bottom:16px;font-weight:700">TOP 3 THINGS TO FIX NOW</div>';
+      r.top_3_fixes.forEach(function(f,i){
+        h+='<div style="display:flex;gap:12px;padding:8px 0;font-size:14px;color:'+C.text2+';line-height:1.6"><span style="font-family:monospace;font-size:16px;font-weight:700;color:'+C.copper+';min-width:24px">'+(i+1)+'.</span><span>'+f+'</span></div>';
+      });
+      h+='</div>';
+    }
+    // CTA
+    h+='<div style="text-align:center;padding:32px 0">';
+    h+='<h3 style="font-size:24px;font-weight:200;color:'+C.text2+';margin-bottom:12px">Want us to <em style="font-style:italic;color:'+C.copper+';font-weight:300">fix this?</em></h3>';
+    h+='<p style="font-size:14px;color:'+C.dim+';font-weight:300;margin-bottom:24px;line-height:1.7">Book a 20-minute call and we\'ll walk through your report live.</p>';
+    h+='</div>';
+    return h;
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+    var urlVal = document.getElementById('audit-url').value.trim();
+
+    // 1. Submit lead to Netlify
     fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(new FormData(form)).toString()
-    }).then(function(){
-      form.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }).catch(function(){
-      btn.textContent = 'Get My Free Audit';
-      btn.disabled = false;
-      alert('Something went wrong. Please try again.');
-    });
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams(new FormData(form)).toString()
+    }).catch(function(){});
+
+    // 2. If URL provided, run the audit
+    if(urlVal){
+      form.style.display='none';
+      var loading=document.getElementById('audit-loading');
+      var resultsDiv=document.getElementById('audit-results');
+      loading.style.display='block';
+
+      var steps=['Scanning website','Checking SEO','Analyzing competitors','Grading AEO readiness','Building report'];
+      var stepIdx=0;var dots='';
+      var stepEl=document.getElementById('audit-step');
+      stepEl.textContent=steps[0];
+      var dotTimer=setInterval(function(){dots=dots.length>=3?'':dots+'.';stepEl.textContent=steps[stepIdx]+dots;},500);
+      var stepTimer=setInterval(function(){stepIdx=Math.min(stepIdx+1,steps.length-1);},12000);
+
+      var withProto=urlVal.startsWith('http')?urlVal:'https://'+urlVal;
+      var domain=withProto.replace(/https?:\/\/(www\.)?/,'').replace(/\/.*/,'');
+
+      fetch('/api/audit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-sonnet-4-20250514',
+          max_tokens:4000,
+          tools:[{type:'web_search_20250305',name:'web_search'}],
+          messages:[{role:'user',content:'You are a website auditor for Flint Digital, an AI-first agency in Kansas City.\n\nAudit the website: '+withProto+' (domain: '+domain+')\n\nDo these searches:\n1. Search for: '+domain+'\n2. Search for the business name + location to find competitors\n3. Search for: '+domain+' reviews\n\nAfter researching, respond with ONLY a valid JSON object. No explanation, no markdown. Just raw JSON.\n\nThe JSON must have this structure:\n{"business_name":"string","domain":"'+domain+'","business_type":"string","location":"string","overall_score":0,"summary":"string","technical":{"platform":"string","ssl":true,"title_tag":"string","title_quality":"good","meta_quality":"good","schema_markup":false,"schema_types":[],"rich_results":false,"pages_indexed":"string","mobile_friendly":true,"score":0,"findings":["string"]},"seo":{"score":0,"primary_keyword":"string","estimated_rank":"string","findings":["string"]},"local_search":{"score":0,"google_reviews":"string","findings":["string"]},"aeo":{"score":0,"ai_ready":false,"findings":["string"]},"content":{"score":0,"findings":["string"]},"reputation":{"score":0,"findings":["string"]},"competitors":[{"name":"string","advantage":"string"}],"top_3_fixes":["string","string","string"]}\n\nRespond with ONLY the JSON object.'}]
+        })
+      }).then(function(res){return res.json()}).then(function(data){
+        clearInterval(dotTimer);clearInterval(stepTimer);
+        var allText=(data.content||[]).filter(function(i){return i.type==='text'}).map(function(i){return i.text}).join('\n');
+        var parsed=extractJSON(allText);
+        if(parsed&&(parsed.business_name||parsed.overall_score)){
+          loading.style.display='none';
+          resultsDiv.innerHTML=renderResults(parsed);
+          resultsDiv.style.display='block';
+        }else{
+          loading.style.display='none';
+          resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
+          resultsDiv.style.display='block';
+        }
+      }).catch(function(){
+        clearInterval(dotTimer);clearInterval(stepTimer);
+        loading.style.display='none';
+        resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
+        resultsDiv.style.display='block';
+      });
+    } else {
+      // No URL — just show thank you
+      form.style.display='none';
+      var resultsDiv=document.getElementById('audit-results');
+      resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
+      resultsDiv.style.display='block';
+    }
   });
 })();
 </script>
