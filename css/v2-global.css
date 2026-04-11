@@ -221,9 +221,10 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   .nav-phone{display:none}
   .hamburger{display:flex}
   .nav-menu{top:52px;padding:24px 20px;width:100%;max-width:100vw;overflow-x:hidden}
-  .page-header{padding:100px 20px 48px}
-  .section{padding:80px 20px}
-  .cta{padding:80px 20px}
+  .page-header{padding:100px 20px 32px}
+  .section{padding:48px 20px}
+  .section-title{margin-bottom:32px}
+  .cta{padding:48px 20px}
   .audit-form .form-row{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr;padding:40px 20px}
   .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}

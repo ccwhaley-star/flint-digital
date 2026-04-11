@@ -92,7 +92,7 @@
 .svc:nth-child(3) .svc-num{color:var(--sage)}
 .svc:nth-child(4) .svc-num{color:var(--sand)}
 .svc h3{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:-.3px}
-.svc p{font-size:12px;line-height:1.8;color:var(--dim);font-weight:300}
+.svc p{font-size:14px;line-height:1.8;color:var(--dim);font-weight:300}
 .svc-tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
 .svc-tag{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:1px}
 .svc:nth-child(1) .svc-tag{color:var(--copper);border:1px solid rgba(196,122,74,.2)}
@@ -334,18 +334,18 @@
   .proof{padding:32px 20px}
   .proof-inner{gap:16px}
   .proof-cards{grid-template-columns:1fr;gap:16px;max-width:400px;margin:0 auto}
-  .audience-inner{padding:48px 20px}
+  .audience-inner{padding:32px 20px}
   .svc-row,.price-row,.case-row,.faq-grid,.blog-row{grid-template-columns:1fr;background:none;gap:1px}
-  .testimonial-inner{grid-template-columns:1fr;gap:16px;padding:60px 20px}
-  .blog-inner{padding:80px 20px}
+  .testimonial-inner{grid-template-columns:1fr;gap:16px;padding:40px 20px}
+  .blog-inner{padding:48px 20px}
   .build-card{grid-template-columns:1fr;gap:24px}
-  .why-inner{grid-template-columns:1fr;gap:48px;padding:80px 20px}
-  .founder-inner{grid-template-columns:1fr;gap:24px;padding:60px 20px;text-align:center}
+  .why-inner{grid-template-columns:1fr;gap:32px;padding:48px 20px}
+  .founder-inner{grid-template-columns:1fr;gap:24px;padding:40px 20px;text-align:center}
   .founder-inner .founder-avatar{margin:0 auto}
   .proc-row{grid-template-columns:1fr 1fr;gap:1px}
-  .pricing-inner,.portfolio-inner,.faq-inner{padding:80px 20px}
-  .preview-inner{grid-template-columns:1fr;gap:48px;padding:80px 20px}
-  .report-inner{grid-template-columns:1fr;gap:40px;padding:80px 20px}
+  .pricing-inner,.portfolio-inner,.faq-inner{padding:48px 20px}
+  .preview-inner{grid-template-columns:1fr;gap:32px;padding:48px 20px}
+  .report-inner{grid-template-columns:1fr;gap:32px;padding:48px 20px}
 }
 @media(max-width:480px){
   /* Keep hero metrics as 2-column even on small screens */
