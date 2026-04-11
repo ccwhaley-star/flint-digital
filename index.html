@@ -50,7 +50,7 @@
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
-<div class="grid-bg"></div>
+<div class="grid-bg" aria-hidden="true"></div>
 
 <nav>
   <div class="nav-left">
@@ -67,7 +67,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-menu">
+<div class="nav-menu" role="navigation" aria-label="Mobile menu">
   <a href="#services">Services</a>
   <a href="work.html">Work</a>
   <a href="#pricing">Pricing</a>
@@ -80,7 +80,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="spark">
+  <div class="spark" aria-hidden="true">
     <div class="spark-ring"></div>
     <div class="spark-ring"></div>
     <div class="spark-ring"></div>
@@ -114,7 +114,7 @@
         <div class="proof-browser">
           <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">midweststorage.solutions</span></div>
           <div class="proof-iframe-wrap">
-            <iframe src="https://midweststorage.solutions" loading="lazy" tabindex="-1" title="Midwest Storage Solutions preview"></iframe>
+            <iframe src="https://midweststorage.solutions" loading="lazy" aria-hidden="true" title="Midwest Storage Solutions preview"></iframe>
           </div>
         </div>
         <div class="proof-name">Midwest Storage Solutions</div>
@@ -124,7 +124,7 @@
         <div class="proof-browser">
           <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">flinthills.capital</span></div>
           <div class="proof-iframe-wrap">
-            <iframe src="https://flinthills.capital" loading="lazy" tabindex="-1" title="Flint Hills Capital preview"></iframe>
+            <iframe src="https://flinthills.capital" loading="lazy" aria-hidden="true" title="Flint Hills Capital preview"></iframe>
           </div>
         </div>
         <div class="proof-name">Flint Hills Capital</div>
@@ -134,7 +134,7 @@
         <div class="proof-browser">
           <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">lawncaremedics.com</span></div>
           <div class="proof-iframe-wrap">
-            <iframe src="https://lawncaremedics.netlify.app" loading="lazy" tabindex="-1" title="Lawn Care Medics preview"></iframe>
+            <iframe src="https://lawncaremedics.netlify.app" loading="lazy" aria-hidden="true" title="Lawn Care Medics preview"></iframe>
           </div>
         </div>
         <div class="proof-name">Lawn Care Medics</div>
@@ -371,8 +371,8 @@
   <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
   <form class="audit-form reveal reveal-d2" id="audit-form" name="free-audit" netlify>
     <div class="form-row">
-      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required></div>
-      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required></div>
+      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required aria-required="true"></div>
+      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required aria-required="true"></div>
     </div>
     <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" name="website" type="text" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
     <div><label class="form-label" for="audit-need">What do you need most?</label>
