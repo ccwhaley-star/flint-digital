@@ -369,14 +369,14 @@
 <section class="cta" id="cta">
   <h2 class="reveal">Ready to be <em>found?</em></h2>
   <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
-  <form class="audit-form reveal reveal-d2">
+  <form class="audit-form reveal reveal-d2" name="free-audit" netlify>
     <div class="form-row">
-      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" type="text" placeholder="Jane Smith" required></div>
-      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" type="email" placeholder="jane@business.com" required></div>
+      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required></div>
+      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required></div>
     </div>
-    <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" type="url" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
+    <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" name="website" type="url" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
     <div><label class="form-label" for="audit-need">What do you need most?</label>
-    <select id="audit-need">
+    <select id="audit-need" name="need">
       <option value="" disabled selected>Select one...</option>
       <option>New website</option>
       <option>Website redesign</option>
