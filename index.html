@@ -46,6 +46,15 @@
   "sameAs": ["https://flintdigital.ai"]
 }
 </script>
+<style>
+@media print{
+  body{background:#fff!important;color:#222!important}
+  body::after,.grid-bg,.spark,nav,.nav-menu,.hero,.proof,.section,.report,.pricing,.cta>h2,.cta>p,.cta>form,footer{display:none!important}
+  #audit-results{display:block!important;color:#222}
+  #audit-results div[style*="background:#15"]{background:#f5f5f5!important}
+  #audit-results span[style*="color:#6b"]{color:#666!important}
+}
+</style>
 </head>
 <body>
 
@@ -473,6 +482,17 @@
       });
       h+='</div>';
     });
+    // Competitors
+    if(r.competitors&&r.competitors.length){
+      h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;padding:24px;margin-bottom:12px">';
+      h+='<div style="font-family:monospace;font-size:10px;letter-spacing:2px;color:'+C.red+';margin-bottom:16px;font-weight:700">COMPETITORS OUTRANKING YOU</div>';
+      r.competitors.forEach(function(comp,i){
+        h+='<div style="display:flex;justify-content:space-between;padding:10px 0;'+(i===0?'border-top:1px solid '+C.line2+';':'')+';gap:16px">';
+        h+='<span style="font-size:14px;font-weight:600;color:'+C.text2+'">'+comp.name+'</span>';
+        h+='<span style="font-size:12px;color:'+C.dim+';font-weight:300;text-align:right">'+comp.advantage+'</span></div>';
+      });
+      h+='</div>';
+    }
     // Top 3 fixes
     if(r.top_3_fixes&&r.top_3_fixes.length){
       h+='<div style="background:rgba(196,122,74,.04);border:1px solid rgba(196,122,74,.15);border-radius:6px;padding:24px;margin-bottom:24px">';
@@ -486,7 +506,10 @@
     h+='<div style="text-align:center;padding:32px 0">';
     h+='<h3 style="font-size:24px;font-weight:200;color:'+C.text2+';margin-bottom:12px">Want us to <em style="font-style:italic;color:'+C.copper+';font-weight:300">fix this?</em></h3>';
     h+='<p style="font-size:14px;color:'+C.dim+';font-weight:300;margin-bottom:24px;line-height:1.7">Book a free 20-minute call and we\'ll walk through your report live.</p>';
-    h+='<a href="https://calendly.com/YOUR-LINK" target="_blank" style="background:'+C.copper+';color:'+C.bg+';padding:14px 32px;border-radius:2px;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;letter-spacing:.5px">Book a Free Call</a>';
+    h+='<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">';
+    h+='<button onclick="window.print()" style="background:transparent;border:1px solid '+C.line+';color:'+C.text2+';padding:12px 24px;border-radius:2px;font-size:12px;cursor:pointer;font-family:inherit;letter-spacing:1px;display:inline-flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download Report</button>';
+    h+='<a href="https://calendly.com/YOUR-LINK" target="_blank" style="background:'+C.copper+';color:'+C.bg+';padding:12px 24px;border-radius:2px;font-size:12px;font-weight:600;text-decoration:none;display:inline-block;letter-spacing:1px">Book a Free Call</a>';
+    h+='</div>';
     h+='</div>';
     return h;
   }
