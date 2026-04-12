@@ -59,6 +59,16 @@ nav{
 }
 .nav-cta:hover{background:var(--copper);color:var(--bg)!important;border-color:var(--copper)}
 
+/* Mobile nav right group */
+.nav-right-mobile{display:none;align-items:center;gap:12px}
+.nav-cta-mobile{
+  display:none;color:var(--copper);font-family:var(--mono);font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(196,122,74,.3);padding:7px 14px;border-radius:2px;
+  transition:all .3s;font-weight:600;
+}
+.nav-cta-mobile:hover{background:var(--copper);color:var(--bg);border-color:var(--copper)}
+
 /* Hamburger — min 44x44 tap target */
 .hamburger{
   display:none;background:none;border:none;cursor:pointer;
@@ -220,6 +230,8 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   .nav-links{display:none}
   .nav-phone{display:none}
   .hamburger{display:flex}
+  .nav-right-mobile{display:flex}
+  .nav-cta-mobile{display:inline-block}
   .nav-menu{top:52px;padding:24px 20px;width:100%;max-width:100vw;overflow-x:hidden}
   .page-header{padding:100px 20px 32px}
   .section{padding:48px 20px}
