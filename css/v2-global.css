@@ -62,10 +62,10 @@ nav{
 /* Mobile nav right group */
 .nav-right-mobile{display:none;align-items:center;gap:12px}
 .nav-cta-mobile{
-  display:none;color:var(--copper);font-family:var(--mono);font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;text-decoration:none;
-  border:1px solid rgba(196,122,74,.3);padding:7px 14px;border-radius:2px;
-  transition:all .3s;font-weight:600;
+  display:none;color:var(--copper);font-family:var(--mono);font-size:8px;
+  letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(196,122,74,.3);padding:6px 10px;border-radius:2px;
+  transition:all .3s;font-weight:600;white-space:nowrap;
 }
 .nav-cta-mobile:hover{background:var(--copper);color:var(--bg);border-color:var(--copper)}
 
