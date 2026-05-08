@@ -134,11 +134,11 @@ nav{
 }
 .btn-primary:hover{background:var(--copper2)}
 .btn-secondary{
-  border:1px solid var(--line);color:var(--text2);padding:13px 28px;border-radius:2px;
-  font-size:13px;font-weight:400;cursor:pointer;text-decoration:none;
+  border:1px solid var(--dim);color:var(--text2);padding:13px 28px;border-radius:2px;
+  font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;
   display:inline-block;transition:all .3s;letter-spacing:.5px;
 }
-.btn-secondary:hover{border-color:var(--dim);color:var(--text)}
+.btn-secondary:hover{border-color:var(--copper);color:var(--copper)}
 
 /* CTA Section */
 .cta{padding:120px 48px;text-align:center;position:relative;z-index:2;border-top:1px solid var(--line)}
