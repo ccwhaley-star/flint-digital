@@ -47,7 +47,7 @@
 .why-card:nth-child(3) .why-idx{color:var(--sage)}
 .why-card:nth-child(4) .why-idx{color:var(--copper2)}
 .why-card h4{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--text2)}
-.why-card p{font-size:13px;line-height:1.75;color:var(--text2);font-weight:400}
+.why-card p{font-size:15px;line-height:1.75;color:var(--text2);font-weight:400}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
