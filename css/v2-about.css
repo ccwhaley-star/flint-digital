@@ -12,7 +12,7 @@
 }
 .founder-name{font-size:32px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-.5px}
 .founder-role{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
-.founder-bio{font-size:16px;line-height:1.9;color:var(--dim);font-weight:300;margin-bottom:20px}
+.founder-bio{font-size:16px;line-height:1.9;color:var(--text2);font-weight:400;margin-bottom:20px}
 .founder-bio strong{color:var(--text2);font-weight:500}
 
 /* WHY SECTION */
@@ -21,7 +21,7 @@
 .why .section-label{color:var(--copper)}
 .why-title{font-size:36px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:20px;color:var(--text2)}
 .why-title strong{font-weight:700;color:var(--text)}
-.why-intro{color:var(--dim);font-size:15px;line-height:1.85;font-weight:300;margin-bottom:48px;max-width:600px}
+.why-intro{color:var(--text2);font-size:15px;line-height:1.85;font-weight:400;margin-bottom:48px;max-width:600px}
 .why-list{display:flex;flex-direction:column}
 .why-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line2)}
 .why-item:first-child{border-top:1px solid var(--line2)}
@@ -32,7 +32,7 @@
 .why-item:nth-child(3) .why-idx{color:var(--sage)}
 .why-item:nth-child(4) .why-idx{color:var(--copper2)}
 .why-item h4{font-size:16px;font-weight:600;margin-bottom:5px;color:var(--text2)}
-.why-item p{font-size:14px;line-height:1.7;color:var(--dim);font-weight:300}
+.why-item p{font-size:14px;line-height:1.7;color:var(--text2);font-weight:400}
 
 /* STATS */
 .stats{border-top:1px solid var(--line);position:relative;z-index:2}

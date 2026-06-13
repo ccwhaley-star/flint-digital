@@ -13,7 +13,7 @@
 .step:nth-child(3) .step-num{color:var(--sage)}
 .step:nth-child(4) .step-num{color:var(--copper2)}
 .step h3{font-size:24px;font-weight:600;color:var(--text2);margin-bottom:10px;letter-spacing:-.3px}
-.step p{font-size:15px;line-height:1.8;color:var(--dim);font-weight:300;max-width:600px}
+.step p{font-size:15px;line-height:1.8;color:var(--text2);font-weight:400;max-width:600px}
 .step-tag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:14px;display:inline-block;padding:4px 12px;border-radius:2px}
 .step:nth-child(1) .step-tag{color:var(--copper);border:1px solid rgba(196,122,74,.2)}
 .step:nth-child(2) .step-tag{color:var(--slate);border:1px solid rgba(122,138,150,.2)}
@@ -29,7 +29,7 @@
 .tl-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line2);align-items:baseline}
 .tl-row:last-child{border-bottom:none}
 .tl-time{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--copper);font-weight:700}
-.tl-desc{font-size:14px;color:var(--dim);font-weight:300;line-height:1.6}
+.tl-desc{font-size:14px;color:var(--text2);font-weight:400;line-height:1.6}
 
 /* WHY GRID */
 .why{border-top:1px solid var(--line);position:relative;z-index:2}
@@ -47,7 +47,7 @@
 .why-card:nth-child(3) .why-idx{color:var(--sage)}
 .why-card:nth-child(4) .why-idx{color:var(--copper2)}
 .why-card h4{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--text2)}
-.why-card p{font-size:13px;line-height:1.75;color:var(--dim);font-weight:300}
+.why-card p{font-size:13px;line-height:1.75;color:var(--text2);font-weight:400}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
