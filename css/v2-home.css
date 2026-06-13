@@ -87,15 +87,15 @@
 .svc-row-3{grid-template-columns:repeat(3,1fr)}
 .svc{background:var(--bg);padding:44px 28px;transition:background .4s}
 .svc:hover{background:var(--card)}
-.svc-num{font-family:var(--mono);font-size:10px;letter-spacing:3px;margin-bottom:24px;font-weight:400}
+.svc-num{font-family:var(--mono);font-size:14px;letter-spacing:3px;margin-bottom:24px;font-weight:400}
 .svc:nth-child(1) .svc-num{color:var(--copper)}
 .svc:nth-child(2) .svc-num{color:var(--slate)}
 .svc:nth-child(3) .svc-num{color:var(--sage)}
 .svc:nth-child(4) .svc-num{color:var(--sand)}
-.svc h3{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:-.3px}
+.svc h3{font-size:24px;font-weight:600;margin-bottom:12px;letter-spacing:-.3px}
 .svc p{font-size:22px;line-height:1.8;color:var(--text2);font-weight:400}
 .svc-tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
-.svc-tag{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:1px}
+.svc-tag{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:2px}
 .svc:nth-child(1) .svc-tag{color:var(--copper);border:1px solid rgba(196,122,74,.2)}
 .svc:nth-child(2) .svc-tag{color:var(--slate);border:1px solid rgba(122,138,150,.2)}
 .svc:nth-child(3) .svc-tag{color:var(--sage);border:1px solid rgba(122,148,120,.2)}
