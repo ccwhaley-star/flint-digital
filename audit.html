@@ -7,6 +7,13 @@
 <meta property="og:title" content="Free Website Audit — Flint Digital">
 <meta property="og:description" content="Enter your website and get an instant AI-powered audit — SEO, AEO, technical, content, and competitor analysis.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://flintdigital.ai/audit.html">
+<meta property="og:image" content="https://flintdigital.ai/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Website Audit — Flint Digital">
+<meta name="twitter:description" content="Enter your website and get an instant AI-powered audit — SEO, AEO, technical, content, and competitor analysis.">
+<meta name="twitter:image" content="https://flintdigital.ai/og-image.png">
+<link rel="canonical" href="https://flintdigital.ai/audit.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <title>Free Website Audit — Flint Digital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -270,7 +277,7 @@ Remember: respond with ONLY the JSON object. Nothing else.`
               <div><label style={labelStyle}>Email</label><input value={email} onChange={e => setEmail(e.target.value)} placeholder="jane@business.com" type="email" style={inputStyle} /></div>
             </div>
             <div><label style={labelStyle}>Website URL</label><input value={url} onChange={e => setUrl(e.target.value)} placeholder="yourbusiness.com" style={inputStyle} onKeyDown={e => e.key === "Enter" && run()} /></div>
-            <button onClick={run} style={{ background: C.copper, color: C.bg, padding: "16px", border: "none", borderRadius: "2px", fontSize: "14px", fontWeight: 600, cursor: "pointer", letterSpacing: ".5px", marginTop: "4px", fontFamily: "'Outfit', sans-serif" }}>Run My Free Audit</button>
+            <button onClick={run} aria-label="Run free website audit" style={{ background: C.copper, color: C.bg, padding: "16px", border: "none", borderRadius: "2px", fontSize: "14px", fontWeight: 600, cursor: "pointer", letterSpacing: ".5px", marginTop: "4px", fontFamily: "'Outfit', sans-serif" }}>Run My Free Audit</button>
             {error && <p style={{ color: C.red, fontSize: "13px", textAlign: "center", marginTop: "8px" }}>{error}</p>}
             <p style={{ fontSize: "11px", color: C.dim, textAlign: "center", fontWeight: 300 }}>No spam. Just your audit. Powered by AI.</p>
           </div>
