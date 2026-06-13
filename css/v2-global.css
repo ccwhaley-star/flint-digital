@@ -105,8 +105,8 @@ nav{
 
 /* Section Label — bumped from --dim to --text2 for contrast */
 .section-label{
-  font-family:var(--mono);font-size:12px;letter-spacing:5px;
-  text-transform:uppercase;margin-bottom:16px;font-weight:400;
+  font-family:var(--mono);font-size:24px;letter-spacing:5px;
+  text-transform:uppercase;margin-bottom:16px;font-weight:700;
 }
 
 /* Sections (generic container) */
