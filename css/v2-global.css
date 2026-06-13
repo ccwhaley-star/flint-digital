@@ -44,12 +44,12 @@ nav{
   font-size:17px;letter-spacing:1px;text-transform:none;vertical-align:baseline;margin-left:-2px;
 }
 .nav-phone{
-  color:var(--text)!important;font-family:var(--mono);font-size:12px;
+  color:var(--text)!important;font-family:var(--mono);font-size:13px;
   letter-spacing:1px;font-weight:700;text-decoration:none;
 }
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{
-  text-decoration:none;color:var(--text2);font-size:11px;letter-spacing:2px;
+  text-decoration:none;color:var(--text2);font-size:13px;letter-spacing:2px;
   text-transform:uppercase;transition:color .3s;
 }
 .nav-links a:hover{color:var(--text)}
@@ -62,7 +62,7 @@ nav{
 /* Mobile nav right group */
 .nav-right-mobile{display:none;align-items:center;gap:12px}
 .nav-cta-mobile{
-  display:none;color:var(--copper);font-family:var(--mono);font-size:8px;
+  display:none;color:var(--copper);font-family:var(--mono);font-size:13px;
   letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;
   border:1px solid rgba(196,122,74,.3);padding:6px 10px;border-radius:2px;
   transition:all .3s;font-weight:600;white-space:nowrap;
@@ -96,7 +96,7 @@ nav{
 .nav-menu .menu-cta{
   color:var(--copper);margin-top:16px;padding:14px;
   border:1px solid rgba(196,122,74,.3);border-radius:2px;
-  text-align:center;font-weight:600;font-size:12px;
+  text-align:center;font-weight:600;font-size:13px;
 }
 .nav-menu .menu-phone{
   color:var(--text);font-family:var(--mono);font-weight:700;font-size:14px;
@@ -105,7 +105,7 @@ nav{
 
 /* Section Label — bumped from --dim to --text2 for contrast */
 .section-label{
-  font-family:var(--mono);font-size:10px;letter-spacing:5px;
+  font-family:var(--mono);font-size:12px;letter-spacing:5px;
   text-transform:uppercase;margin-bottom:16px;font-weight:400;
 }
 
@@ -124,18 +124,18 @@ nav{
   line-height:1.1;color:var(--text2);margin-bottom:20px;
 }
 .page-header h1 strong{font-weight:700;color:var(--text)}
-.page-header p{font-size:16px;line-height:1.8;color:var(--text2);font-weight:300;max-width:560px}
+.page-header p{font-size:18px;line-height:1.8;color:var(--text2);font-weight:400;max-width:560px}
 
 /* Buttons */
 .btn-primary{
   background:var(--copper);color:var(--bg);padding:14px 32px;border:none;border-radius:2px;
-  font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;
+  font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;
   text-decoration:none;display:inline-block;transition:all .3s;letter-spacing:.5px;
 }
 .btn-primary:hover{background:var(--copper2)}
 .btn-secondary{
   border:1px solid var(--dim);color:var(--text2);padding:13px 28px;border-radius:2px;
-  font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;
+  font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;
   display:inline-block;transition:all .3s;letter-spacing:.5px;
 }
 .btn-secondary:hover{border-color:var(--copper);color:var(--copper)}
@@ -144,27 +144,27 @@ nav{
 .cta{padding:120px 48px;text-align:center;position:relative;z-index:2;border-top:1px solid var(--line)}
 .cta h2{font-size:clamp(28px,4vw,48px);font-weight:200;letter-spacing:-1.5px;margin-bottom:16px;color:var(--text2)}
 .cta h2 em{font-style:italic;color:var(--copper);font-weight:300}
-.cta>p{font-size:15px;color:var(--text2);max-width:440px;margin:0 auto 32px;line-height:1.8;font-weight:300}
+.cta>p{font-size:18px;color:var(--text2);max-width:440px;margin:0 auto 32px;line-height:1.8;font-weight:400}
 
 /* Footer */
 footer{border-top:1px solid var(--line);position:relative;z-index:2}
 .footer-inner{
   max-width:1100px;margin:0 auto;padding:56px 48px;
-  display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;font-size:12px;color:var(--text2);
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;font-size:13px;color:var(--text2);
 }
 .footer-brand .logo{margin-bottom:14px}
-.footer-brand p{line-height:1.75;font-weight:300;max-width:280px;font-size:12px;color:var(--dim)}
+.footer-brand p{line-height:1.75;font-weight:400;max-width:280px;font-size:13px;color:var(--text2)}
 .footer-links h5{
-  font-family:var(--mono);font-size:9px;text-transform:uppercase;
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;
   letter-spacing:3px;color:var(--text2);margin-bottom:16px;font-weight:400;
 }
-.footer-links a{display:block;color:var(--dim);text-decoration:none;padding:4px 0;transition:color .3s;font-weight:300;font-size:12px}
+.footer-links a{display:block;color:var(--text2);text-decoration:none;padding:4px 0;transition:color .3s;font-weight:400;font-size:13px}
 .footer-links a:hover{color:var(--text2)}
 .footer-bottom{
   max-width:1100px;margin:0 auto;padding:20px 48px;border-top:1px solid var(--line2);
-  display:flex;justify-content:space-between;font-size:10px;color:#3a352e;letter-spacing:1px;
+  display:flex;justify-content:space-between;font-size:13px;color:var(--text2);letter-spacing:1px;
 }
-.footer-bottom a{color:var(--dim);text-decoration:none}
+.footer-bottom a{color:var(--text2);text-decoration:none}
 
 /* FAQ Accordion (shared between homepage and FAQ page) */
 .faq-question{
@@ -188,8 +188,8 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 .audit-form{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
 .audit-form input,.audit-form select{
   background:var(--surface);border:1px solid var(--line);padding:14px 18px;
-  font-family:var(--sans);font-size:13px;color:var(--text);border-radius:2px;
-  outline:none;transition:border-color .3s;font-weight:300;letter-spacing:.3px;
+  font-family:var(--sans);font-size:14px;color:var(--text);border-radius:2px;
+  outline:none;transition:border-color .3s;font-weight:400;letter-spacing:.3px;
   -webkit-appearance:none;appearance:none;width:100%;
 }
 .audit-form input::placeholder{color:var(--text2);opacity:.5}
@@ -201,7 +201,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 }
 .audit-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form-label{
-  display:block;font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  display:block;font-family:var(--mono);font-size:12px;letter-spacing:2px;
   text-transform:uppercase;color:var(--text2);margin-bottom:6px;
 }
 .audit-form button{
@@ -210,7 +210,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   transition:background .3s;letter-spacing:.5px;margin-top:4px;
 }
 .audit-form button:hover{background:var(--copper2)}
-.form-note{font-size:11px;color:var(--text2);margin-top:8px;font-weight:300;opacity:.6}
+.form-note{font-size:13px;color:var(--text2);margin-top:8px;font-weight:400;opacity:.7}
 
 /* ===== PREFERS REDUCED MOTION ===== */
 @media(prefers-reduced-motion:reduce){
