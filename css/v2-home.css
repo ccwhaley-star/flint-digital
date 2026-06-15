@@ -18,10 +18,10 @@
 @keyframes spark-breathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.03)}}
 .spark-core{
   position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;
-  background:var(--copper);box-shadow:0 0 20px var(--copper),0 0 60px rgba(196,122,74,.5);
+  background:var(--copper);box-shadow:0 0 24px var(--copper),0 0 80px rgba(196,122,74,.6);
   animation:core-pulse 4s ease-in-out infinite;
 }
-@keyframes core-pulse{0%,100%{box-shadow:0 0 20px var(--copper),0 0 60px rgba(196,122,74,.4)}50%{box-shadow:0 0 36px var(--copper),0 0 100px rgba(196,122,74,.65)}}
+@keyframes core-pulse{0%,100%{box-shadow:0 0 24px var(--copper),0 0 80px rgba(196,122,74,.5)}50%{box-shadow:0 0 44px var(--copper),0 0 120px rgba(196,122,74,.75)}}
 
 .hero-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--text2);margin-bottom:32px;line-height:1.8}
 .eyebrow-geo{color:var(--copper);letter-spacing:4px}
