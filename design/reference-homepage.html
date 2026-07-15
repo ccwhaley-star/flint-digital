@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flint Digital — Per-Pillar Homepage (Studio)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F6F1E9;--ink:#1A1611;--ox:#7C1F2B;--ox-soft:#A84450;
+    --rule:rgba(26,22,17,.16);--muted:#5F584E;--card:#FBF8F2}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(26,22,17,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(26,22,17,.045) 1px,transparent 1px);
+    background-size:74px 74px;-webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.28) 36%,transparent 64%);
+    mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.28) 36%,transparent 64%)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 30px;position:relative;z-index:1}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3{font-family:'Libre Caslon Display',serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);font-weight:600}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:12px 24px;
+    border-radius:40px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:.2s}
+  .btn:hover:not(:disabled){background:var(--ox);border-color:var(--ox)}.btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn-out{background:transparent;color:var(--ink)}.btn-out:hover{background:var(--ink);color:var(--paper)}
+  .spinner{width:14px;height:14px;border:2px solid rgba(246,241,233,.4);border-top-color:var(--paper);
+    border-radius:50%;animation:spin .7s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
+  input,select{width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;background:var(--card);
+    border:1px solid var(--rule);border-radius:6px;outline:none;transition:border-color .2s;color:var(--ink)}
+  input:focus,select:focus{border-color:var(--ox)}
+
+  .ribbon{background:var(--ink);color:var(--paper);text-align:center;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;padding:9px;position:relative;z-index:2}.ribbon b{color:var(--ox-soft)}
+  nav{display:flex;justify-content:space-between;align-items:center;height:80px;border-bottom:1px solid var(--rule)}
+  .logo{font-family:'Libre Caslon Display';font-size:25px}.logo i{color:var(--ox)}
+  .nav-links{display:flex;gap:28px;align-items:center}.nav-links a{font-size:14px;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* hero = The Answer */
+  .hero{padding:66px 0 36px;text-align:center}
+  .hero .idx{display:flex;justify-content:center;gap:22px;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  .hero h1{font-size:clamp(40px,6.2vw,78px);max-width:15ch;margin:0 auto 18px}.hero h1 i{color:var(--ox)}
+  .hero p.lede{font-size:18px;color:var(--muted);max-width:500px;margin:0 auto 36px}
+  .ask{background:var(--card);border:1px solid var(--rule);border-radius:6px;text-align:left;max-width:660px;
+    margin:0 auto;box-shadow:0 40px 90px -55px rgba(124,31,43,.4);overflow:hidden}
+  .ask-q{display:flex;gap:10px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--rule)}
+  .ask-q .badge{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.06em;color:var(--ox);
+    border:1px solid var(--rule);border-radius:4px;padding:4px 9px;flex-shrink:0}
+  .ask-q input{flex:1;border:none;background:transparent;padding:0}.ask-q input:focus{box-shadow:none}
+  .ask-q input.city{flex:0 0 36%;border-left:1px solid var(--rule);padding-left:12px;border-radius:0}
+  .ask-go{padding:14px 18px;display:flex;justify-content:flex-end;border-bottom:1px solid var(--rule)}
+  .ask-body{padding:22px 20px;min-height:118px;font-size:15px;color:#2c2823}
+  .ask-body .placeholder{color:var(--muted);font-family:'JetBrains Mono';font-size:13px}
+  .ai-label{font-family:'JetBrains Mono';font-size:11px;color:var(--ox);text-transform:uppercase;letter-spacing:.08em;
+    margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .ai-label .dot{width:7px;height:7px;border-radius:50%;background:var(--ox);
+    box-shadow:0 0 0 0 rgba(124,31,43,.5);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,31,43,.5)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  .ask-body p,.tool-out p{margin-bottom:10px}.ask-body strong,.tool-out strong{color:var(--ink);font-weight:600}
+  .ask-body ul,.tool-out ul{list-style:none;margin:6px 0}
+  .ask-body li,.tool-out li{padding-left:20px;position:relative;margin-bottom:8px}
+  .ask-body li::before,.tool-out li::before{content:"›";position:absolute;left:0;color:var(--ox);font-weight:700}
+
+  /* pillars */
+  section{padding:80px 0}
+  .sec-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:baseline;margin-bottom:14px}
+  .sec-head .no{font-family:'Libre Caslon Display';font-size:20px;color:var(--ox)}
+  .sec-head h2{font-size:clamp(32px,4.6vw,52px)}.sec-head h2 i{color:var(--ox)}
+  .sec-sub{color:var(--muted);max-width:540px;margin-bottom:44px;padding-left:48px}
+
+  .pillar{border-top:1px solid var(--rule);padding:36px 0}
+  .pillar:last-of-type{border-bottom:1px solid var(--rule)}
+  .pillar-row{display:grid;grid-template-columns:64px 1fr;gap:26px;align-items:baseline}
+  .pillar .num{font-family:'Libre Caslon Display';font-size:20px;color:var(--ox)}
+  .pillar .lead{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ox);margin-bottom:6px}
+  .pillar h3{font-size:27px;margin-bottom:8px}
+  .pillar p{color:var(--muted);font-size:15px;max-width:520px}
+  .pillar .tg{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ox);margin-top:10px}
+  @media(max-width:760px){.pillar-row{grid-template-columns:1fr;gap:14px}.sec-sub{padding-left:0}.sec-head{grid-template-columns:1fr;gap:8px}}
+
+  .cta{text-align:center;padding:100px 0}.cta h2{font-size:clamp(38px,6vw,72px);margin-bottom:20px}.cta h2 i{color:var(--ox)}
+  .cta p{font-size:18px;color:var(--muted);max-width:460px;margin:0 auto 30px}
+  footer{background:var(--ink);color:rgba(246,241,233,.65);padding:50px 0}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:baseline}
+  footer .logo{color:var(--paper)}footer a:hover{color:var(--ox-soft)}
+  .foot-links{display:flex;gap:22px;font-size:14px;flex-wrap:wrap}
+  @media(max-width:620px){.hero .idx{flex-wrap:wrap;gap:10px}.ask-q{flex-wrap:wrap}.ask-q input.city{flex:1;border-left:none;padding-left:0}.pv-feats{grid-template-columns:1fr}.ad .sl{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ribbon">Homepage · <b>Studio</b> · live Ask-AI in the hero</div>
+<div class="wrap">
+  <nav>
+    <div class="logo">Flint<i>.</i>digital</div>
+    <div class="nav-links"><a href="#pillars">Services</a><a href="#">Work</a><a href="#">AI Visibility</a><a href="#cta" class="btn">Free Audit</a></div>
+  </nav>
+
+  <!-- HERO = THE ANSWER (AEO proof) -->
+  <header class="hero">
+    <div class="idx"><span>AI-First Digital Agency</span><span>Built for Small Business</span></div>
+    <h1>Stop losing customers to <i>worse competitors.</i></h1>
+    <p class="lede">They're not better than you — they're just easier to find. On Google, and now in AI answers. See exactly where you stand, live:</p>
+    <div class="ask">
+      <div class="ask-q"><span class="badge">ASK AI</span>
+        <input id="q-name" placeholder="Your business name">
+        <input class="city" id="q-city" placeholder="City, State"></div>
+      <div class="ask-go"><button class="btn" id="q-btn" onclick="askAI()">See what AI says →</button></div>
+      <div class="ask-body" id="q-out"><span class="placeholder">▌ Awaiting your business…</span></div>
+    </div>
+  </header>
+
+  <!-- PILLARS -->
+  <section id="pillars">
+    <div class="sec-head"><span class="no">§</span><h2>Three pillars of <i>getting found.</i></h2></div>
+    <p class="sec-sub">Be the AI answer, own the top of Google, and launch in days — all built by operators. However your customers search — typing, clicking an ad, or asking AI — they land on you, not the competitor.</p>
+
+    <!-- 01 AEO -->
+    <div class="pillar">
+      <div class="pillar-row two">
+        <span class="num">01</span>
+        <div><span class="lead">The new front door</span><h3>Answer Engine Optimization</h3>
+          <p>Get cited and recommended by ChatGPT, Google's AI, and the assistants your customers already ask. Try it live in the hero above.</p>
+          <div class="tg">AEO · AI Overviews · Citations</div></div>
+      </div>
+    </div>
+
+    <!-- 02 ADS -->
+    <div class="pillar">
+      <div class="pillar-row two">
+        <span class="num">02</span>
+        <div><span class="lead">Buy your way to the top</span><h3>Google Paid Ads</h3>
+          <p>Expert-mode campaigns that put you in the #1 sponsored slot — above the competitors winning today.</p>
+          <div class="tg">Google Ads · Expert Mode · Conversion</div></div>
+      </div>
+    </div>
+
+    <!-- 03 WEBSITES -->
+    <div class="pillar">
+      <div class="pillar-row two">
+        <span class="num">03</span>
+        <div><span class="lead">Worth landing on</span><h3>Websites &amp; E-Commerce</h3>
+          <p>Hand-coded, sub-second, conversion-first. Not a template. Delivered in days, and you own everything.</p>
+          <div class="tg">Custom · Fast · You own it</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <h2>Let's make you the <i>answer.</i></h2>
+    <p>Send your info and we'll return a free audit of your site, your search presence, and your AI visibility — usually within 60 seconds.</p>
+    <a href="#" class="btn">Get my free audit</a>
+  </section>
+</div>
+<footer><div class="wrap foot-in">
+  <div class="logo">Flint<i>.</i>digital</div>
+  <div class="foot-links"><a href="#pillars">Services</a><a href="#">AI Visibility</a><a href="#">Work</a><a href="#">About</a><a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a></div>
+  <span>© 2026 · Kansas City Area</span>
+</div></footer>
+
+<script>
+// In production this posts to /.netlify/functions/ask {prompt, search}. In this sandbox it calls the API directly.
+async function callClaude(prompt,useSearch){
+  const body={model:"claude-sonnet-4-6",max_tokens:1000,messages:[{role:"user",content:prompt}]};
+  if(useSearch)body.tools=[{type:"web_search_20250305",name:"web_search"}];
+  const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  if(!r.ok)throw new Error(r.status);const d=await r.json();
+  return (d.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("\n").trim();
+}
+function fmt(t){const L=t.split("\n");let h="",inL=false;
+  for(let raw of L){let l=raw.trim();if(!l){if(inL){h+="</ul>";inL=false}continue}
+    l=l.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>");
+    if(/^[-•*]\s+/.test(l)){if(!inL){h+="<ul>";inL=true}h+="<li>"+l.replace(/^[-•*]\s+/,"")+"</li>"}
+    else{if(inL){h+="</ul>";inL=false}h+="<p>"+l+"</p>"}}
+  if(inL)h+="</ul>";return h;}
+function spin(btn,label){btn.disabled=true;btn.dataset.t=btn.innerHTML;btn.innerHTML='<span class="spinner"></span> '+label;}
+function unspin(btn){btn.disabled=false;btn.innerHTML=btn.dataset.t;}
+
+async function askAI(){
+  const name=document.getElementById("q-name").value.trim(),city=document.getElementById("q-city").value.trim();
+  const out=document.getElementById("q-out"),btn=document.getElementById("q-btn");
+  if(!name){out.innerHTML='<span class="placeholder">▌ Enter your business name first…</span>';return;}
+  spin(btn,"Asking…");out.innerHTML='<div class="ai-label"><span class="dot"></span>AI is looking you up…</div>';
+  const prompt=`Search the web for the business "${name}"${city?(" in "+city):""}. Then answer honestly, as if a customer asked an AI assistant "tell me about ${name}${city?(" in "+city):""} — should I use them?". Use markdown:
+**What AI can say about you** — 2-3 bullets of what you actually found (site, reviews, listings). If little, say so plainly.
+**Why this matters** — one short sentence: what's missing to be recommended by AI, and that whichever competitor IS visible wins that customer instead.
+Under 110 words. Plain-spoken. Never invent facts.`;
+  try{const r=await callClaude(prompt,true);
+    out.innerHTML='<div class="ai-label"><span class="dot"></span>AI answer · live</div>'+(fmt(r)||"<p>Almost nothing came back — which is exactly the gap we close.</p>");
+  }catch(e){out.innerHTML='<div class="ai-label">Connection hiccup</div><p>Couldn\'t complete the live lookup — try again in a moment.</p>';}
+  unspin(btn);
+}
+</script>
+</body>
+</html>

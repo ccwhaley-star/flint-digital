@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flint Digital — Option B · "Studio"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E9;--ink:#1A1611;--ox:#7C1F2B;--ox-soft:#A84450;
+    --rule:rgba(26,22,17,.16);--muted:#5F584E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  /* subtle warm editorial grid — barely there, ink-toned not blueprint-blue */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(26,22,17,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(26,22,17,.045) 1px,transparent 1px);
+    background-size:74px 74px;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 38%,transparent 70%);
+    mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 38%,transparent 70%)}
+  .ribbon,nav,header,section,div.pull,footer{position:relative;z-index:1}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 34px}
+  a{text-decoration:none;color:inherit}
+  .serif{font-family:'Libre Caslon Display',serif;font-weight:400}
+  h1,h2,h3{font-family:'Libre Caslon Display',serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ox);font-weight:600}
+
+  .ribbon{background:var(--ink);color:var(--paper);text-align:center;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;padding:9px}
+  .ribbon b{color:var(--ox-soft);font-style:italic;font-family:'Libre Caslon Display'}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,241,233,.88);backdrop-filter:blur(10px)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:84px;border-bottom:1px solid var(--rule)}
+  .logo{font-family:'Libre Caslon Display';font-size:26px}
+  .logo i{color:var(--ox)}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);letter-spacing:.02em}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+    padding:13px 26px;border-radius:40px;border:1px solid var(--ink);background:var(--ink);
+    color:var(--paper);cursor:pointer;transition:.2s}
+  .btn:hover{background:var(--ox);border-color:var(--ox)}
+  .btn-out{background:transparent;color:var(--ink)}
+  .btn-out:hover{background:var(--ink);color:var(--paper)}
+
+  /* editorial hero */
+  .hero{padding:96px 0 80px}
+  .hero .idx{display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--rule);padding-bottom:16px;margin-bottom:46px;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hero h1{font-size:clamp(48px,8vw,104px);max-width:13ch}
+  .hero h1 i{color:var(--ox)}
+  .hero-foot{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:44px}
+  .hero p.lede{font-size:19px;color:#403a32;max-width:480px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:720px){.hero-foot{grid-template-columns:1fr}}
+
+  .marq{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:26px 0;margin-top:60px;display:flex;gap:48px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .marq .it{font-family:'Libre Caslon Display';font-size:22px;color:#403a32}
+  .marq .dot{color:var(--ox);font-size:10px}
+
+  section{padding:90px 0}
+  .sec-head{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:baseline;margin-bottom:56px}
+  .sec-head .no{font-family:'Libre Caslon Display';font-size:20px;color:var(--ox)}
+  .sec-head h2{font-size:clamp(34px,5vw,60px)}
+  .sec-head h2 i{color:var(--ox)}
+
+  /* services — editorial list */
+  .svc-list{border-top:1px solid var(--rule)}
+  .svc-item{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:30px;padding:36px 0;
+    border-bottom:1px solid var(--rule);align-items:baseline;transition:padding .25s}
+  .svc-item:hover{padding-left:14px}
+  .svc-item .num{font-family:'Libre Caslon Display';font-size:22px;color:var(--ox)}
+  .svc-item h3{font-size:30px}
+  .svc-item p{color:var(--muted);font-size:15px}
+  .svc-item .tg{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ox);margin-top:10px}
+  @media(max-width:760px){.svc-item{grid-template-columns:1fr;gap:8px}}
+
+  /* work — asymmetric */
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px 40px}
+  .case .ph{aspect-ratio:4/3;background:#E7DFD3;border:1px solid var(--rule);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;position:relative;overflow:hidden}
+  .case .ph::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 70% 30%,rgba(124,31,43,.12),transparent 60%)}
+  .case:nth-child(odd){margin-top:0}
+  .case:nth-child(even){margin-top:48px}
+  .case h3{font-size:26px;margin-bottom:6px}
+  .case .meta{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ox);margin-bottom:10px}
+  .case p{color:var(--muted);font-size:14.5px}
+  .case .res{font-family:'Libre Caslon Display';font-size:15px;font-style:italic;color:var(--ink);margin-top:10px}
+  @media(max-width:760px){.work-grid{grid-template-columns:1fr;gap:40px}.case:nth-child(even){margin-top:0}}
+
+  .pull{padding:110px 0;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .pull .ph{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);
+    border:1px dashed var(--ox);display:inline-block;padding:4px 12px;border-radius:30px;margin-bottom:26px}
+  .pull blockquote{font-family:'Libre Caslon Display';font-size:clamp(28px,4.4vw,46px);
+    line-height:1.18;max-width:880px;margin:0 auto}
+  .pull blockquote i{color:var(--ox)}
+  .pull .who{margin-top:26px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+
+  .cta{text-align:center;padding:120px 0}
+  .cta h2{font-size:clamp(40px,6.5vw,84px);margin-bottom:22px}
+  .cta h2 i{color:var(--ox)}
+  .cta p{font-size:18px;color:var(--muted);max-width:480px;margin:0 auto 32px}
+
+  footer{background:var(--ink);color:rgba(246,241,233,.65);padding:56px 0}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:baseline}
+  footer .logo{color:var(--paper)}
+  footer a:hover{color:var(--ox-soft)}
+  .foot-links{display:flex;gap:28px;font-size:14px;flex-wrap:wrap}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ribbon">Option B · <b>"Studio"</b> + subtle warm grid · mockup, not live</div>
+
+<nav><div class="wrap nav-in">
+  <div class="logo">Flint<i>.</i>digital</div>
+  <div class="nav-links">
+    <a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a>
+    <a href="#cta" class="btn">Free Audit</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="idx"><span>AI-First Digital Agency</span><span>Kansas City Area</span><span>Est. 2024</span></div>
+  <h1>Stop losing customers to <i>worse competitors.</i></h1>
+  <div class="hero-foot">
+    <p class="lede">We design hand-coded, conversion-first websites and make small businesses impossible to ignore online — at a fraction of agency cost.</p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn">Request a free audit</a>
+      <a href="#" class="btn btn-out">Book a call</a>
+    </div>
+  </div>
+  <div class="marq">
+    <span class="it">Delivered in days</span><span class="dot">●</span>
+    <span class="it">60% below agency rates</span><span class="dot">●</span>
+    <span class="it">Built by operators</span><span class="dot">●</span>
+    <span class="it">You own everything</span>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><span class="no">I</span><h2>Three pillars of <i>visibility.</i></h2></div>
+  <div class="svc-list">
+    <div class="svc-item"><span class="num">01</span><h3>Websites &amp; E-Commerce</h3>
+      <div><p>Hand-coded, customer-centric sites that load in under a second and convert. Not a template. Not WordPress.</p><div class="tg">Custom · Mobile-first · Fast</div></div></div>
+    <div class="svc-item"><span class="num">02</span><h3>Search &amp; Paid Ads</h3>
+      <div><p>Found on Google, recommended by AI assistants, and converting leads through expert-mode campaigns.</p><div class="tg">SEO · AEO · Google Ads</div></div></div>
+    <div class="svc-item"><span class="num">03</span><h3>Small Business AI</h3>
+      <div><p>Pragmatic consulting that AI-enables your operations to drive revenue and cut busywork.</p><div class="tg">Strategy · Automation · Growth</div></div></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="sec-head"><span class="no">II</span><h2>Selected <i>work.</i></h2></div>
+  <div class="work-grid">
+    <div class="case"><div class="ph">Project imagery</div><div class="meta">Web · SEO</div><h3>Sand Hills Event Center</h3><p>Hand-coded site for a premier Kansas venue, built to convert visitors into bookings.</p><div class="res">— Page 1 rankings, sub-second loads</div></div>
+    <div class="case"><div class="ph">Project imagery</div><div class="meta">Web · SEO · Ads</div><h3>Lawn Care Medics</h3><p>Full build with Expert-Mode Google Ads and SEO content, built to generate calls from day one.</p><div class="res">— <i>+180% calls / mo (placeholder)</i></div></div>
+    <div class="case"><div class="ph">Project imagery</div><div class="meta">Web · SEO</div><h3>Vintage Bloom</h3><p>A site that showcases the craft of a floral design studio while staying discoverable.</p><div class="res">— Beautiful and findable</div></div>
+    <div class="case"><div class="ph">Project imagery</div><div class="meta">Rebrand · Web</div><h3>Bourbon County Storage</h3><p>Complete rebrand and hand-coded site for a self-storage facility built to convert.</p><div class="res">— Professional presence, day one</div></div>
+  </div>
+</div></section>
+
+<div class="pull"><div class="wrap">
+  <span class="ph">Placeholder — add a real client quote</span>
+  <blockquote>"They rebuilt our site in under a week, and we were <i>booking customers</i> before the month was out."</blockquote>
+  <div class="who">CLIENT NAME — OWNER, BUSINESS NAME</div>
+</div></div>
+
+<section class="cta" id="cta"><div class="wrap">
+  <h2>Let's get you <i>noticed.</i></h2>
+  <p>Send your info and we'll return a free audit of your site, competitors, and search presence — usually within 60 seconds.</p>
+  <a href="#" class="btn">Get my free audit</a>
+</div></section>
+
+<footer><div class="wrap foot-in">
+  <div class="logo">Flint<i>.</i>digital</div>
+  <div class="foot-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#">FAQ</a><a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a></div>
+  <span>© 2026 · Kansas City Area</span>
+</div></footer>
+</body>
+</html>

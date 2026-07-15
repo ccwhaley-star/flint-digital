@@ -1,0 +1,11 @@
+# Clean extensionless routes → .html
+/work            /work.html            301
+/about           /about.html           301
+/how-it-works    /how-it-works.html    301
+/faq             /faq.html             301
+/ai-visibility   /ai-visibility.html   301
+/insights        /insights/            301
+
+# Old paths from the previous site
+/insights.html   /insights/            301
+/audit.html      /ai-visibility.html   301

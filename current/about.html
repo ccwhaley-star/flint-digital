@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meet the founder of Flint Digital — an operator who built and ranked his own businesses before starting an agency.">
+<meta property="og:title" content="About — Flint Digital">
+<meta property="og:description" content="Meet the founder of Flint Digital — an operator who built and ranked his own businesses before starting an agency.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<title>About — Flint Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b09;--surface: #121110;--card: #15140f;--text: #e2ddd4;--text2: #c8c0b4;
+    --dim: #6b6459;--copper: #c47a4a;--copper2: #d4956a;--slate: #7a8a96;--sage: #7a9478;
+    --warm: #3d3529;--line: rgba(255,255,255,.06);--line2: rgba(255,255,255,.025);
+    --mono: 'Space Mono', monospace;--sans: 'Outfit', system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+  .grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:60px;position:fixed;top:0;left:0;right:0;z-index:10001;background:rgba(12,11,9,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .nav-left{display:flex;align-items:center;gap:24px}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text2);text-decoration:none}
+  .logo span{color:var(--copper)}
+  .logo em{font-style:italic;font-weight:300;color:var(--copper);font-family:var(--sans);font-size:13px;letter-spacing:1px;text-transform:none;margin-left:-2px}
+  .nav-phone{color:var(--text)!important;font-family:var(--mono);font-size:12px;letter-spacing:1px;font-weight:700;text-decoration:none}
+  .nav-links{display:flex;align-items:center;gap:32px}
+  .nav-links a{text-decoration:none;color:var(--dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+  .nav-links a:hover{color:var(--text2)}
+  .nav-cta{color:var(--copper)!important;border:1px solid rgba(196,122,74,.3);padding:7px 18px;border-radius:2px;transition:all .3s}
+  .nav-cta:hover{background:var(--copper);color:var(--bg)!important}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:all .3s}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .nav-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#0c0b09;border-bottom:1px solid var(--line);padding:32px 48px;flex-direction:column;gap:0;z-index:10000}
+  .nav-menu.open{display:flex}
+  .nav-menu a{text-decoration:none;color:var(--text2);font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:18px 0;border-bottom:1px solid var(--line);transition:color .3s;display:block}
+  .nav-menu a:last-child{border-bottom:none}
+  .nav-menu a:hover{color:var(--text2)}
+  .nav-menu .menu-cta{color:var(--copper);margin-top:16px;padding:14px;border:1px solid rgba(196,122,74,.3);border-radius:2px;text-align:center;font-weight:600;font-size:12px}
+  .nav-menu .menu-phone{color:var(--text);font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:1px;margin-top:8px;text-align:center;padding:14px;border:none}
+
+  .section-label{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px;font-weight:400}
+
+  /* FOUNDER HERO */
+  .about-hero{max-width:900px;margin:0 auto;padding:140px 48px 0;position:relative;z-index:2}
+  .about-hero .section-label{color:var(--copper2)}
+
+  .founder-card{display:grid;grid-template-columns:140px 1fr;gap:48px;align-items:start;margin-top:48px}
+  .founder-avatar{width:140px;height:140px;border-radius:50%;background:var(--warm);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:36px;font-weight:700;color:var(--copper);flex-shrink:0}
+  .founder-name{font-size:32px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-.5px}
+  .founder-role{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+  .founder-bio{font-size:16px;line-height:1.9;color:var(--dim);font-weight:300;margin-bottom:20px}
+  .founder-bio strong{color:var(--text2);font-weight:500}
+
+  /* WHY SECTION */
+  .why{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:80px}
+  .why-inner{max-width:900px;margin:0 auto;padding:100px 48px}
+  .why .section-label{color:var(--copper)}
+  .why-title{font-size:36px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:20px;color:var(--text2)}
+  .why-title strong{font-weight:700;color:var(--text)}
+  .why-intro{color:var(--dim);font-size:15px;line-height:1.85;font-weight:300;margin-bottom:48px;max-width:600px}
+  .why-list{display:flex;flex-direction:column}
+  .why-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line2)}
+  .why-item:first-child{border-top:1px solid var(--line2)}
+  .why-item:last-child{border-bottom:none}
+  .why-idx{font-family:var(--mono);font-size:10px;min-width:28px;padding-top:4px;letter-spacing:2px;font-weight:400}
+  .why-item:nth-child(1) .why-idx{color:var(--copper)}
+  .why-item:nth-child(2) .why-idx{color:var(--slate)}
+  .why-item:nth-child(3) .why-idx{color:var(--sage)}
+  .why-item:nth-child(4) .why-idx{color:var(--copper2)}
+  .why-item h4{font-size:16px;font-weight:600;margin-bottom:5px;color:var(--text2)}
+  .why-item p{font-size:14px;line-height:1.7;color:var(--dim);font-weight:300}
+
+  /* STATS */
+  .stats{border-top:1px solid var(--line);position:relative;z-index:2}
+  .stats-inner{max-width:900px;margin:0 auto;padding:80px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat{text-align:center;padding:24px 0;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat h3{font-family:var(--mono);font-size:28px;font-weight:400;letter-spacing:-1px}
+  .stat:nth-child(1) h3{color:var(--copper)}
+  .stat:nth-child(2) h3{color:var(--slate)}
+  .stat:nth-child(3) h3{color:var(--sage)}
+  .stat:nth-child(4) h3{color:var(--copper2)}
+  .stat p{font-size:9px;color:var(--dim);margin-top:6px;text-transform:uppercase;letter-spacing:2px;font-weight:500}
+
+  /* CTA */
+  .cta{padding:100px 48px;text-align:center;position:relative;z-index:2;border-top:1px solid var(--line)}
+  .cta h2{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:-1.5px;margin-bottom:16px;color:var(--text2)}
+  .cta h2 em{font-style:italic;color:var(--copper);font-weight:300}
+  .cta p{font-size:15px;color:var(--dim);max-width:440px;margin:0 auto 32px;line-height:1.8;font-weight:300}
+  .btn-primary{background:var(--copper);color:var(--bg);padding:14px 32px;border:none;border-radius:2px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;letter-spacing:.5px}
+  .btn-primary:hover{background:var(--copper2)}
+
+  footer{border-top:1px solid var(--line);position:relative;z-index:2}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:56px 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;font-size:12px;color:var(--dim)}
+  .footer-brand .logo{margin-bottom:14px}
+  .footer-brand p{line-height:1.75;font-weight:300;max-width:280px}
+  .footer-links h5{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--dim);margin-bottom:16px;font-weight:400}
+  .footer-links a{display:block;color:var(--dim);text-decoration:none;padding:4px 0;transition:color .3s;font-weight:300;font-size:12px}
+  .footer-links a:hover{color:var(--text2)}
+  .footer-bottom{max-width:1100px;margin:0 auto;padding:20px 48px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;font-size:10px;color:#3a352e;letter-spacing:1px}
+  .footer-bottom a{color:var(--dim);text-decoration:none}
+
+  @media(max-width:900px){
+    nav{padding:0 16px;height:52px}
+    .logo{font-size:12px;letter-spacing:2px}.logo em{font-size:12px}
+    .nav-links{display:none}.nav-phone{display:none}.hamburger{display:flex}
+    .nav-menu{top:52px;padding:24px 20px}
+    .about-hero{padding:100px 20px 0}
+    .founder-card{grid-template-columns:1fr;gap:24px;text-align:center}
+    .founder-avatar{margin:0 auto}
+    .why-inner{padding:60px 20px}
+    .stats-inner{grid-template-columns:1fr 1fr;padding:40px 20px}
+    .stat{padding:20px 0}
+    .cta{padding:60px 20px}
+    .footer-inner{grid-template-columns:1fr;padding:32px 20px}
+    .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}
+  }
+  @media(max-width:480px){
+    .stats-inner{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line);padding:16px 0}
+    .stat:last-child{border-bottom:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a>
+    <a href="tel:9138319463" class="nav-phone">✆ (913) 831-9463</a>
+  </div>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#cta" class="nav-cta">Free Audit</a>
+  </div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-menu">
+  <a href="index.html#services" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Services</a>
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="index.html#pricing" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Pricing</a>
+  <a href="index.html#cta" class="menu-cta" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Free Audit</a>
+  <a href="tel:9138319463" class="menu-phone">✆ (913) 831-9463</a>
+</div>
+
+<!-- FOUNDER -->
+<div class="about-hero">
+  <div class="section-label reveal">About Flint Digital</div>
+
+  <div class="founder-card reveal reveal-d1">
+    <div class="founder-avatar">CW</div>
+    <div>
+      <h1 class="founder-name">Chris Whaley</h1>
+      <div class="founder-role">Founder · Operator · Builder</div>
+      <p class="founder-bio">After a career in big tech Chris spent the last 10 years working for private equity firms and digital agencies. <strong>He saw how the machine worked from the inside.</strong></p>
+      <p class="founder-bio">In 2019, he started his own small business — acquiring and operating self-storage facilities across Kansas. He needed websites that ranked, Google Ads that converted, and a way to tell his story online without hiring an agency. <strong>So he built everything himself.</strong> The websites, the SEO, the ad campaigns, the content. The portfolio grew and his revenue tripled. Every site ranks on page 1.</p>
+      <p class="founder-bio">But the real insight wasn't the tech — it was the gap. <strong>Small businesses are being left behind by AI.</strong> Their competitors are showing up in ChatGPT recommendations, Google AI Overviews, and Perplexity answers — and they're not. Traditional agencies aren't solving this. They're still building WordPress sites and charging $5,000/month for the privilege.</p>
+      <p class="founder-bio"><strong>Flint Digital was built to close that gap.</strong> We harness AI to tell your story, serve your customers, and make sure the next person searching for what you do — whether on Google or through an AI — finds you first.</p>
+      <p class="founder-bio" style="color:var(--copper)">At the crosssection of brick-and-mortar and AI. That's where we operate.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY FLINT -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-label reveal">Why Flint</div>
+    <h2 class="why-title reveal reveal-d1">Not another agency. <strong>A different model.</strong></h2>
+    <p class="why-intro reveal reveal-d2">Traditional agencies bill for project managers, account reps, and junior designers. We use AI to handle the volume work and pass the savings directly to you.</p>
+    <div class="why-list">
+      <div class="why-item reveal"><div class="why-idx">01</div><div><h4>AI-native, not AI-sprinkled</h4><p>Every workflow runs through purpose-built AI. We ship agency-quality work at half the cost in half the time. That's the structural advantage.</p></div></div>
+      <div class="why-item reveal reveal-d1"><div class="why-idx">02</div><div><h4>Operator-built credibility</h4><p>We built and ranked our own sites, managed our own ad budgets, and scaled our own businesses before touching a client project.</p></div></div>
+      <div class="why-item reveal reveal-d2"><div class="why-idx">03</div><div><h4>Kansas City native</h4><p>We live here. We know the search patterns, the competitors, the neighborhoods — from south JoCo to the Northland. Local means accountable.</p></div></div>
+      <div class="why-item reveal reveal-d3"><div class="why-idx">04</div><div><h4>No contracts. No bloat.</h4><p>Month-to-month on retainers. Cancel with an email. We earn your business every month by delivering results.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="reveal">Ready to work with an <em>operator?</em></h2>
+  <p class="reveal reveal-d1">Not a sales rep. Not a junior designer. The person who built and ranked their own businesses — now building yours.</p>
+  <a href="index.html#cta" class="btn-primary reveal reveal-d2">Get Your Free Audit</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a><p>AI-first digital agency built for small businesses in the Kansas City area.</p></div>
+    <div class="footer-links"><h5>Services</h5><a href="index.html#services">Websites</a><a href="index.html#services">SEO & Content</a><a href="index.html#services">AEO</a><a href="index.html#services">Google Ads</a></div>
+    <div class="footer-links"><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="how-it-works.html">How It Works</a><a href="index.html#pricing">Pricing</a><a href="faq.html">FAQ</a><a href="insights.html">Insights</a><a href="index.html#cta">Free Audit</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Flint Digital · Kansas City Area</span><span>(913) 831-9463</span><a href="https://flintdigital.ai">flintdigital.ai</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

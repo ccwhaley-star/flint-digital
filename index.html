@@ -3,526 +3,373 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Flint Digital is an AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads — delivered in days, not months.">
-<meta property="og:title" content="Flint Digital — AI-First Agency for Small Business">
-<meta property="og:description" content="We make small businesses impossible to ignore online. Websites, SEO, AEO, and Google Ads — delivered in days at a fraction of agency cost.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://flintdigital.ai">
-<meta property="og:image" content="https://flintdigital.ai/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flint Digital — AI-First Agency for Small Business">
-<meta name="twitter:description" content="We make small businesses impossible to ignore online. Websites, SEO, AEO, and Google Ads — delivered in days at a fraction of agency cost.">
-<meta name="twitter:image" content="https://flintdigital.ai/og-image.png">
+<title>Flint Digital · AI-First Agency for Small Business · Kansas City</title>
+<meta name="description" content="We make small businesses impossible to ignore online — on Google and in AI answers. Hand-coded sites, SEO, AEO, and Google Ads. Kansas City area.">
 <link rel="canonical" href="https://flintdigital.ai/">
-<link rel="icon" type="image/png" href="favicon.png">
-<title>Flint Digital — AI-First Digital Agency · Kansas City Area</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared/css/tokens.css">
-<link rel="stylesheet" href="shared/css/reset.css">
-<link rel="stylesheet" href="css/v2-global.css">
-<link rel="stylesheet" href="css/v2-home.css">
+<meta property="og:title" content="Flint Digital · AI-First Agency for Small Business">
+<meta property="og:description" content="We make small businesses impossible to ignore online — on Google and in AI answers. See where you stand, live.">
+<meta property="og:image" content="https://flintdigital.ai/assets/img/og-image.png">
+<meta property="og:url" content="https://flintdigital.ai/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/styles.css">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Flint Digital",
-  "description": "AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads.",
-  "url": "https://flintdigital.ai",
-  "logo": "https://flintdigital.ai/og-image.png",
-  "image": "https://flintdigital.ai/og-image.png",
-  "founder": {
-    "@type": "Person",
-    "name": "Chris Whaley"
-  },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 39.0997, "longitude": -94.5786 },
-    "geoRadius": "80000"
-  },
-  "serviceType": ["Web Design", "SEO", "Answer Engine Optimization", "Google Ads", "Digital Marketing"],
-  "priceRange": "$$",
-  "knowsAbout": ["AI Search Optimization", "AEO", "SEO", "Web Development", "Google Ads", "Small Business Marketing"],
-  "sameAs": ["https://flintdigital.ai"]
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Flint Digital",
+  "url":"https://flintdigital.ai/",
+  "telephone":"+1-913-735-1163",
+  "email":"info@flintdigital.ai",
+  "description":"AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads.",
+  "areaServed":"Kansas City metropolitan area",
+  "priceRange":"$$",
+  "logo":"https://flintdigital.ai/assets/img/og-image.png",
+  "founder":{"@type":"Person","name":"Chris Whaley"},
+  "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Answer Engine Optimization"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Google Paid Ads"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Website Design & Development"}}
+  ]
 }
 </script>
-<style>
-@media print{
-  body{background:#fff!important;color:#222!important}
-  body::after,.grid-bg,.spark,nav,.nav-menu,.hero,.proof,.section,.report,.pricing,.cta>h2,.cta>p,.cta>form,footer{display:none!important}
-  #audit-results{display:block!important;color:#222}
-  #audit-results div[style*="background:#15"]{background:#f5f5f5!important}
-  #audit-results span[style*="color:#6b"]{color:#666!important}
-}
-</style>
 </head>
 <body>
-
 <a href="#main" class="skip-link">Skip to content</a>
-<div class="grid-bg" aria-hidden="true"></div>
 
-<nav>
-  <div class="nav-left">
-    <a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a>
-  </div>
-  <div class="nav-links">
+<!-- ============ HEADER ============ -->
+<nav class="site-nav"><div class="wrap nav-in">
+  <a href="/" class="logo">Flint<i>.</i>digital</a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-menu">
     <a href="#services">Services</a>
-    <a href="work.html">Work</a>
-    <a href="#pricing">Pricing</a>
-    <a href="about.html">About</a>
-    <a href="#cta" class="nav-cta">Free Audit</a>
+    <a href="/work.html">Work</a>
+    <a href="/about.html">About</a>
+    <a href="#cta" class="btn">Free Website Audit</a>
   </div>
-  <div class="nav-right-mobile">
-    <a href="#cta" class="nav-cta-mobile">Free Audit</a>
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="nav-menu" role="navigation" aria-label="Mobile menu">
-  <a href="#services">Services</a>
-  <a href="work.html">Work</a>
-  <a href="#pricing">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="#cta" class="menu-cta">Free Audit</a>
-  <a href="tel:9137351163" class="menu-phone">&#9742; (913) 735-1163</a>
-</div>
+</div></nav>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="spark" aria-hidden="true">
-    <div class="spark-ring"></div>
-    <div class="spark-ring"></div>
-    <div class="spark-ring"></div>
-    <div class="spark-core"></div>
+<!-- ============ HERO ============ -->
+<header class="hero"><div class="wrap">
+  <div class="idx"><span>AI-First · Small Business Only</span><span>Kansas City</span></div>
+  <h1>Stop losing customers to <i>worse competitors.</i></h1>
+  <p class="hero-sub">Don't let AI become your weakness. Make it your competitive advantage.</p>
+  <p class="hero-desc">We sit at the intersection of brick-and-mortar and AI — helping small businesses get found on Google, recommended by ChatGPT, and chosen over competitors. Websites, SEO, AEO, and Google Ads, delivered in days, not months.</p>
+  <div class="hero-ctas">
+    <a href="#cta" class="btn">Find out why they're outranking you</a>
+    <a href="/how-it-works.html" class="btn btn-out">How it works</a>
   </div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow reveal">AI-first Digital Agency.<br><span class="eyebrow-geo">Serving the Kansas City Area.</span><br>Built for small business, by small business.</div>
-    <h1 class="reveal reveal-d1"><strong>Stop losing customers</strong><br>to <em>worse competitors.</em></h1>
-    <div class="hero-ctas reveal reveal-d3">
-      <a href="#cta" class="btn-primary">Find Out Why They're Outranking You</a>
-      <a href="https://calendly.com/chris-whaley-flintdigital/30min" target="_blank" class="btn-secondary">Book a Free Call</a>
-    </div>
-    <div class="hero-metrics metric-cards reveal reveal-d4">
-      <div class="metric-card" style="background:rgba(196,122,74,.06);border:1px solid rgba(196,122,74,.12);border-radius:6px;padding:24px 20px;text-align:center">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block" aria-hidden="true"><path d="M13 2L4.5 13.5H11.5L11 22L19.5 10.5H12.5L13 2Z" fill="#d4956a" stroke="#c47a4a" stroke-width="1" stroke-linejoin="round"/></svg>
-        <h3 style="font-family:var(--mono);font-size:28px;font-weight:400;color:var(--copper);letter-spacing:-1px">Days</h3>
-        <p style="font-size:14px;color:var(--text2);margin-top:6px;text-transform:none;letter-spacing:0">Not months</p>
-      </div>
-      <div class="metric-card" style="background:rgba(196,122,74,.06);border:1px solid rgba(196,122,74,.12);border-radius:6px;padding:24px 20px;text-align:center">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block" aria-hidden="true"><path d="M12 4V18M12 18L6 12M12 18L18 12" stroke="#c47a4a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="19" r="1.5" fill="#d4956a"/></svg>
-        <h3 style="font-family:var(--mono);font-size:28px;font-weight:400;color:var(--copper);letter-spacing:-1px">60%</h3>
-        <p style="font-size:14px;color:var(--text2);margin-top:6px;text-transform:none;letter-spacing:0">Below agency rates</p>
-      </div>
-      <div class="metric-card" style="background:rgba(196,122,74,.06);border:1px solid rgba(196,122,74,.12);border-radius:6px;padding:24px 20px;text-align:center">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block" aria-hidden="true"><path d="M12 20V6M12 6L6 12M12 6L18 12" stroke="#c47a4a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="5" r="1.5" fill="#d4956a"/></svg>
-        <h3 style="font-family:var(--mono);font-size:28px;font-weight:400;color:var(--copper);letter-spacing:-1px">Results</h3>
-        <p style="font-size:14px;color:var(--text2);margin-top:6px;text-transform:none;letter-spacing:0">Immediate impact</p>
-      </div>
-    </div>
+  <div class="hero-metrics">
+    <div class="hero-metric"><div class="v">Days</div><div class="l">Launch timeline</div></div>
+    <div class="hero-metric"><div class="v">40&ndash;60%</div><div class="l">Below agency rates</div></div>
+    <div class="hero-metric"><div class="v">100%</div><div class="l">Clients month-to-month</div></div>
+    <div class="hero-metric"><div class="v">Kansas City</div><div class="l">Born &amp; built here</div></div>
   </div>
-</section>
+</div></header>
 
-<!-- SOCIAL PROOF BAR -->
-<div class="proof reveal">
-  <div class="proof-inner">
-    <div class="section-label reveal" style="color:var(--copper)">Portfolio</div>
-    <h2 class="section-title reveal reveal-d1">Real businesses. <strong>Real results.</strong></h2>
-    <div class="proof-cards">
-      <a href="https://www.sandhillseventcenter.com" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">sandhillseventcenter.com</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://www.sandhillseventcenter.com" loading="lazy" aria-hidden="true" title="Sand Hills Event Center preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Sand Hills Event Center</div>
-        <div class="proof-meta">Website + SEO</div>
-      </a>
-      <a href="https://flinthills.capital" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">flinthills.capital</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://flinthills.capital" loading="lazy" aria-hidden="true" title="Flint Hills Capital preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Flint Hills Capital</div>
-        <div class="proof-meta">Website + Branding</div>
-      </a>
-      <a href="https://www.lawncaremedics.com" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">lawncaremedics.com</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://www.lawncaremedics.com" loading="lazy" aria-hidden="true" title="Lawn Care Medics preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Lawn Care Medics</div>
-        <div class="proof-meta">Website + SEO</div>
-      </a>
-      <a href="https://www.bourboncountystorage.com" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">bourboncountystorage.com</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://www.bourboncountystorage.com" loading="lazy" aria-hidden="true" title="Bourbon County Storage preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Bourbon County Storage</div>
-        <div class="proof-meta">Website + Branding</div>
-      </a>
-      <a href="https://vintagebloom.netlify.app" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">vintagebloom.netlify.app</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://vintagebloom.netlify.app/home-alt" loading="lazy" aria-hidden="true" title="Vintage Bloom preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Vintage Bloom</div>
-        <div class="proof-meta">Website + SEO</div>
-      </a>
-      <a href="https://www.sandhillstorage.com" target="_blank" class="proof-card">
-        <div class="proof-browser">
-          <div class="proof-bar"><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-dot"></span><span class="proof-url">sandhillstorage.com</span></div>
-          <div class="proof-iframe-wrap">
-            <iframe src="https://www.sandhillstorage.com" loading="lazy" aria-hidden="true" title="Sandhill Storage preview"></iframe>
-          </div>
-        </div>
-        <div class="proof-name">Sandhill Storage</div>
-        <div class="proof-meta">Rebrand + Website</div>
-      </a>
-    </div>
+<!-- ============ PROOF BAR ============ -->
+<section class="proof"><div class="wrap">
+  <span class="proof-label">Built &amp; ranked by us</span>
+  <div class="proof-logos">
+    <span>midweststorage.solutions</span>
+    <span>flinthills.capital</span>
+    <span>lawncaremedics.com</span>
   </div>
-</div>
+</div></section>
 
-<!-- SERVICES — 4 PILLARS -->
-<section class="section" id="services">
-  <div class="section-label reveal" style="color:var(--copper)">Services</div>
-  <h2 class="section-title reveal reveal-d1">Three pillars of <strong>digital visibility.</strong></h2>
-  <div class="svc-row svc-row-3">
-    <div class="svc reveal reveal-d1">
-      <div class="svc-num">01 — WEBSITE</div>
+<!-- ============ WHO WE HELP ============ -->
+<section id="audience"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Who We Help</span>
+    <h2>Built for small businesses. <i>Not enterprise. You.</i></h2>
+  </div>
+  <div class="aud-tags">
+    <span class="aud-tag">Plumbers</span>
+    <span class="aud-tag">Dentists</span>
+    <span class="aud-tag">Roofers</span>
+    <span class="aud-tag">HVAC</span>
+    <span class="aud-tag">Salons</span>
+    <span class="aud-tag">Auto Shops</span>
+    <span class="aud-tag">Chiropractors</span>
+    <span class="aud-tag">Landscapers</span>
+    <span class="aud-tag">Electricians</span>
+    <span class="aud-tag">Pest Control</span>
+    <span class="aud-tag">Cleaning Services</span>
+    <span class="aud-tag">Gyms &amp; Fitness</span>
+  </div>
+</div></section>
+
+<!-- ============ SERVICES — 4 PILLARS ============ -->
+<section id="services"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Services</span>
+    <h2>Four pillars of <i>digital visibility.</i></h2>
+  </div>
+
+  <div class="pillar"><div class="pillar-row">
+    <span class="num">01</span>
+    <div>
       <h3>Websites &amp; E-Commerce</h3>
-      <p>Future-proof technology with customer-centric design that puts your visitors first.</p>
-      <div class="svc-tags"><span class="svc-tag">Customer-Centric</span><span class="svc-tag">Future-Proof</span><span class="svc-tag">Immersive</span></div>
+      <p>Customer-centric design that puts your visitors first. Future-proof architecture. Fully hosted — no monthly fees, no plugins, no security patches.</p>
+      <div class="tg">Customer-Centric &middot; Future-Proof &middot; Hosted</div>
     </div>
-    <div class="svc reveal reveal-d2">
-      <div class="svc-num">02 — SEARCH + ADS</div>
-      <h3>Search &amp; Paid Ads</h3>
-      <p>We get you found on Google, recommended by AI, while converting leads with expert mode ad campaigns.</p>
-      <div class="svc-tags"><span class="svc-tag">SEO</span><span class="svc-tag">AEO</span><span class="svc-tag">Google Ads</span><span class="svc-tag">AI Overviews</span></div>
+  </div></div>
+
+  <div class="pillar"><div class="pillar-row">
+    <span class="num">02</span>
+    <div>
+      <h3>Search &amp; Content</h3>
+      <p>Keyword strategy, technical SEO, schema markup, blog content, citation management, and Google Business Profile optimization.</p>
+      <div class="tg">Google Search &middot; Local Pack &middot; Maps</div>
     </div>
-    <div class="svc reveal reveal-d3">
-      <div class="svc-num">03 — AI CONSULTING</div>
-      <h3>Small Business AI Consulting</h3>
-      <p>Pragmatic consulting to AI-enable your business, driving revenue while optimizing expenses.</p>
-      <div class="svc-tags"><span class="svc-tag">AI Strategy</span><span class="svc-tag">Automation</span><span class="svc-tag">Revenue Growth</span></div>
+  </div></div>
+
+  <div class="pillar"><div class="pillar-row">
+    <span class="num">03</span>
+    <div>
+      <h3>AI Search Optimization</h3>
+      <p>Your customers are asking AI where to go. AEO makes sure ChatGPT, Perplexity, and Google AI Overviews recommend your business.</p>
+      <div class="tg">AI Overviews &middot; Perplexity &middot; ChatGPT</div>
+    </div>
+  </div></div>
+
+  <div class="pillar"><div class="pillar-row">
+    <span class="num">04</span>
+    <div>
+      <h3>Google Paid Ads</h3>
+      <p>Expert Mode campaigns with conversion tracking, negative keyword sculpting, and responsive search ads. Built by someone who manages their own ad spend.</p>
+      <div class="tg">Google Ads &middot; PPC &middot; Conversion Tracking</div>
+    </div>
+  </div></div>
+</div></section>
+
+<!-- ============ DELIVERABLES / PREVIEW ============ -->
+<section id="preview"><div class="wrap">
+  <div class="split">
+    <div>
+      <div class="head">
+        <span class="eyebrow">Deliverables</span>
+        <h2>Sites that look like <i>this.</i> Not templates.</h2>
+      </div>
+      <p class="split-desc">Every site we build is hand-coded for your business, your market, and your customers. We structure every page for maximum visibility across Google and AI search platforms — so Kansas City customers find you first.</p>
+      <div class="split-stats">
+        <div class="split-stat"><div class="v">&lt; 1s</div><div class="l">Load time</div></div>
+        <div class="split-stat"><div class="v">100</div><div class="l">PageSpeed</div></div>
+        <div class="split-stat"><div class="v">$0/mo</div><div class="l">Hosting</div></div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-url">yourbusiness.com</span></div>
+      <div class="mock-body">
+        <div class="mock-hero"><h4>Your Business Name.</h4><p>Kansas City Area &middot; Trusted since 2003</p></div>
+        <div class="mock-grid">
+          <div class="mock-card"><div class="mock-ln a"></div><div class="mock-ln b"></div></div>
+          <div class="mock-card"><div class="mock-ln a"></div><div class="mock-ln b"></div></div>
+          <div class="mock-card"><div class="mock-ln a"></div><div class="mock-ln b"></div></div>
+          <div class="mock-card"><div class="mock-ln a"></div><div class="mock-ln b"></div></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="reveal reveal-d3" style="margin-top:48px;font-family:var(--mono);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--text2);margin-bottom:16px;text-align:center">Built for businesses like yours</div>
-  <div class="audience-tags reveal reveal-d4" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
-    <div class="audience-tag">Plumbers</div>
-    <div class="audience-tag">Dentists</div>
-    <div class="audience-tag">Roofers</div>
-    <div class="audience-tag">HVAC</div>
-    <div class="audience-tag">Salons</div>
-    <div class="audience-tag">Auto Shops</div>
-    <div class="audience-tag">Chiropractors</div>
-    <div class="audience-tag">Landscapers</div>
-    <div class="audience-tag">Electricians</div>
-    <div class="audience-tag">Pest Control</div>
-    <div class="audience-tag">Cleaning Services</div>
-    <div class="audience-tag">Gyms &amp; Fitness</div>
+</div></section>
+
+<!-- ============ MONTHLY REPORT CARD ============ -->
+<section id="report"><div class="wrap">
+  <div class="split">
+    <div>
+      <div class="head">
+        <span class="eyebrow">What You'll Get</span>
+        <h2>A monthly report you'll <i>actually read.</i></h2>
+      </div>
+      <p class="split-desc">No jargon. No 40-page PDF. Every month you get a simple report card showing exactly where you stand — your Google ranking, whether AI is recommending you, and how many people are finding your business. Plain English, one page.</p>
+      <p class="split-note">Included in every plan.</p>
+    </div>
+    <div class="report-card">
+      <div class="rc-head">
+        <div><h4>Your Business Name</h4><div class="sub">Monthly Report Card</div></div>
+        <div class="brand">Flint<i>.</i>digital<br>March 2026</div>
+      </div>
+      <div class="rc-body">
+        <div class="rc-sec">
+          <div class="rc-sec-title">Competitor Snapshot &mdash; "plumber overland park"</div>
+          <div class="rc-row rc-you"><span class="lab">&#9733; Your Business</span><span class="val">#4</span></div>
+          <div class="rc-row"><span class="lab">Smith Plumbing Co.</span><span class="val">#1</span></div>
+          <div class="rc-row"><span class="lab">KC Drain Pros</span><span class="val">#2</span></div>
+          <div class="rc-row"><span class="lab">Reliable Plumbing &amp; HVAC</span><span class="val">#3</span></div>
+          <div class="rc-row rc-dim"><span class="lab">Johnson County Plumbing</span><span class="val">#5</span></div>
+        </div>
+        <div class="rc-sec">
+          <div class="rc-sec-title">Google Search</div>
+          <div class="rc-row"><span class="lab">"plumber overland park"</span><span><span class="val">#4</span><span class="chg">&uarr; 3</span></span></div>
+          <div class="rc-row"><span class="lab">"emergency plumber olathe"</span><span><span class="val">#7</span><span class="chg">&uarr; 12</span></span></div>
+          <div class="rc-row"><span class="lab">"plumber near me"</span><span><span class="val">#11</span><span class="chg">&uarr; 8</span></span></div>
+        </div>
+        <div class="rc-sec">
+          <div class="rc-sec-title">AI Search (AEO)</div>
+          <div class="rc-row"><span class="lab">ChatGPT mentions</span><span class="rc-grade yes">YES</span></div>
+          <div class="rc-row"><span class="lab">Google AI Overview</span><span class="rc-grade partial">PARTIAL</span></div>
+          <div class="rc-row"><span class="lab">Perplexity citation</span><span class="rc-grade no">NOT YET</span></div>
+        </div>
+        <div class="rc-sec">
+          <div class="rc-sec-title">Your Website</div>
+          <div class="rc-row"><span class="lab">Visitors this month</span><span><span class="val">342</span><span class="chg">&uarr; 28%</span></span></div>
+          <div class="rc-row"><span class="lab">Phone calls from site</span><span><span class="val">18</span><span class="chg">&uarr; 6</span></span></div>
+          <div class="rc-row"><span class="lab">Google reviews</span><span><span class="val">4.8</span><span class="chg">+3 new</span></span></div>
+        </div>
+      </div>
+      <div class="rc-foot"><span>Next report: April 1, 2026</span><span>flintdigital.ai</span></div>
+    </div>
   </div>
-</section>
+</div></section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <div class="section-label reveal">Pricing</div>
-    <h2 class="section-title reveal reveal-d1">Transparent. Simple. <strong>No retainer bloat.</strong></h2>
-
-    <!-- ONE-TIME BUILD -->
-    <div class="build-card reveal reveal-d2">
-      <div>
-        <div class="build-tag">One-Time</div>
-        <h3>Website Build</h3>
-        <div class="build-price">$2,500 <span>one-time</span></div>
-        <p>A hand-coded, conversion-focused website delivered in days. Custom-designed for your business, your market, and your customers. Not a template. Not WordPress.</p>
-      </div>
-      <div class="build-feats">
-        <div class="build-feat">Custom design &amp; development</div>
-        <div class="build-feat">Mobile-first, sub-second load</div>
-        <div class="build-feat">SEO + AEO foundation baked in</div>
-        <div class="build-feat">Google Analytics &amp; Search Console</div>
-        <div class="build-feat">30-day post-launch support</div>
-        <div class="build-feat">You own everything — code, domain, content</div>
-      </div>
-    </div>
-
-    <!-- RECURRING TIERS -->
-    <div class="section-label reveal" style="color:var(--slate);margin-bottom:32px">Monthly Plans — All Month-to-Month</div>
-    <div class="price-row">
-      <div class="prx reveal reveal-d1">
-        <div class="prx-tag">Maintain</div>
-        <h3>Hosting + Monitoring</h3>
-        <div class="prx-price">$249 <span>/month</span></div>
-        <p class="prx-desc">Keep the lights on and the rankings tracked. Hosting, security, and SEO/AEO monitoring so you always know where you stand.</p>
-        <div class="prx-feats">
-          <div class="prx-feat">Hosting, SSL, uptime monitoring</div>
-          <div class="prx-feat">Monthly backups</div>
-          <div class="prx-feat">SEO rank tracking</div>
-          <div class="prx-feat">AEO citation monitoring</div>
-          <div class="prx-feat">30 min of edits per month</div>
-          <div class="prx-feat">Monthly status report</div>
-        </div>
-        <a href="#cta" class="prx-btn">Get Started</a>
-      </div>
-      <div class="prx pop reveal reveal-d2">
-        <div class="prx-tag">Grow</div>
-        <h3>Content + Optimization</h3>
-        <div class="prx-price">$749 <span>/month</span></div>
-        <p class="prx-desc">Everything in Maintain plus active content creation and quarterly site refreshes. This is where rankings start climbing.</p>
-        <div class="prx-feats">
-          <div class="prx-feat">Everything in Maintain</div>
-          <div class="prx-feat">2 SEO/AEO articles per month</div>
-          <div class="prx-feat">Quarterly site refresh &amp; design updates</div>
-          <div class="prx-feat">Google Business Profile management</div>
-          <div class="prx-feat">Review monitoring &amp; generation strategy</div>
-          <div class="prx-feat">Monthly analytics deep-dive</div>
-          <div class="prx-feat">Citation building &amp; cleanup</div>
-        </div>
-        <a href="#cta" class="prx-btn">Get Started</a>
-      </div>
-      <div class="prx reveal reveal-d3">
-        <div class="prx-tag">Dominate</div>
-        <h3>Full-Stack Growth</h3>
-        <div class="prx-price">$1,499 <span>/month</span></div>
-        <p class="prx-desc">The complete engine. Google Ads, content, AEO, and a dedicated strategist. This is how you own your market.</p>
-        <div class="prx-feats">
-          <div class="prx-feat">Everything in Grow</div>
-          <div class="prx-feat">Google Ads build + management</div>
-          <div class="prx-feat">4 SEO/AEO articles per month</div>
-          <div class="prx-feat">AI search optimization &amp; monitoring</div>
-          <div class="prx-feat">Reputation management &amp; review response</div>
-          <div class="prx-feat">Dedicated strategist</div>
-          <div class="prx-feat">Quarterly strategy reviews</div>
-        </div>
-        <a href="#cta" class="prx-btn">Get Started</a>
-      </div>
-    </div>
-    <div class="pricing-note reveal">All plans month-to-month. No contracts. Cancel anytime with an email.</div>
+<!-- ============ PRICING ============ -->
+<section id="pricing"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Pricing</span>
+    <h2>Transparent. Simple. <i>No retainer bloat.</i></h2>
   </div>
-</section>
-
-<!-- CTA + LEAD CAPTURE -->
-<section class="cta" id="cta">
-  <h2 class="reveal">Let's get you <em>noticed!</em></h2>
-  <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
-  <form class="audit-form reveal reveal-d2" id="audit-form" name="free-audit" netlify>
-    <div class="form-row">
-      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required aria-required="true"></div>
-      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required aria-required="true"></div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="tier">Website Build</div>
+      <div class="amt">$2,500</div>
+      <div class="per">one-time</div>
+      <ul>
+        <li>Custom design &amp; development</li>
+        <li>Mobile-first, sub-second load</li>
+        <li>SEO + AEO foundation baked in</li>
+        <li>Google Analytics &amp; Search Console</li>
+        <li>30-day post-launch support</li>
+        <li>You own everything — code, domain, content</li>
+      </ul>
+      <a href="#cta" class="btn btn-out">Get started</a>
     </div>
-    <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" name="website" type="text" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
-    <div><label class="form-label" for="audit-need">What do you need most?</label>
-    <select id="audit-need" name="need">
-      <option value="" disabled selected>Select one...</option>
-      <option>New website</option>
-      <option>Website redesign</option>
-      <option>SEO &amp; content</option>
-      <option>Google Ads</option>
-      <option>AEO / AI search</option>
-      <option>All of the above</option>
-    </select></div>
-    <button type="submit">Get My Free Audit</button>
-    <div class="form-note">No spam. No sales calls unless you want one. Just a free audit in your inbox.</div>
+    <div class="price-card">
+      <div class="tier">Maintain</div>
+      <div class="amt">$249</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>Hosting, SSL, uptime monitoring</li>
+        <li>Monthly backups</li>
+        <li>SEO rank tracking</li>
+        <li>AEO citation monitoring</li>
+        <li>30 min of edits per month</li>
+        <li>Monthly status report</li>
+      </ul>
+      <a href="#cta" class="btn btn-out">Get started</a>
+    </div>
+    <div class="price-card popular">
+      <span class="badge">Most popular</span>
+      <div class="tier">Grow</div>
+      <div class="amt">$749</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>Everything in Maintain</li>
+        <li>2 SEO/AEO articles per month</li>
+        <li>Quarterly site refresh &amp; design updates</li>
+        <li>Google Business Profile management</li>
+        <li>Review monitoring &amp; generation strategy</li>
+        <li>Monthly analytics deep-dive</li>
+        <li>Citation building &amp; cleanup</li>
+      </ul>
+      <a href="#cta" class="btn">Get started</a>
+    </div>
+    <div class="price-card">
+      <div class="tier">Dominate</div>
+      <div class="amt">$1,499</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>Everything in Grow</li>
+        <li>Google Ads build + management</li>
+        <li>4 SEO/AEO articles per month</li>
+        <li>AI search optimization &amp; monitoring</li>
+        <li>Reputation management &amp; review response</li>
+        <li>Dedicated strategist</li>
+        <li>Quarterly strategy reviews</li>
+      </ul>
+      <a href="#cta" class="btn btn-out">Get started</a>
+    </div>
+  </div>
+  <p class="pricing-note">All plans month-to-month. No contracts. Cancel anytime with an email.</p>
+</div></section>
+
+<!-- ============ CTA + FORM ============ -->
+<section class="cta" id="cta"><div class="wrap">
+  <h2>Ready to be <i>found?</i></h2>
+  <p>Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
+
+  <form name="audit" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="audit-form">
+    <input type="hidden" name="form-name" value="audit">
+    <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <div class="row2">
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required></div>
+    </div>
+    <div class="field"><label for="f-url">Website URL</label><input id="f-url" name="website" type="text" placeholder="yourbusiness.com"></div>
+    <div class="field"><label for="f-need">What do you need most?</label>
+      <select id="f-need" name="need">
+        <option>New website</option>
+        <option>Website redesign</option>
+        <option>SEO &amp; content</option>
+        <option>Google Ads</option>
+        <option>AEO / AI search</option>
+        <option>All of the above</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">Get my free audit</button>
+    <p class="form-note">No spam. No sales calls unless you want one. Just a free audit in your inbox.</p>
   </form>
-  <!-- LOADING STATE -->
-  <div id="audit-loading" style="display:none;text-align:center;padding:60px 0">
-    <div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--copper);margin:0 auto 24px;animation:audit-spin 1s linear infinite"></div>
-    <style>@keyframes audit-spin{to{transform:rotate(360deg)}}</style>
-    <div id="audit-step" style="font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:1px;margin-bottom:8px"></div>
-    <p style="font-family:var(--mono);font-size:10px;color:var(--dim)">This usually takes 30–60 seconds</p>
+
+  <div class="form-alt">
+    <a href="https://calendly.com/chris-whaley-flintdigital/30min" target="_blank" rel="noopener" class="btn btn-out">Book a free call</a>
+    <a href="mailto:info@flintdigital.ai" class="btn btn-out">Email us</a>
   </div>
-  <!-- RESULTS -->
-  <div id="audit-results" style="display:none;max-width:700px;margin:0 auto;padding:40px 0"></div>
-  <div style="text-align:center;margin-top:32px;padding-top:32px;border-top:1px solid var(--line)">
-    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Or skip the form and talk to us directly.</p>
-    <a href="https://calendly.com/chris-whaley-flintdigital/30min" target="_blank" class="btn-secondary" style="margin-right:12px">Book a Free Call</a>
-    <a href="mailto:info@flintdigital.ai" class="btn-secondary">Email Us</a>
-  </div>
-</section>
+</div></section>
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand"><a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a><p>AI-first digital agency built for small businesses in the Kansas City area.</p></div>
-    <div class="footer-links"><h5>Services</h5><a href="#services">Websites</a><a href="#services">SEO &amp; Content</a><a href="#services">AEO</a><a href="#services">Google Ads</a></div>
-    <div class="footer-links"><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="how-it-works.html">How It Works</a><a href="#pricing">Pricing</a><a href="faq.html">FAQ</a><a href="insights.html">Insights</a><a href="#cta">Free Audit</a></div>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer"><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <a href="/" class="logo">Flint<i>.</i>digital</a>
+      <p>AI-first digital agency making small businesses impossible to ignore online. Kansas City area.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <a href="#services">Websites</a>
+      <a href="#services">SEO &amp; Content</a>
+      <a href="#services">AEO</a>
+      <a href="#services">Google Ads</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="/work.html">Work</a>
+      <a href="/about.html">About</a>
+      <a href="/how-it-works.html">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/insights/">Insights</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="tel:+19137351163">(913) 735-1163</a>
+      <a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a>
+      <a href="https://calendly.com/chris-whaley-flintdigital/30min" target="_blank" rel="noopener">Book a call</a>
+    </div>
   </div>
-  <div class="footer-bottom"><span>&#169; 2026 Flint Digital · Kansas City Area</span><a href="tel:9137351163">(913) 735-1163</a><a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a><a href="https://flintdigital.ai">flintdigital.ai</a></div>
-</footer>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Flint Digital · Kansas City Area</span>
+    <span>flintdigital.ai</span>
+  </div>
+</div></footer>
 
-<script src="shared/js/reveal.js"></script>
-<script src="shared/js/nav.js"></script>
-<script src="js/v2-interactions.js"></script>
-<script>
-(function(){
-  var form = document.getElementById('audit-form');
-  if(!form) return;
-
-  var C = {copper:'#c47a4a',copper2:'#d4956a',slate:'#7a8a96',sage:'#7a9478',red:'#c45a4a',dim:'#6b6459',text:'#e2ddd4',text2:'#c8c0b4',card:'#15140f',line:'rgba(255,255,255,.06)',line2:'rgba(255,255,255,.025)'};
-
-  function extractJSON(text){
-    try{return JSON.parse(text)}catch(e){}
-    var clean=text.replace(/```json\s*/g,'').replace(/```\s*/g,'').trim();
-    try{return JSON.parse(clean)}catch(e){}
-    var m=clean.match(/\{[\s\S]*\}/);
-    if(m)try{return JSON.parse(m[0])}catch(e){}
-    return null;
-  }
-
-  function gradeFor(s){return s>=80?{level:'good',label:'STRONG'}:s>=60?{level:'ok',label:'NEEDS WORK'}:{level:'bad',label:s>=40?'WEAK':'CRITICAL'};}
-  function letterGrade(s){return s>=80?{l:'A',c:C.sage}:s>=60?{l:'B',c:'#b8a88a'}:s>=40?{l:'C',c:C.copper}:{l:s>=20?'D':'F',c:C.red};}
-  function gradeColors(level){return level==='good'?{bg:'rgba(122,148,120,.15)',c:C.sage}:level==='ok'?{bg:'rgba(184,168,138,.15)',c:'#b8a88a'}:{bg:'rgba(196,90,74,.15)',c:C.red};}
-
-  var catConfig={technical:{label:'Technical',c:C.copper},seo:{label:'SEO',c:C.slate},local_search:{label:'Local Search',c:C.sage},aeo:{label:'AEO · AI Search',c:C.copper2},content:{label:'Content',c:'#b8a88a'},reputation:{label:'Reputation',c:C.slate}};
-
-  function renderResults(r){
-    var g=letterGrade(r.overall_score||0);
-    var h='';
-    // Header + Grade
-    h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;overflow:hidden;margin-bottom:16px">';
-    h+='<div style="padding:20px 24px;border-bottom:1px solid '+C.line+';display:flex;justify-content:space-between"><div>';
-    h+='<h2 style="font-size:20px;font-weight:600;color:'+C.text+';margin-bottom:4px">'+(r.business_name||r.domain)+'</h2>';
-    h+='<p style="font-size:12px;color:'+C.dim+'">'+r.domain+(r.business_type?' · '+r.business_type:'')+(r.location?' · '+r.location:'')+'</p>';
-    h+='</div><div style="text-align:right;font-family:monospace;font-size:9px;color:'+C.dim+';letter-spacing:1px">FLINT.<span style="color:'+C.copper+'">digital</span><br>Audit Report</div></div>';
-    h+='<div style="padding:28px;text-align:center;border-bottom:1px solid '+C.line+'">';
-    h+='<div style="display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:3px solid '+g.c+';margin-bottom:8px"><span style="font-family:monospace;font-size:28px;font-weight:700;color:'+g.c+'">'+g.l+'</span></div>';
-    h+='<div style="font-family:monospace;font-size:13px;color:'+C.dim+'">'+r.overall_score+' / 100</div>';
-    if(r.summary) h+='<p style="font-size:13px;color:'+C.dim+';font-weight:300;margin-top:12px;line-height:1.7;max-width:500px;margin-left:auto;margin-right:auto">'+r.summary+'</p>';
-    h+='</div>';
-    // Breakdown bars
-    h+='<div style="padding:24px"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:'+C.copper+';margin-bottom:16px;font-weight:700">BREAKDOWN</div>';
-    Object.keys(catConfig).forEach(function(k){
-      var cat=r[k];if(!cat||cat.score==null)return;
-      var bc=cat.score>=80?C.sage:cat.score>=50?'#b8a88a':C.red;
-      h+='<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;color:'+C.dim+'">'+catConfig[k].label+'</span><span style="font-family:monospace;font-size:13px;font-weight:700;color:'+bc+'">'+cat.score+'/100</span></div>';
-      h+='<div style="height:4px;background:'+C.line+';border-radius:2px"><div style="height:4px;width:'+cat.score+'%;background:'+bc+';border-radius:2px;transition:width 1s ease"></div></div></div>';
-    });
-    h+='</div></div>';
-    // Category cards
-    Object.keys(catConfig).forEach(function(k){
-      var cat=r[k];if(!cat||!cat.findings||!cat.findings.length)return;
-      var gr=gradeFor(cat.score||0);var gc=gradeColors(gr.level);var cfg=catConfig[k];
-      h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;padding:24px;margin-bottom:12px">';
-      h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-family:monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:'+cfg.c+';font-weight:700">'+cfg.label+'</span>';
-      h+='<span style="background:'+gc.bg+';color:'+gc.c+';padding:3px 10px;border-radius:3px;font-family:monospace;font-size:11px;font-weight:700;letter-spacing:1px">'+gr.label+'</span></div>';
-      cat.findings.forEach(function(f){
-        h+='<div style="display:flex;gap:10px;padding:6px 0;font-size:13px;color:'+C.dim+';font-weight:300;line-height:1.6"><span style="font-family:monospace;font-size:10px;color:'+cfg.c+';flex-shrink:0">&mdash;</span><span>'+f+'</span></div>';
-      });
-      h+='</div>';
-    });
-    // Competitors
-    if(r.competitors&&r.competitors.length){
-      h+='<div style="background:'+C.card+';border:1px solid '+C.line+';border-radius:6px;padding:24px;margin-bottom:12px">';
-      h+='<div style="font-family:monospace;font-size:10px;letter-spacing:2px;color:'+C.red+';margin-bottom:16px;font-weight:700">COMPETITORS OUTRANKING YOU</div>';
-      r.competitors.forEach(function(comp,i){
-        h+='<div style="display:flex;justify-content:space-between;padding:10px 0;'+(i===0?'border-top:1px solid '+C.line2+';':'')+';gap:16px">';
-        h+='<span style="font-size:14px;font-weight:600;color:'+C.text2+'">'+comp.name+'</span>';
-        h+='<span style="font-size:12px;color:'+C.dim+';font-weight:300;text-align:right">'+comp.advantage+'</span></div>';
-      });
-      h+='</div>';
-    }
-    // Top 3 fixes
-    if(r.top_3_fixes&&r.top_3_fixes.length){
-      h+='<div style="background:rgba(196,122,74,.04);border:1px solid rgba(196,122,74,.15);border-radius:6px;padding:24px;margin-bottom:24px">';
-      h+='<div style="font-family:monospace;font-size:10px;letter-spacing:2px;color:'+C.copper+';margin-bottom:16px;font-weight:700">TOP 3 THINGS TO FIX NOW</div>';
-      r.top_3_fixes.forEach(function(f,i){
-        h+='<div style="display:flex;gap:12px;padding:8px 0;font-size:14px;color:'+C.text2+';line-height:1.6"><span style="font-family:monospace;font-size:16px;font-weight:700;color:'+C.copper+';min-width:24px">'+(i+1)+'.</span><span>'+f+'</span></div>';
-      });
-      h+='</div>';
-    }
-    // CTA
-    h+='<div style="text-align:center;padding:32px 0">';
-    h+='<h3 style="font-size:24px;font-weight:200;color:'+C.text2+';margin-bottom:12px">Want us to <em style="font-style:italic;color:'+C.copper+';font-weight:300">fix this?</em></h3>';
-    h+='<p style="font-size:14px;color:'+C.dim+';font-weight:300;margin-bottom:24px;line-height:1.7">Book a free 20-minute call and we\'ll walk through your report live.</p>';
-    h+='<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">';
-    h+='<button onclick="window.print()" style="background:transparent;border:1px solid '+C.line+';color:'+C.text2+';padding:12px 24px;border-radius:2px;font-size:12px;cursor:pointer;font-family:inherit;letter-spacing:1px;display:inline-flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download Report</button>';
-    h+='<a href="https://calendly.com/chris-whaley-flintdigital/30min" target="_blank" style="background:'+C.copper+';color:'+C.bg+';padding:12px 24px;border-radius:2px;font-size:12px;font-weight:600;text-decoration:none;display:inline-block;letter-spacing:1px">Book a Free Call</a>';
-    h+='</div>';
-    h+='</div>';
-    return h;
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var urlVal = document.getElementById('audit-url').value.trim();
-
-    // 1. Submit lead to Netlify
-    fetch('/', {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams(new FormData(form)).toString()
-    }).catch(function(){});
-
-    // 2. If URL provided, run the audit
-    if(urlVal){
-      form.style.display='none';
-      var loading=document.getElementById('audit-loading');
-      var resultsDiv=document.getElementById('audit-results');
-      loading.style.display='block';
-
-      var steps=['Scanning website','Checking SEO','Analyzing competitors','Grading AEO readiness','Building report'];
-      var stepIdx=0;var dots='';
-      var stepEl=document.getElementById('audit-step');
-      stepEl.textContent=steps[0];
-      var dotTimer=setInterval(function(){dots=dots.length>=3?'':dots+'.';stepEl.textContent=steps[stepIdx]+dots;},500);
-      var stepTimer=setInterval(function(){stepIdx=Math.min(stepIdx+1,steps.length-1);},12000);
-
-      var withProto=urlVal.startsWith('http')?urlVal:'https://'+urlVal;
-      var domain=withProto.replace(/https?:\/\/(www\.)?/,'').replace(/\/.*/,'');
-
-      fetch('/api/audit',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:4000,
-          tools:[{type:'web_search_20250305',name:'web_search'}],
-          messages:[{role:'user',content:'You are a website auditor for Flint Digital, an AI-first agency in Kansas City.\n\nAudit the website: '+withProto+' (domain: '+domain+')\n\nDo these searches:\n1. Search for: '+domain+'\n2. Search for the business name + location to find competitors\n3. Search for: '+domain+' reviews\n\nAfter researching, respond with ONLY a valid JSON object. No explanation, no markdown. Just raw JSON.\n\nThe JSON must have this structure:\n{"business_name":"string","domain":"'+domain+'","business_type":"string","location":"string","overall_score":0,"summary":"string","technical":{"platform":"string","ssl":true,"title_tag":"string","title_quality":"good","meta_quality":"good","schema_markup":false,"schema_types":[],"rich_results":false,"pages_indexed":"string","mobile_friendly":true,"score":0,"findings":["string"]},"seo":{"score":0,"primary_keyword":"string","estimated_rank":"string","findings":["string"]},"local_search":{"score":0,"google_reviews":"string","findings":["string"]},"aeo":{"score":0,"ai_ready":false,"findings":["string"]},"content":{"score":0,"findings":["string"]},"reputation":{"score":0,"findings":["string"]},"competitors":[{"name":"string","advantage":"string"}],"top_3_fixes":["string","string","string"]}\n\nRespond with ONLY the JSON object.'}]
-        })
-      }).then(function(res){return res.json()}).then(function(data){
-        clearInterval(dotTimer);clearInterval(stepTimer);
-        var allText=(data.content||[]).filter(function(i){return i.type==='text'}).map(function(i){return i.text}).join('\n');
-        var parsed=extractJSON(allText);
-        if(parsed&&(parsed.business_name||parsed.overall_score)){
-          loading.style.display='none';
-          resultsDiv.innerHTML=renderResults(parsed);
-          resultsDiv.style.display='block';
-        }else{
-          loading.style.display='none';
-          resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-          resultsDiv.style.display='block';
-        }
-      }).catch(function(){
-        clearInterval(dotTimer);clearInterval(stepTimer);
-        loading.style.display='none';
-        resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-        resultsDiv.style.display='block';
-      });
-    } else {
-      // No URL — just show thank you
-      form.style.display='none';
-      var resultsDiv=document.getElementById('audit-results');
-      resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-      resultsDiv.style.display='block';
-    }
-  });
-})();
-</script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

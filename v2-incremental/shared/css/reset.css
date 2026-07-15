@@ -1,0 +1,30 @@
+/* Flint Digital — Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* Skip-to-content link for accessibility */
+.skip-link{
+  position:absolute;
+  top:-100%;
+  left:16px;
+  padding:8px 16px;
+  background:var(--copper);
+  color:var(--bg);
+  font-size:13px;
+  font-weight:600;
+  z-index:99999;
+  border-radius:var(--radius-sm);
+  text-decoration:none;
+}
+.skip-link:focus{top:8px}
+
+a{color:inherit}
+img{max-width:100%;display:block}

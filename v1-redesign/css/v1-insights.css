@@ -1,0 +1,95 @@
+/* V1 Redesign — Insights Page */
+
+.filter-pills {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 48px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+.filter-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  color: var(--dim);
+  cursor: pointer;
+  transition: all .3s;
+  background: none;
+}
+.filter-pill:hover, .filter-pill.active {
+  color: var(--copper);
+  border-color: rgba(196,122,74,.3);
+  background: rgba(196,122,74,.04);
+}
+
+.articles {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 160px;
+  position: relative;
+  z-index: 2;
+}
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+.article-card {
+  background: var(--v1-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 36px 28px;
+  transition: transform .3s, border-color .3s;
+}
+.article-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.1) }
+.article-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.article-card:nth-child(1) .article-tag { color: var(--copper) }
+.article-card:nth-child(2) .article-tag { color: var(--slate) }
+.article-card:nth-child(3) .article-tag { color: var(--sage) }
+.article-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--v1-text2);
+  margin-bottom: 14px;
+  letter-spacing: -.3px;
+  line-height: 1.35;
+}
+.article-card p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--dim);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.article-card .read-more {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .3s;
+}
+.article-card:nth-child(1) .read-more { color: var(--copper) }
+.article-card:nth-child(2) .read-more { color: var(--slate) }
+.article-card:nth-child(3) .read-more { color: var(--sage) }
+.article-card .read-more:hover { color: var(--v1-text2) }
+
+@media(max-width:900px) {
+  .filter-pills { padding: 0 20px 32px }
+  .articles { padding: 0 20px 80px }
+  .articles-grid { grid-template-columns: 1fr }
+}

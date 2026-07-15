@@ -1,0 +1,165 @@
+/* V1 Redesign — About Page */
+
+.about-hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 160px 48px 0;
+  position: relative;
+  z-index: 2;
+}
+.about-hero .section-label { color: var(--copper2) }
+
+.founder-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 56px;
+}
+.about-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--warm);
+  border: 2px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--copper);
+  flex-shrink: 0;
+}
+.founder-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--v1-text);
+  margin-bottom: 6px;
+  letter-spacing: -.5px;
+}
+.founder-role {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 24px;
+}
+.founder-bio {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--dim);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.founder-bio strong { color: var(--v1-text2); font-weight: 500 }
+.founder-bio.bio-accent { color: var(--copper) }
+
+/* WHY FLINT */
+.why-about {
+  position: relative;
+  z-index: 2;
+  margin-top: 120px;
+}
+.why-about-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 48px;
+}
+.why-about-title {
+  font-size: clamp(32px,4vw,44px);
+  font-weight: 100;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin-bottom: 20px;
+  color: var(--v1-text2);
+}
+.why-about-title strong { font-weight: 700; color: var(--v1-text) }
+.why-about-intro {
+  color: var(--dim);
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+.why-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.why-card {
+  background: var(--v1-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 40px 32px;
+  transition: transform .3s, border-color .3s;
+}
+.why-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.1) }
+.why-card-idx {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.why-card:nth-child(1) .why-card-idx { color: var(--copper) }
+.why-card:nth-child(2) .why-card-idx { color: var(--slate) }
+.why-card:nth-child(3) .why-card-idx { color: var(--sage) }
+.why-card:nth-child(4) .why-card-idx { color: var(--copper2) }
+.why-card h4 { font-size: 19px; font-weight: 600; margin-bottom: 10px; color: var(--v1-text2) }
+.why-card p { font-size: 14px; line-height: 1.8; color: var(--dim); font-weight: 300 }
+
+/* STATS */
+.stats {
+  position: relative;
+  z-index: 2;
+}
+.stats-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0;
+}
+.stat {
+  text-align: center;
+  padding: 32px 0;
+  border-right: 1px solid var(--line);
+}
+.stat:last-child { border-right: none }
+.stat h3 {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.stat:nth-child(1) h3 { color: var(--copper) }
+.stat:nth-child(2) h3 { color: var(--slate) }
+.stat:nth-child(3) h3 { color: var(--sage) }
+.stat:nth-child(4) h3 { color: var(--copper2) }
+.stat p {
+  font-size: 10px;
+  color: var(--dim);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+@media(max-width:900px) {
+  .about-hero { padding: 120px 20px 0 }
+  .founder-card { grid-template-columns: 1fr; gap: 28px; text-align: center }
+  .about-avatar { margin: 0 auto }
+  .why-about-inner { padding: 80px 20px }
+  .why-cards { grid-template-columns: 1fr }
+  .stats-inner { grid-template-columns: 1fr 1fr; padding: 40px 20px }
+  .stat { padding: 24px 0 }
+}
+@media(max-width:480px) {
+  .stats-inner { grid-template-columns: 1fr }
+  .stat { border-right: none; border-bottom: 1px solid var(--line); padding: 20px 0 }
+  .stat:last-child { border-bottom: none }
+}

@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How It Works · Audit to Launch in Days · Flint Digital</title>
-<meta name="description" content="Our four-step process: free audit, strategy, AI-accelerated build, and grow. Days, not months — and you own everything.">
-<link rel="canonical" href="https://flintdigital.ai/how-it-works.html">
-<meta property="og:title" content="How It Works · Flint Digital">
-<meta property="og:description" content="Audit → Strategy → Build → Grow. Days, not months. You own everything.">
+<!-- TEMPLATE — copy this file, replace every {{TOKEN}}, then add the post to /insights/index.html -->
+<title>{{TITLE}} · Flint Digital</title>
+<meta name="description" content="{{META_DESCRIPTION ≤155 chars}}">
+<link rel="canonical" href="https://flintdigital.ai/insights/{{SLUG}}.html">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
 <meta property="og:image" content="https://flintdigital.ai/assets/img/og-image.png">
-<meta property="og:url" content="https://flintdigital.ai/how-it-works.html">
-<meta property="og:type" content="website">
+<meta property="og:url" content="https://flintdigital.ai/insights/{{SLUG}}.html">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,10 +20,25 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"{{TITLE}}",
+  "description":"{{META_DESCRIPTION}}",
+  "image":"https://flintdigital.ai/assets/img/og-image.png",
+  "author":{"@type":"Organization","name":"Flint Digital"},
+  "publisher":{"@type":"Organization","name":"Flint Digital","logo":{"@type":"ImageObject","url":"https://flintdigital.ai/assets/img/og-image.png"}},
+  "datePublished":"{{YYYY-MM-DD}}",
+  "dateModified":"{{YYYY-MM-DD}}",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://flintdigital.ai/insights/{{SLUG}}.html"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
   "@type":"BreadcrumbList",
   "itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://flintdigital.ai/"},
-    {"@type":"ListItem","position":2,"name":"How It Works","item":"https://flintdigital.ai/how-it-works.html"}
+    {"@type":"ListItem","position":2,"name":"Insights","item":"https://flintdigital.ai/insights/"},
+    {"@type":"ListItem","position":3,"name":"{{SHORT_TITLE}}","item":"https://flintdigital.ai/insights/{{SLUG}}.html"}
   ]
 }
 </script>
@@ -42,49 +58,31 @@
 </div></nav>
 
 <main id="main">
-<header class="page-hero"><div class="wrap">
-  <p class="eyebrow">How It Works</p>
-  <h1>Audit to launch in <i>days.</i></h1>
-  <p>No 12-week timelines, no scope creep, no mystery. Four steps, AI-accelerated, and you own everything at the end.</p>
-</div></header>
-
-<section><div class="wrap">
-  <div class="steps">
-    <div class="step">
-      <span class="num">01</span>
-      <div>
-        <h3>Free audit</h3>
-        <p>We pull up your site, your competitors, and your search and AI visibility, then show you exactly where you're losing customers — and what it's worth to fix. No obligation.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span class="num">02</span>
-      <div>
-        <h3>Strategy</h3>
-        <p>We map the highest-leverage moves first: the pages, keywords, ad campaigns, and AEO work that will move the needle fastest for your business and budget.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span class="num">03</span>
-      <div>
-        <h3>Build</h3>
-        <p>AI-accelerated, hand-finished. We design and code your site, wire up tracking, and lay the SEO + AEO foundation — shipped in days, not months, without cutting corners.</p>
-      </div>
-    </div>
-    <div class="step">
-      <span class="num">04</span>
-      <div>
-        <h3>Grow</h3>
-        <p>Content, rankings, ads, reviews, and AI citations — compounding month over month. You get a plain-English monthly report, and you can cancel anytime.</p>
-      </div>
-    </div>
+<article class="article"><div class="wrap" style="padding-top:64px">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/insights/">Insights</a> / {{SHORT_TITLE}}
+  </nav>
+  <div class="art-meta">
+    <span class="cat">{{CATEGORY}}</span>
+    <span>{{DATE}}</span>
+    <span>{{READ_TIME}} min read</span>
+    <span>By Flint Digital</span>
   </div>
-</div></section>
+  <h1>{{TITLE}}</h1>
+  <p class="lede">{{LEDE}}</p>
+
+  <div class="article-body">
+    <p>{{BODY — use p, h2, h3, ul/li, and a links to /#cta and /ai-visibility.html}}</p>
+  </div>
+</div></article>
 
 <section class="cta"><div class="wrap">
-  <h2>Start with a free <i>audit.</i></h2>
-  <p>Step one is free and takes 60 seconds to request.</p>
-  <a href="/#cta" class="btn">Get my free audit</a>
+  <h2>See where you <i>stand.</i></h2>
+  <p>Find out what AI says about your business right now — live, in about a minute.</p>
+  <div class="form-alt">
+    <a href="/ai-visibility.html" class="btn">Check my AI visibility</a>
+    <a href="/#cta" class="btn btn-out">Free audit</a>
+  </div>
 </div></section>
 </main>
 

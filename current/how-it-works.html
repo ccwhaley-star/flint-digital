@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How Flint Digital works — our process, what makes us different, and how we deliver agency-quality digital for small businesses in days.">
+<meta property="og:title" content="How It Works — Flint Digital">
+<meta property="og:description" content="Our process, what makes us different, and how we deliver agency-quality digital for small businesses in days.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<title>How It Works — Flint Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b09;--surface: #121110;--card: #15140f;--text: #e2ddd4;--text2: #c8c0b4;
+    --dim: #6b6459;--copper: #c47a4a;--copper2: #d4956a;--slate: #7a8a96;--sage: #7a9478;
+    --sand: #b8a88a;--warm: #3d3529;--line: rgba(255,255,255,.06);--line2: rgba(255,255,255,.025);
+    --mono: 'Space Mono', monospace;--sans: 'Outfit', system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+  .grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:60px;position:fixed;top:0;left:0;right:0;z-index:10001;background:rgba(12,11,9,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .nav-left{display:flex;align-items:center;gap:24px}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text2);text-decoration:none}
+  .logo span{color:var(--copper)}
+  .logo em{font-style:italic;font-weight:300;color:var(--copper);font-family:var(--sans);font-size:13px;letter-spacing:1px;text-transform:none;margin-left:-2px}
+  .nav-phone{color:var(--text)!important;font-family:var(--mono);font-size:12px;letter-spacing:1px;font-weight:700;text-decoration:none}
+  .nav-links{display:flex;align-items:center;gap:32px}
+  .nav-links a{text-decoration:none;color:var(--dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+  .nav-links a:hover{color:var(--text2)}
+  .nav-cta{color:var(--copper)!important;border:1px solid rgba(196,122,74,.3);padding:7px 18px;border-radius:2px;transition:all .3s}
+  .nav-cta:hover{background:var(--copper);color:var(--bg)!important}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:all .3s}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .nav-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#0c0b09;border-bottom:1px solid var(--line);padding:32px 48px;flex-direction:column;gap:0;z-index:10000}
+  .nav-menu.open{display:flex}
+  .nav-menu a{text-decoration:none;color:var(--text2);font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:18px 0;border-bottom:1px solid var(--line);transition:color .3s;display:block}
+  .nav-menu a:last-child{border-bottom:none}
+  .nav-menu a:hover{color:var(--text2)}
+  .nav-menu .menu-cta{color:var(--copper);margin-top:16px;padding:14px;border:1px solid rgba(196,122,74,.3);border-radius:2px;text-align:center;font-weight:600;font-size:12px}
+  .nav-menu .menu-phone{color:var(--text);font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:1px;margin-top:8px;text-align:center;padding:14px;border:none}
+
+  .section-label{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px;font-weight:400}
+
+  /* PAGE HEADER */
+  .page-header{max-width:900px;margin:0 auto;padding:140px 48px 60px;position:relative;z-index:2}
+  .page-header h1{font-size:clamp(36px,5vw,52px);font-weight:200;letter-spacing:-2px;line-height:1.1;color:var(--text2);margin-bottom:20px}
+  .page-header h1 strong{font-weight:700;color:var(--text)}
+  .page-header p{font-size:16px;line-height:1.8;color:var(--dim);font-weight:300;max-width:540px}
+
+  /* PROCESS */
+  .process{max-width:900px;margin:0 auto;padding:0 48px 100px;position:relative;z-index:2}
+  .step{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:48px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step-num{font-family:var(--mono);font-size:36px;font-weight:700;line-height:1}
+  .step:nth-child(1) .step-num{color:var(--copper)}
+  .step:nth-child(2) .step-num{color:var(--slate)}
+  .step:nth-child(3) .step-num{color:var(--sage)}
+  .step:nth-child(4) .step-num{color:var(--copper2)}
+  .step h3{font-size:24px;font-weight:600;color:var(--text2);margin-bottom:10px;letter-spacing:-.3px}
+  .step p{font-size:15px;line-height:1.8;color:var(--dim);font-weight:300;max-width:600px}
+  .step-tag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:14px;display:inline-block;padding:4px 12px;border-radius:2px}
+  .step:nth-child(1) .step-tag{color:var(--copper);border:1px solid rgba(196,122,74,.2)}
+  .step:nth-child(2) .step-tag{color:var(--slate);border:1px solid rgba(122,138,150,.2)}
+  .step:nth-child(3) .step-tag{color:var(--sage);border:1px solid rgba(122,148,120,.2)}
+  .step:nth-child(4) .step-tag{color:var(--copper2);border:1px solid rgba(212,149,106,.2)}
+
+  /* WHY */
+  .why{border-top:1px solid var(--line);position:relative;z-index:2}
+  .why-inner{max-width:900px;margin:0 auto;padding:100px 48px}
+  .why .section-label{color:var(--copper)}
+  .why-title{font-size:36px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:20px;color:var(--text2)}
+  .why-title strong{font-weight:700;color:var(--text)}
+  .why-intro{color:var(--dim);font-size:15px;line-height:1.85;font-weight:300;margin-bottom:48px;max-width:600px}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+  .why-card{background:var(--bg);padding:36px 28px;transition:background .3s}
+  .why-card:hover{background:var(--card)}
+  .why-idx{font-family:var(--mono);font-size:10px;letter-spacing:2px;font-weight:400;margin-bottom:12px}
+  .why-card:nth-child(1) .why-idx{color:var(--copper)}
+  .why-card:nth-child(2) .why-idx{color:var(--slate)}
+  .why-card:nth-child(3) .why-idx{color:var(--sage)}
+  .why-card:nth-child(4) .why-idx{color:var(--copper2)}
+  .why-card h4{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--text2)}
+  .why-card p{font-size:13px;line-height:1.75;color:var(--dim);font-weight:300}
+
+  /* TIMELINE */
+  .timeline{border-top:1px solid var(--line);position:relative;z-index:2}
+  .timeline-inner{max-width:900px;margin:0 auto;padding:100px 48px}
+  .timeline .section-label{color:var(--slate)}
+  .timeline-title{font-size:36px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:48px;color:var(--text2)}
+  .timeline-title strong{font-weight:700;color:var(--text)}
+  .tl-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line2);align-items:baseline}
+  .tl-row:last-child{border-bottom:none}
+  .tl-time{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--copper);font-weight:700}
+  .tl-desc{font-size:14px;color:var(--dim);font-weight:300;line-height:1.6}
+
+  /* CTA */
+  .cta{padding:100px 48px;text-align:center;position:relative;z-index:2;border-top:1px solid var(--line)}
+  .cta h2{font-size:clamp(28px,4vw,44px);font-weight:200;letter-spacing:-1.5px;margin-bottom:16px;color:var(--text2)}
+  .cta h2 em{font-style:italic;color:var(--copper);font-weight:300}
+  .cta p{font-size:15px;color:var(--dim);max-width:440px;margin:0 auto 32px;line-height:1.8;font-weight:300}
+  .btn-primary{background:var(--copper);color:var(--bg);padding:14px 32px;border:none;border-radius:2px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;letter-spacing:.5px}
+  .btn-primary:hover{background:var(--copper2)}
+
+  footer{border-top:1px solid var(--line);position:relative;z-index:2}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:56px 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;font-size:12px;color:var(--dim)}
+  .footer-brand .logo{margin-bottom:14px}
+  .footer-brand p{line-height:1.75;font-weight:300;max-width:280px}
+  .footer-links h5{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--dim);margin-bottom:16px;font-weight:400}
+  .footer-links a{display:block;color:var(--dim);text-decoration:none;padding:4px 0;transition:color .3s;font-weight:300;font-size:12px}
+  .footer-links a:hover{color:var(--text2)}
+  .footer-bottom{max-width:1100px;margin:0 auto;padding:20px 48px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;font-size:10px;color:#3a352e;letter-spacing:1px}
+  .footer-bottom a{color:var(--dim);text-decoration:none}
+
+  @media(max-width:900px){
+    nav{padding:0 16px;height:52px}
+    .logo{font-size:12px;letter-spacing:2px}.logo em{font-size:12px}
+    .nav-links{display:none}.nav-phone{display:none}.hamburger{display:flex}
+    .nav-menu{top:52px;padding:24px 20px}
+    .page-header{padding:100px 20px 40px}
+    .process{padding:0 20px 60px}
+    .step{grid-template-columns:48px 1fr;gap:16px;padding:32px 0}
+    .step-num{font-size:28px}
+    .why-inner{padding:60px 20px}
+    .why-grid{grid-template-columns:1fr}
+    .timeline-inner{padding:60px 20px}
+    .tl-row{grid-template-columns:1fr;gap:4px}
+    .cta{padding:60px 20px}
+    .footer-inner{grid-template-columns:1fr;padding:32px 20px}
+    .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a>
+    <a href="tel:9138319463" class="nav-phone">✆ (913) 831-9463</a>
+  </div>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#cta" class="nav-cta">Free Audit</a>
+  </div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-menu">
+  <a href="index.html#services" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Services</a>
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="index.html#pricing" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Pricing</a>
+  <a href="index.html#cta" class="menu-cta" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Free Audit</a>
+  <a href="tel:9138319463" class="menu-phone">✆ (913) 831-9463</a>
+</div>
+
+<div class="page-header">
+  <div class="section-label reveal" style="color:var(--copper)">How It Works</div>
+  <h1 class="reveal reveal-d1">Kickoff to launch. <strong>Days, not months.</strong></h1>
+  <p class="reveal reveal-d2">No 12-week timelines. No scope creep. No mystery about what you're getting. Here's exactly how we work.</p>
+</div>
+
+<!-- PROCESS -->
+<div class="process">
+
+  <div class="step reveal">
+    <div class="step-num">01</div>
+    <div>
+      <h3>Audit</h3>
+      <p>Free deep-dive into your current site, search presence, Google Business Profile, and competitive landscape. We pull real data and show you exactly where you're bleeding leads — and where the opportunities are. No fluff, no pitch deck. Just the truth.</p>
+      <div class="step-tag">Free · 20 minutes · No obligation</div>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-num">02</div>
+    <div>
+      <h3>Strategy</h3>
+      <p>Based on the audit, we build a prioritized roadmap for your business, your market, and your budget. What to do first, what can wait, and what ROI to expect. You approve the plan before we write a line of code.</p>
+      <div class="step-tag">Custom plan · Your budget · Clear deliverables</div>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-num">03</div>
+    <div>
+      <h3>Build</h3>
+      <p>AI-accelerated execution. We design and code your site, set up your Google Ads, deploy your schema, and build your content — all in days. You review, we iterate. Tight feedback cycles, zero scope creep, and a live site before your competitors know what happened.</p>
+      <div class="step-tag">Days, not weeks · You review everything</div>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-num">04</div>
+    <div>
+      <h3>Optimize</h3>
+      <p>Monthly reporting, content updates, rank tracking, AEO monitoring, and continuous refinement. Your digital presence gets sharper every single month. You get a simple report card showing exactly where you stand and what we're doing about it.</p>
+      <div class="step-tag">Monthly report card · Month-to-month · Cancel anytime</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TYPICAL TIMELINE -->
+<section class="timeline">
+  <div class="timeline-inner">
+    <div class="section-label reveal" style="color:var(--slate)">Typical Timeline</div>
+    <h2 class="timeline-title reveal reveal-d1">What a real engagement <strong>looks like.</strong></h2>
+    <div class="tl-row reveal"><div class="tl-time">Day 1</div><div class="tl-desc">Free audit call. We pull up your site, your competitors, your search presence.</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Day 2–3</div><div class="tl-desc">Strategy and proposal delivered. You review and approve.</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Day 4–5</div><div class="tl-desc">Design mockup ready. You give feedback.</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Day 6–8</div><div class="tl-desc">Site built, SEO deployed, schema live. Final review.</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Day 9–10</div><div class="tl-desc">Launch. Analytics connected. Google Ads live (if applicable).</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Day 30</div><div class="tl-desc">First monthly report card delivered. Post-launch support ends, retainer begins.</div></div>
+    <div class="tl-row reveal"><div class="tl-time">Ongoing</div><div class="tl-desc">Monthly report, content updates, rank tracking, AEO monitoring. Sharper every month.</div></div>
+  </div>
+</section>
+
+<!-- WHY FLINT -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-label reveal">Why Flint</div>
+    <h2 class="why-title reveal reveal-d1">Not another agency. <strong>A different model.</strong></h2>
+    <p class="why-intro reveal reveal-d2">Traditional agencies bill for project managers, account reps, and junior designers. We use AI to handle the volume work and pass the savings directly to you.</p>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-idx">01</div><h4>AI-native, not AI-sprinkled</h4><p>Every workflow runs through purpose-built AI. We ship agency-quality work at half the cost in half the time. That's the structural advantage.</p></div>
+      <div class="why-card reveal reveal-d1"><div class="why-idx">02</div><h4>Operator-built credibility</h4><p>We built and ranked our own sites, managed our own ad budgets, and scaled our own businesses before touching a client project.</p></div>
+      <div class="why-card reveal reveal-d2"><div class="why-idx">03</div><h4>Kansas City native</h4><p>We live here. We know the search patterns, the competitors, the neighborhoods — from south JoCo to the Northland. Local means accountable.</p></div>
+      <div class="why-card reveal reveal-d3"><div class="why-idx">04</div><h4>No contracts. No bloat.</h4><p>Month-to-month on retainers. Cancel with an email. We earn your business every month by delivering results.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="reveal">Start with a free <em>audit.</em></h2>
+  <p class="reveal reveal-d1">20 minutes. Real data. No pitch. We'll show you exactly where the opportunities are.</p>
+  <a href="index.html#cta" class="btn-primary reveal reveal-d2">Get Your Free Audit</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a><p>AI-first digital agency built for small businesses in the Kansas City area.</p></div>
+    <div class="footer-links"><h5>Services</h5><a href="index.html#services">Websites</a><a href="index.html#services">SEO & Content</a><a href="index.html#services">AEO</a><a href="index.html#services">Google Ads</a></div>
+    <div class="footer-links"><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="how-it-works.html">How It Works</a><a href="index.html#pricing">Pricing</a><a href="faq.html">FAQ</a><a href="insights.html">Insights</a><a href="index.html#cta">Free Audit</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Flint Digital · Kansas City Area</span><span>(913) 831-9463</span><a href="https://flintdigital.ai">flintdigital.ai</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

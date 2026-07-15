@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Flint Digital is an AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads — delivered in days, not months.">
+<meta property="og:title" content="Flint Digital — AI-First Agency for Small Business">
+<meta property="og:description" content="We make small businesses impossible to ignore online. Websites, SEO, AEO, and Google Ads — delivered in days at a fraction of agency cost.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flintdigital.ai">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<title>Flint Digital — AI-First Digital Agency · Kansas City Area</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b09;
+    --surface: #121110;
+    --card: #15140f;
+    --text: #e2ddd4;
+    --text2: #c8c0b4;
+    --dim: #6b6459;
+    --copper: #c47a4a;
+    --copper2: #d4956a;
+    --slate: #7a8a96;
+    --slate2: #9aacb8;
+    --sage: #7a9478;
+    --sage2: #9ab898;
+    --sand: #b8a88a;
+    --warm: #3d3529;
+    --line: rgba(255,255,255,.06);
+    --line2: rgba(255,255,255,.025);
+    --mono: 'Space Mono', monospace;
+    --sans: 'Outfit', system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.24s}.reveal-d3{transition-delay:.36s}.reveal-d4{transition-delay:.48s}
+
+  /* GRID BG */
+  .grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0}
+
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:60px;position:fixed;top:0;left:0;right:0;z-index:10001;background:rgba(12,11,9,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  .nav-left{display:flex;align-items:center;gap:24px}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text2)}
+  .logo span{color:var(--copper)}
+  .logo em{font-style:italic;font-weight:300;color:var(--copper);font-family:var(--sans);font-size:13px;letter-spacing:1px;text-transform:none;vertical-align:baseline;margin-left:-2px}
+  .nav-phone{color:var(--text)!important;font-family:var(--mono);font-size:12px;letter-spacing:1px;font-weight:700;text-decoration:none}
+  .nav-links{display:flex;align-items:center;gap:32px}
+  .nav-links a{text-decoration:none;color:var(--dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
+  .nav-links a:hover{color:var(--text2)}
+  .nav-cta{color:var(--copper)!important;border:1px solid rgba(196,122,74,.3);padding:7px 18px;border-radius:2px;transition:all .3s}
+  .nav-cta:hover{background:var(--copper);color:var(--bg)!important;border-color:var(--copper)}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:all .3s}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .nav-menu{display:none;position:fixed;top:60px;left:0;right:0;background:#0c0b09;border-bottom:1px solid var(--line);padding:32px 48px;flex-direction:column;gap:0;z-index:10000}
+  .nav-menu.open{display:flex}
+  .nav-menu a{text-decoration:none;color:var(--text2);font-size:14px;letter-spacing:3px;text-transform:uppercase;padding:18px 0;border-bottom:1px solid var(--line);transition:color .3s;display:block}
+  .nav-menu a:last-child{border-bottom:none}
+  .nav-menu a:hover{color:var(--text2)}
+  .nav-menu .menu-cta{color:var(--copper);margin-top:16px;padding:14px;border:1px solid rgba(196,122,74,.3);border-radius:2px;text-align:center;font-weight:600;font-size:12px}
+  .nav-menu .menu-phone{color:var(--text);font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:1px;margin-top:8px;text-align:center;padding:14px;border:none}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:0 48px;position:relative;overflow:hidden}
+  .hero-inner{max-width:1100px;margin:0 auto;width:100%;padding:140px 0 100px;position:relative;z-index:2}
+  .hero-glow{position:absolute;top:50%;right:10%;width:500px;height:500px;transform:translateY(-50%);background:radial-gradient(circle,rgba(196,122,74,.06) 0%,transparent 70%);filter:blur(60px);pointer-events:none}
+
+  /* SPARK */
+  .spark{position:absolute;top:50%;right:12%;transform:translateY(-50%);width:400px;height:400px;pointer-events:none}
+  .spark-ring{position:absolute;top:50%;left:50%;border-radius:50%;animation:spark-breathe 7s ease-in-out infinite}
+  .spark-ring:nth-child(1){width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid rgba(196,122,74,.1);animation-delay:0s}
+  .spark-ring:nth-child(2){width:220px;height:220px;margin:-110px 0 0 -110px;border:1px solid rgba(122,138,150,.06);animation-delay:1.5s}
+  .spark-ring:nth-child(3){width:320px;height:320px;margin:-160px 0 0 -160px;border:1px solid rgba(122,148,120,.04);animation-delay:3s}
+  @keyframes spark-breathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.03)}}
+  .spark-core{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--copper);box-shadow:0 0 12px var(--copper),0 0 36px rgba(196,122,74,.25);animation:core-pulse 4s ease-in-out infinite}
+  @keyframes core-pulse{0%,100%{box-shadow:0 0 12px var(--copper),0 0 36px rgba(196,122,74,.2)}50%{box-shadow:0 0 20px var(--copper),0 0 60px rgba(196,122,74,.35)}}
+  .hero-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--dim);margin-bottom:32px;line-height:1.8}
+  .eyebrow-geo{color:var(--copper);letter-spacing:4px}
+  .hero h1{font-size:clamp(38px,5.5vw,68px);font-weight:200;line-height:1.08;letter-spacing:-2px;max-width:780px;color:var(--text2)}
+  .hero h1 strong{font-weight:700;color:var(--text)}
+  .hero h1 em{font-style:italic;color:var(--copper);font-weight:300}
+  .hero-sub{font-family:var(--mono);font-size:13px;letter-spacing:2px;color:var(--copper);margin-top:24px;font-weight:400}
+  .hero-desc{font-size:16px;line-height:1.85;color:var(--dim);margin-top:16px;max-width:480px;font-weight:300}
+  .hero-ctas{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn-primary{background:var(--copper);color:var(--bg);padding:14px 32px;border:none;border-radius:2px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;letter-spacing:.5px}
+  .btn-primary:hover{background:var(--copper2)}
+  .btn-secondary{border:1px solid var(--line);color:var(--text2);padding:13px 28px;border-radius:2px;font-size:13px;font-weight:400;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;letter-spacing:.5px}
+  .btn-secondary:hover{border-color:var(--dim);color:var(--text)}
+  .hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .metric{padding:28px 0;border-right:1px solid var(--line);text-align:center}
+  .metric:last-child{border-right:none}
+  .metric h3{font-family:var(--mono);font-size:22px;font-weight:400;letter-spacing:-1px}
+  .metric:nth-child(1) h3{color:var(--copper)}
+  .metric:nth-child(2) h3{color:var(--slate)}
+  .metric:nth-child(3) h3{color:var(--sage)}
+  .metric:nth-child(4) h3{color:var(--copper2)}
+  .metric p{font-size:9px;color:var(--dim);margin-top:6px;text-transform:uppercase;letter-spacing:2.5px;font-weight:500}
+
+  /* SOCIAL PROOF */
+  .proof{border-bottom:1px solid var(--line);padding:20px 48px;text-align:center;position:relative;z-index:2}
+  .proof-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+  .proof-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+  .proof-logos{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center}
+  .proof-logo{font-size:12px;color:var(--dim);font-weight:500;letter-spacing:.5px;padding:6px 14px;border:1px solid var(--line);border-radius:2px;white-space:nowrap;transition:all .3s}
+  .proof-logo:nth-child(1){border-color:rgba(196,122,74,.15);color:var(--copper2)}
+  .proof-logo:nth-child(2){border-color:rgba(122,138,150,.15);color:var(--slate2)}
+  .proof-logo:nth-child(3){border-color:rgba(122,148,120,.15);color:var(--sage2)}
+
+  /* WHO WE HELP */
+  .audience{position:relative;z-index:2;border-bottom:1px solid var(--line)}
+  .audience-inner{max-width:1100px;margin:0 auto;padding:80px 48px;text-align:center}
+  .audience .section-label{color:var(--sand)}
+  .audience h2{font-size:32px;font-weight:200;letter-spacing:-1px;margin-bottom:32px;color:var(--text2)}
+  .audience h2 strong{font-weight:700;color:var(--text)}
+  .audience-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .audience-tag{font-size:13px;font-weight:400;padding:10px 20px;border:1px solid var(--line);color:var(--dim);transition:all .3s;letter-spacing:.3px}
+  .audience-tag:hover{color:var(--text2);border-color:var(--dim);background:rgba(255,255,255,.02)}
+
+  /* SECTIONS */
+  .section{max-width:1100px;margin:0 auto;padding:120px 48px;position:relative;z-index:2}
+  .section-label{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px;font-weight:400}
+  .section-title{font-size:40px;font-weight:200;letter-spacing:-1px;line-height:1.12;margin-bottom:64px;max-width:580px;color:var(--text2)}
+  .section-title strong{font-weight:700;color:var(--text)}
+
+  /* SERVICES — 4 pillars now */
+  .svc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+  .svc{background:var(--bg);padding:44px 28px;transition:background .4s}
+  .svc:hover{background:var(--card)}
+  .svc-num{font-family:var(--mono);font-size:10px;letter-spacing:3px;margin-bottom:24px;font-weight:400}
+  .svc:nth-child(1) .svc-num{color:var(--copper)}
+  .svc:nth-child(2) .svc-num{color:var(--slate)}
+  .svc:nth-child(3) .svc-num{color:var(--sage)}
+  .svc:nth-child(4) .svc-num{color:var(--sand)}
+  .svc h3{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:-.3px}
+  .svc p{font-size:12px;line-height:1.8;color:var(--dim);font-weight:300}
+  .svc-tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+  .svc-tag{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:1px}
+  .svc:nth-child(1) .svc-tag{color:var(--copper);border:1px solid rgba(196,122,74,.2)}
+  .svc:nth-child(2) .svc-tag{color:var(--slate);border:1px solid rgba(122,138,150,.2)}
+  .svc:nth-child(3) .svc-tag{color:var(--sage);border:1px solid rgba(122,148,120,.2)}
+  .svc:nth-child(4) .svc-tag{color:var(--sand);border:1px solid rgba(184,168,138,.2)}
+
+  /* PREVIEW */
+  .preview{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .preview-inner{max-width:1100px;margin:0 auto;padding:120px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .preview-text .section-label{color:var(--slate)}
+  .preview-text .section-title{margin-bottom:20px}
+  .preview-desc{color:var(--dim);font-size:14px;line-height:1.85;font-weight:300;margin-bottom:36px}
+  .preview-stats{display:flex;gap:40px}
+  .preview-stat h4{font-family:var(--mono);font-size:24px;font-weight:400}
+  .preview-stat:nth-child(1) h4{color:var(--copper)}
+  .preview-stat:nth-child(2) h4{color:var(--slate)}
+  .preview-stat:nth-child(3) h4{color:var(--sage)}
+  .preview-stat p{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+  .preview-mockup{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .mockup-bar{background:var(--surface);padding:8px 14px;display:flex;gap:5px;align-items:center;border-bottom:1px solid var(--line)}
+  .mockup-dot{width:7px;height:7px;border-radius:50%}
+  .mockup-dot:nth-child(1){background:#6b5e52}.mockup-dot:nth-child(2){background:#5a5549}.mockup-dot:nth-child(3){background:#4a4640}
+  .mockup-url{margin-left:10px;font-family:var(--mono);font-size:9px;color:var(--dim);background:rgba(255,255,255,.02);padding:3px 10px;border-radius:2px;flex:1;text-align:center;letter-spacing:1px}
+  .mockup-body{padding:24px;display:flex;flex-direction:column;gap:12px}
+  .mockup-hero-fake{background:var(--warm);padding:24px 20px;border-radius:3px;border-left:3px solid var(--copper)}
+  .mockup-hero-fake h4{color:var(--text);font-size:16px;font-weight:600;margin-bottom:4px}
+  .mockup-hero-fake p{color:var(--dim);font-size:10px}
+  .mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .mockup-card{background:rgba(255,255,255,.015);border:1px solid var(--line2);border-radius:2px;padding:14px}
+  .mockup-ln{height:4px;border-radius:1px;margin-bottom:5px}
+  .mockup-card:nth-child(1) .mockup-ln:first-child{background:rgba(196,122,74,.15);width:65%}
+  .mockup-card:nth-child(2) .mockup-ln:first-child{background:rgba(122,138,150,.12);width:55%}
+  .mockup-card:nth-child(3) .mockup-ln:first-child{background:rgba(122,148,120,.12);width:70%}
+  .mockup-card:nth-child(4) .mockup-ln:first-child{background:rgba(184,168,138,.1);width:60%}
+  .mockup-ln:nth-child(2){background:rgba(255,255,255,.03);width:80%}
+
+  /* REPORT CARD */
+  .report{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .report-inner{max-width:1100px;margin:0 auto;padding:120px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .report-text .section-label{color:var(--sage)}
+  .report-text .section-title{margin-bottom:20px}
+  .report-desc{color:var(--dim);font-size:14px;line-height:1.85;font-weight:300;margin-bottom:24px}
+  .report-card{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;max-width:420px}
+  .report-header{background:var(--surface);padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .report-header-left h4{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:2px}
+  .report-header-left p{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:1px}
+  .report-header-right{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:1px;text-align:right}
+  .report-body{padding:20px}
+  .report-section{margin-bottom:20px}
+  .report-section:last-child{margin-bottom:0}
+  .report-section-title{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+  .report-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+  .report-row-label{font-size:13px;color:var(--dim);font-weight:300}
+  .report-row-value{font-family:var(--mono);font-size:13px;font-weight:700}
+  .report-row-change{font-family:var(--mono);font-size:10px;margin-left:8px}
+  .rg{color:var(--sage)}.rr{color:#c45a4a}
+  .report-grade{display:inline-block;padding:3px 10px;border-radius:2px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1px}
+  .grade-a{background:rgba(122,148,120,.15);color:var(--sage)}
+  .grade-b{background:rgba(196,168,74,.15);color:var(--sand)}
+  .grade-new{background:rgba(196,122,74,.15);color:var(--copper)}
+  .report-footer{padding:12px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .report-footer p{font-size:10px;color:var(--dim);font-weight:300}
+  .report-footer span{font-family:var(--mono);font-size:9px;color:var(--copper);letter-spacing:1px}
+  .comp-row{padding:5px 8px;border-radius:2px}
+  .comp-you{background:rgba(196,122,74,.08);border-left:2px solid var(--copper)}
+
+  /* PORTFOLIO */
+  .portfolio{border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:2}
+  .portfolio-inner{max-width:1100px;margin:0 auto;padding:120px 48px}
+  .portfolio .section-label{color:var(--copper)}
+  .case-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;background:var(--line)}
+  .case{background:var(--bg);transition:background .3s;overflow:hidden}
+  .case:hover{background:var(--card)}
+  .case-browser{border-bottom:1px solid var(--line)}
+  .case-bar{background:var(--surface);padding:6px 12px;display:flex;gap:4px;align-items:center}
+  .case-dot{width:5px;height:5px;border-radius:50%}
+  .case-dot:nth-child(1){background:#6b5e52}.case-dot:nth-child(2){background:#5a5549}.case-dot:nth-child(3){background:#4a4640}
+  .case-url{margin-left:8px;font-family:var(--mono);font-size:8px;color:var(--dim);letter-spacing:1px}
+  .case-screen{height:140px;display:flex;flex-direction:column;padding:14px;gap:8px}
+  .case-screen-hero{flex:1;border-radius:2px;display:flex;align-items:flex-end;padding:12px}
+  .case-screen-hero h5{font-size:11px;font-weight:600;color:#fff}
+  .case-screen-hero p{font-size:8px;color:rgba(255,255,255,.5);margin-top:2px}
+  .case-screen-row{display:flex;gap:4px}
+  .case-screen-block{height:16px;flex:1;border-radius:1px;background:rgba(255,255,255,.03)}
+  .case:nth-child(1) .case-screen-hero{background:linear-gradient(135deg,#2d1a0a,var(--copper))}
+  .case:nth-child(2) .case-screen-hero{background:linear-gradient(135deg,#0a1a2d,var(--slate))}
+  .case:nth-child(3) .case-screen-hero{background:linear-gradient(135deg,#0a1a0f,var(--sage))}
+  .case-body{padding:28px 24px}
+  .case-tag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:400}
+  .case:nth-child(1) .case-tag{color:var(--copper)}
+  .case:nth-child(2) .case-tag{color:var(--slate)}
+  .case:nth-child(3) .case-tag{color:var(--sage)}
+  .case h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--text2)}
+  .case-desc{font-size:11px;line-height:1.7;color:var(--dim);font-weight:300;margin-bottom:16px}
+  .case-metrics{display:flex;gap:16px;padding-top:14px;border-top:1px solid var(--line2)}
+  .case-metric h4{font-family:var(--mono);font-size:16px;font-weight:700}
+  .case:nth-child(1) .case-metric h4{color:var(--copper)}
+  .case:nth-child(2) .case-metric h4{color:var(--slate)}
+  .case:nth-child(3) .case-metric h4{color:var(--sage)}
+  .case-metric p{font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+  .case-result{margin-top:14px;font-family:var(--mono);font-size:9px;letter-spacing:.5px;color:var(--dim);line-height:1.5}
+  .case-result strong{color:var(--text2);font-weight:700}
+
+  /* WHY */
+  .why{position:relative;z-index:2}
+  .why-inner{max-width:1100px;margin:0 auto;padding:120px 48px;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
+  .why .section-label{color:var(--copper)}
+  .why .section-title{margin-bottom:20px}
+  .why-intro{color:var(--dim);font-size:14px;line-height:1.85;font-weight:300}
+  .why-list{display:flex;flex-direction:column}
+  .why-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line2)}
+  .why-item:last-child{border-bottom:none}
+  .why-idx{font-family:var(--mono);font-size:10px;min-width:28px;padding-top:4px;letter-spacing:2px;font-weight:400}
+  .why-item:nth-child(1) .why-idx{color:var(--copper)}
+  .why-item:nth-child(2) .why-idx{color:var(--slate)}
+  .why-item:nth-child(3) .why-idx{color:var(--sage)}
+  .why-item:nth-child(4) .why-idx{color:var(--copper2)}
+  .why-item h4{font-size:15px;font-weight:600;margin-bottom:5px;color:var(--text2)}
+  .why-item p{font-size:13px;line-height:1.7;color:var(--dim);font-weight:300}
+
+  /* FOUNDER */
+  .founder{border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:2}
+  .founder-inner{max-width:1100px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+  .founder-avatar{width:100px;height:100px;border-radius:50%;background:var(--warm);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:28px;font-weight:700;color:var(--copper);flex-shrink:0}
+  .founder-text .section-label{color:var(--copper2);margin-bottom:10px}
+  .founder-text h3{font-size:22px;font-weight:600;margin-bottom:6px;color:var(--text2)}
+  .founder-text .founder-role{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+  .founder-text p{font-size:14px;line-height:1.8;color:var(--dim);font-weight:300;max-width:600px}
+
+  /* PROCESS */
+  .proc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:64px;background:var(--line)}
+  .proc{background:var(--bg);padding:36px 28px;transition:background .3s}
+  .proc:hover{background:var(--card)}
+  .proc-step{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;font-weight:400}
+  .proc:nth-child(1) .proc-step{color:var(--copper)}
+  .proc:nth-child(2) .proc-step{color:var(--slate)}
+  .proc:nth-child(3) .proc-step{color:var(--sage)}
+  .proc:nth-child(4) .proc-step{color:var(--copper2)}
+  .proc h4{font-size:18px;font-weight:600;margin-bottom:10px;color:var(--text2)}
+  .proc p{font-size:12px;line-height:1.75;color:var(--dim);font-weight:300}
+
+  /* PRICING */
+  .pricing{border-top:1px solid var(--line);position:relative;z-index:2}
+  .pricing-inner{max-width:1100px;margin:0 auto;padding:120px 48px}
+  .pricing .section-label{color:var(--sage)}
+  .build-card{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--copper);padding:48px;margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:64px}
+  .build-card h3{font-size:28px;font-weight:600;color:var(--text2);margin-bottom:8px}
+  .build-card .build-price{font-size:48px;font-weight:200;letter-spacing:-2px;color:var(--text);margin-bottom:8px}
+  .build-card .build-price span{font-size:14px;color:var(--dim);font-weight:400}
+  .build-card p{font-size:14px;line-height:1.7;color:var(--dim);font-weight:300}
+  .build-card .build-tag{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--copper);margin-bottom:12px;font-weight:400}
+  .build-feats{display:flex;flex-direction:column;gap:8px}
+  .build-feat{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:10px;font-weight:300}
+  .build-feat::before{content:'—';font-family:var(--mono);font-size:10px;color:var(--copper)}
+  .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+  .prx{background:var(--bg);padding:44px 32px;transition:background .3s}
+  .prx:hover{background:var(--card)}
+  .prx.pop{background:var(--card);border-top:2px solid var(--copper)}
+  .prx-tag{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;font-weight:400}
+  .prx:nth-child(1) .prx-tag{color:var(--copper)}
+  .prx:nth-child(2) .prx-tag{color:var(--slate)}
+  .prx:nth-child(3) .prx-tag{color:var(--sage)}
+  .prx h3{font-size:20px;font-weight:600;margin-bottom:4px;color:var(--text2)}
+  .prx-price{font-size:42px;font-weight:200;margin:16px 0;letter-spacing:-2px;color:var(--text)}
+  .prx-price span{font-size:13px;color:var(--dim);font-weight:400;letter-spacing:0}
+  .prx-desc{font-size:13px;line-height:1.65;color:var(--dim);margin-bottom:24px;font-weight:300}
+  .prx-feats{border-top:1px solid var(--line);padding-top:18px}
+  .prx-feat{font-size:12px;color:var(--dim);padding:5px 0;display:flex;align-items:center;gap:10px;font-weight:300}
+  .prx-feat::before{content:'—';font-family:var(--mono);font-size:10px}
+  .prx:nth-child(1) .prx-feat::before{color:var(--copper)}
+  .prx:nth-child(2) .prx-feat::before{color:var(--slate)}
+  .prx:nth-child(3) .prx-feat::before{color:var(--sage)}
+  .prx-btn{display:block;text-align:center;margin-top:28px;padding:13px;border:1px solid var(--line);border-radius:2px;color:var(--text2);text-decoration:none;font-size:12px;font-weight:500;transition:all .3s;letter-spacing:1px;text-transform:uppercase}
+  .prx:nth-child(1) .prx-btn:hover{border-color:var(--copper);color:var(--copper)}
+  .prx.pop .prx-btn{background:var(--copper);border-color:var(--copper);color:var(--bg)}
+  .prx.pop .prx-btn:hover{background:var(--copper2)}
+  .prx:nth-child(3) .prx-btn:hover{border-color:var(--sage);color:var(--sage)}
+  .pricing-note{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dim);margin-top:32px;text-align:center}
+
+  /* FAQ */
+  .faq{position:relative;z-index:2;border-top:1px solid var(--line)}
+  .faq-inner{max-width:1100px;margin:0 auto;padding:120px 48px}
+  .faq .section-label{color:var(--slate)}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:64px;background:var(--line)}
+  .faq-item{background:var(--bg);padding:32px 28px;transition:background .3s}
+  .faq-item:hover{background:var(--card)}
+  .faq-item h4{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--text2)}
+  .faq-item p{font-size:13px;line-height:1.75;color:var(--dim);font-weight:300}
+
+  /* CTA + FORM */
+  .cta{padding:120px 48px;text-align:center;position:relative;z-index:2;border-top:1px solid var(--line)}
+  .cta h2{font-size:clamp(32px,4.5vw,48px);font-weight:200;letter-spacing:-1.5px;margin-bottom:16px;color:var(--text2)}
+  .cta h2 em{font-style:italic;color:var(--copper);font-weight:300}
+  .cta>p{font-size:15px;color:var(--dim);max-width:440px;margin:0 auto 40px;line-height:1.8;font-weight:300}
+  .audit-form{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .audit-form input,.audit-form select{
+    background:var(--surface);border:1px solid var(--line);padding:14px 18px;
+    font-family:var(--sans);font-size:13px;color:var(--text);border-radius:2px;
+    outline:none;transition:border-color .3s;font-weight:300;letter-spacing:.3px;
+    -webkit-appearance:none;appearance:none;width:100%;
+  }
+  .audit-form input::placeholder{color:var(--dim)}
+  .audit-form input:focus,.audit-form select:focus{border-color:var(--copper)}
+  .audit-form select{color:var(--dim);cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6459' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .audit-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form-label{display:block;font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+  .audit-form button{
+    background:var(--copper);color:var(--bg);padding:16px;border:none;border-radius:2px;
+    font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;
+    transition:background .3s;letter-spacing:.5px;margin-top:4px;
+  }
+  .audit-form button:hover{background:var(--copper2)}
+  .form-note{font-size:11px;color:var(--dim);margin-top:8px;font-weight:300}
+
+  /* TESTIMONIAL */
+  .testimonial{border-top:1px solid var(--line);position:relative;z-index:2}
+  .testimonial-inner{max-width:1100px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
+  .quote-mark{font-family:var(--mono);font-size:72px;line-height:1;color:var(--copper);opacity:.3;user-select:none}
+  .testimonial blockquote{font-size:20px;font-weight:300;line-height:1.7;color:var(--text2);font-style:italic;letter-spacing:-.3px}
+  .testimonial cite{display:block;margin-top:20px;font-size:12px;color:var(--dim);font-style:normal;font-weight:400;letter-spacing:.5px}
+  .testimonial cite strong{color:var(--copper);font-weight:600}
+
+  /* BLOG */
+  .blog{border-top:1px solid var(--line);position:relative;z-index:2}
+  .blog-inner{max-width:1100px;margin:0 auto;padding:120px 48px}
+  .blog .section-label{color:var(--sage)}
+  .blog-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;background:var(--line)}
+  .blog-card{background:var(--bg);padding:36px 28px;transition:background .3s}
+  .blog-card:hover{background:var(--card)}
+  .blog-tag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;font-weight:400}
+  .blog-card:nth-child(1) .blog-tag{color:var(--copper)}
+  .blog-card:nth-child(2) .blog-tag{color:var(--slate)}
+  .blog-card:nth-child(3) .blog-tag{color:var(--sage)}
+  .blog-card h3{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--text2);line-height:1.35;letter-spacing:-.2px}
+  .blog-card p{font-size:12px;line-height:1.75;color:var(--dim);font-weight:300}
+  .blog-card .read-more{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:color .3s}
+  .blog-card:nth-child(1) .read-more{color:var(--copper)}
+  .blog-card:nth-child(2) .read-more{color:var(--slate)}
+  .blog-card:nth-child(3) .read-more{color:var(--sage)}
+  .blog-card .read-more:hover{color:var(--text2)}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);position:relative;z-index:2}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:56px 48px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;font-size:12px;color:var(--dim)}
+  .footer-brand .logo{margin-bottom:14px}
+  .footer-brand p{line-height:1.75;font-weight:300;max-width:280px;font-size:12px}
+  .footer-links h5{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--dim);margin-bottom:16px;font-weight:400}
+  .footer-links a{display:block;color:var(--dim);text-decoration:none;padding:4px 0;transition:color .3s;font-weight:300;font-size:12px}
+  .footer-links a:hover{color:var(--text2)}
+  .footer-bottom{max-width:1100px;margin:0 auto;padding:20px 48px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;font-size:10px;color:#3a352e;letter-spacing:1px}
+  .footer-bottom a{color:var(--dim);text-decoration:none}
+
+  @media(max-width:900px){
+    nav{padding:0 16px;height:52px}
+    .logo{font-size:12px;letter-spacing:2px}
+    .logo em{font-size:12px}
+    .nav-links{display:none}
+    .nav-phone{display:none}
+    .hamburger{display:flex}
+    .nav-menu{top:52px;padding:24px 20px}
+    .hero{padding:0 20px}.hero-inner{padding:100px 0 60px}
+    .spark{display:none}
+    .hero h1{font-size:34px;letter-spacing:-1px}
+    .hero-metrics{grid-template-columns:1fr 1fr}
+    .proof{padding:16px 20px}.proof-inner{gap:16px}
+    .audience-inner{padding:48px 20px}
+    .svc-row,.price-row,.case-row,.faq-grid,.blog-row{grid-template-columns:1fr;background:none;gap:1px}
+    .testimonial-inner{grid-template-columns:1fr;gap:16px;padding:60px 20px}
+    .blog-inner{padding:80px 20px}
+    .build-card{grid-template-columns:1fr;gap:24px}
+    .why-inner{grid-template-columns:1fr;gap:48px;padding:80px 20px}
+    .founder-inner{grid-template-columns:1fr;gap:24px;padding:60px 20px;text-align:center}
+    .founder-inner .founder-avatar{margin:0 auto}
+    .proc-row{grid-template-columns:1fr 1fr;gap:1px}
+    .section,.pricing-inner,.portfolio-inner,.faq-inner{padding:80px 20px}
+    .preview-inner{grid-template-columns:1fr;gap:48px;padding:80px 20px}
+    .report-inner{grid-template-columns:1fr;gap:40px;padding:80px 20px}
+    .cta{padding:80px 20px}
+    .audit-form .form-row{grid-template-columns:1fr}
+    .footer-inner{grid-template-columns:1fr;padding:40px 20px}
+    .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}
+  }
+  @media(max-width:480px){
+    .hero-metrics{grid-template-columns:1fr}
+    .proc-row{grid-template-columns:1fr}
+    .preview-stats{flex-direction:column;gap:16px}
+    .audience-tags{gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="nav-left">
+    <div class="logo">FLINT<span>.</span><em>digital</em></div>
+    <a href="tel:9138319463" class="nav-phone">✆ (913) 831-9463</a>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#cta" class="nav-cta">Free Audit</a>
+  </div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-menu">
+  <a href="#services" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Services</a>
+  <a href="work.html" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Work</a>
+  <a href="about.html">About</a>
+  <a href="#pricing" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Pricing</a>
+  <a href="#cta" class="menu-cta" onclick="document.querySelector('.nav-menu').classList.remove('open');document.querySelector('.hamburger').classList.remove('active')">Free Audit</a>
+  <a href="tel:9138319463" class="menu-phone">✆ (913) 831-9463</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="spark">
+    <div class="spark-ring"></div>
+    <div class="spark-ring"></div>
+    <div class="spark-ring"></div>
+    <div class="spark-core"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal">AI-first. Small business only.<br><span class="eyebrow-geo">Kansas City.</span></div>
+    <h1 class="reveal reveal-d1"><strong>Stop losing customers</strong><br>to <em>worse competitors.</em></h1>
+    <p class="hero-sub reveal reveal-d2">Don't let AI become your weakness. Make it your competitive advantage.</p>
+    <p class="hero-desc reveal reveal-d2">We sit at the crosssection of brick-and-mortar and AI — helping small businesses get found on Google, recommended by ChatGPT, and chosen over competitors. Websites, SEO, AEO, and Google Ads delivered in days, not months.</p>
+    <div class="hero-ctas reveal reveal-d3">
+      <a href="#cta" class="btn-primary">Find Out Why They're Outranking You</a>
+      <a href="#process" class="btn-secondary">How It Works</a>
+    </div>
+    <div class="hero-metrics reveal reveal-d4">
+      <div class="metric"><h3>Days</h3><p>Launch timeline</p></div>
+      <div class="metric"><h3>40–60%</h3><p>Below traditional agency rates</p></div>
+      <div class="metric"><h3>100%</h3><p>Of clients month-to-month</p></div>
+      <div class="metric"><h3>Kansas City</h3><p>Born & built here</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof reveal">
+  <div class="proof-inner">
+    <div class="proof-label">Built & ranked by us</div>
+    <div class="proof-logos">
+      <div class="proof-logo">midweststorage.solutions</div>
+      <div class="proof-logo">flinthills.capital</div>
+      <div class="proof-logo">lawncaremedics.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE HELP -->
+<section class="audience reveal">
+  <div class="audience-inner">
+    <div class="section-label">Who We Help</div>
+    <h2>Built for small businesses. <strong>Not enterprise. You.</strong></h2>
+    <div class="audience-tags">
+      <div class="audience-tag">Plumbers</div>
+      <div class="audience-tag">Dentists</div>
+      <div class="audience-tag">Roofers</div>
+      <div class="audience-tag">HVAC</div>
+      <div class="audience-tag">Salons</div>
+      <div class="audience-tag">Auto Shops</div>
+      <div class="audience-tag">Chiropractors</div>
+      <div class="audience-tag">Landscapers</div>
+      <div class="audience-tag">Electricians</div>
+      <div class="audience-tag">Pest Control</div>
+      <div class="audience-tag">Cleaning Services</div>
+      <div class="audience-tag">Gyms & Fitness</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — 4 PILLARS -->
+<section class="section" id="services">
+  <div class="section-label reveal" style="color:var(--copper)">Services</div>
+  <h2 class="section-title reveal reveal-d1">Four pillars of <strong>digital visibility.</strong></h2>
+  <div class="svc-row">
+    <div class="svc reveal reveal-d1">
+      <div class="svc-num">01 — WEBSITE</div>
+      <h3>Websites & E-Commerce</h3>
+      <p>Customer-centric design that puts your visitors first. Future-proof architecture. Fully hosted — no monthly fees, no plugins, no security patches.</p>
+      <div class="svc-tags"><span class="svc-tag">Customer-Centric</span><span class="svc-tag">Future-Proof</span><span class="svc-tag">Hosted</span></div>
+    </div>
+    <div class="svc reveal reveal-d2">
+      <div class="svc-num">02 — SEO</div>
+      <h3>Search & Content</h3>
+      <p>Keyword strategy, technical SEO, schema markup, blog content, citation management, and Google Business Profile optimization.</p>
+      <div class="svc-tags"><span class="svc-tag">Google Search</span><span class="svc-tag">Local Pack</span><span class="svc-tag">Maps</span></div>
+    </div>
+    <div class="svc reveal reveal-d3">
+      <div class="svc-num">03 — AEO</div>
+      <h3>AI Search Optimization</h3>
+      <p>Your customers are asking AI where to go. AEO makes sure ChatGPT, Perplexity, and Google AI Overviews recommend your business.</p>
+      <div class="svc-tags"><span class="svc-tag">AI Overviews</span><span class="svc-tag">Perplexity</span><span class="svc-tag">ChatGPT</span></div>
+    </div>
+    <div class="svc reveal reveal-d4">
+      <div class="svc-num">04 — ADS</div>
+      <h3>Google Paid Ads</h3>
+      <p>Expert Mode campaigns with conversion tracking, negative keyword sculpting, and responsive search ads. Built by someone who manages their own ad spend.</p>
+      <div class="svc-tags"><span class="svc-tag">Google Ads</span><span class="svc-tag">PPC</span><span class="svc-tag">Conversion Tracking</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW -->
+<section class="preview">
+  <div class="preview-inner">
+    <div class="preview-text">
+      <div class="section-label reveal">Deliverables</div>
+      <h2 class="section-title reveal reveal-d1">Sites that look like <strong>this.</strong> Not templates.</h2>
+      <p class="preview-desc reveal reveal-d2">Every site we build is hand-coded for your business, your market, and your customers. We structure every page for maximum visibility across Google and AI search platforms — so Kansas City customers find you first.</p>
+      <div class="preview-stats reveal reveal-d3">
+        <div class="preview-stat"><h4>&lt; 1s</h4><p>Load time</p></div>
+        <div class="preview-stat"><h4>100</h4><p>PageSpeed</p></div>
+        <div class="preview-stat"><h4>$0/mo</h4><p>Hosting</p></div>
+      </div>
+    </div>
+    <div class="preview-mockup reveal reveal-d2">
+      <div class="mockup-bar"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-url">yourbusiness.com</div></div>
+      <div class="mockup-body">
+        <div class="mockup-hero-fake"><h4>Your Business Name.</h4><p>Kansas City Area · Trusted since 2003</p></div>
+        <div class="mockup-grid">
+          <div class="mockup-card"><div class="mockup-ln"></div><div class="mockup-ln"></div></div>
+          <div class="mockup-card"><div class="mockup-ln"></div><div class="mockup-ln"></div></div>
+          <div class="mockup-card"><div class="mockup-ln"></div><div class="mockup-ln"></div></div>
+          <div class="mockup-card"><div class="mockup-ln"></div><div class="mockup-ln"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY REPORT CARD -->
+<section class="report">
+  <div class="report-inner">
+    <div class="report-text">
+      <div class="section-label reveal">What You'll Get</div>
+      <h2 class="section-title reveal reveal-d1" style="max-width:480px">A monthly report you'll <strong>actually read.</strong></h2>
+      <p class="report-desc reveal reveal-d2">No jargon. No 40-page PDF. Every month you get a simple report card showing exactly where you stand — your Google ranking, whether AI is recommending you, and how many people are finding your business. Plain English, one page.</p>
+      <p class="report-desc reveal reveal-d3" style="color:var(--copper)">Included in every plan.</p>
+    </div>
+    <div class="report-card reveal reveal-d2">
+      <div class="report-header">
+        <div class="report-header-left">
+          <h4>Your Business Name</h4>
+          <p>Monthly Report Card</p>
+        </div>
+        <div class="report-header-right">FLINT.<em style="color:var(--copper);font-style:italic;font-family:var(--sans)">digital</em><br>March 2026</div>
+      </div>
+      <div class="report-body">
+        <div class="report-section">
+          <div class="report-section-title" style="color:var(--sand)">Competitor Snapshot — "plumber overland park"</div>
+          <div class="report-row comp-row comp-you">
+            <span class="report-row-label"><strong style="color:var(--text)">★ Your Business</strong></span>
+            <span><span class="report-row-value" style="color:var(--copper)">#4</span></span>
+          </div>
+          <div class="report-row comp-row">
+            <span class="report-row-label">Smith Plumbing Co.</span>
+            <span><span class="report-row-value" style="color:var(--dim)">#1</span></span>
+          </div>
+          <div class="report-row comp-row">
+            <span class="report-row-label">KC Drain Pros</span>
+            <span><span class="report-row-value" style="color:var(--dim)">#2</span></span>
+          </div>
+          <div class="report-row comp-row">
+            <span class="report-row-label">Reliable Plumbing & HVAC</span>
+            <span><span class="report-row-value" style="color:var(--dim)">#3</span></span>
+          </div>
+          <div class="report-row comp-row" style="opacity:.4">
+            <span class="report-row-label">Johnson County Plumbing</span>
+            <span><span class="report-row-value" style="color:var(--dim)">#5</span></span>
+          </div>
+        </div>
+        <div class="report-section">
+          <div class="report-section-title" style="color:var(--copper)">Google Search</div>
+          <div class="report-row">
+            <span class="report-row-label">"plumber overland park"</span>
+            <span><span class="report-row-value" style="color:var(--copper)">#4</span><span class="report-row-change rg">↑ 3</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">"emergency plumber olathe"</span>
+            <span><span class="report-row-value" style="color:var(--copper)">#7</span><span class="report-row-change rg">↑ 12</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">"plumber near me"</span>
+            <span><span class="report-row-value" style="color:var(--copper)">#11</span><span class="report-row-change rg">↑ 8</span></span>
+          </div>
+        </div>
+        <div class="report-section">
+          <div class="report-section-title" style="color:var(--sage)">AI Search (AEO)</div>
+          <div class="report-row">
+            <span class="report-row-label">ChatGPT mentions</span>
+            <span><span class="report-grade grade-a">YES</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">Google AI Overview</span>
+            <span><span class="report-grade grade-b">PARTIAL</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">Perplexity citation</span>
+            <span><span class="report-grade grade-new">NOT YET</span></span>
+          </div>
+        </div>
+        <div class="report-section">
+          <div class="report-section-title" style="color:var(--slate)">Your Website</div>
+          <div class="report-row">
+            <span class="report-row-label">Visitors this month</span>
+            <span><span class="report-row-value" style="color:var(--slate)">342</span><span class="report-row-change rg">↑ 28%</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">Phone calls from site</span>
+            <span><span class="report-row-value" style="color:var(--slate)">18</span><span class="report-row-change rg">↑ 6</span></span>
+          </div>
+          <div class="report-row">
+            <span class="report-row-label">Google reviews</span>
+            <span><span class="report-row-value" style="color:var(--slate)">4.8</span><span class="report-row-change rg">+3 new</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="report-footer">
+        <p>Next report: April 1, 2026</p>
+        <span>flintdigital.ai</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label reveal">Pricing</div>
+    <h2 class="section-title reveal reveal-d1">Transparent. Simple. <strong>No retainer bloat.</strong></h2>
+
+    <!-- ONE-TIME BUILD -->
+    <div class="build-card reveal reveal-d2">
+      <div>
+        <div class="build-tag">One-Time</div>
+        <h3>Website Build</h3>
+        <div class="build-price">$2,500 <span>one-time</span></div>
+        <p>A hand-coded, conversion-focused website delivered in days. Custom-designed for your business, your market, and your customers. Not a template. Not WordPress.</p>
+      </div>
+      <div class="build-feats">
+        <div class="build-feat">Custom design & development</div>
+        <div class="build-feat">Mobile-first, sub-second load</div>
+        <div class="build-feat">SEO + AEO foundation baked in</div>
+        <div class="build-feat">Google Analytics & Search Console</div>
+        <div class="build-feat">30-day post-launch support</div>
+        <div class="build-feat">You own everything — code, domain, content</div>
+      </div>
+    </div>
+
+    <!-- RECURRING TIERS -->
+    <div class="section-label reveal" style="color:var(--slate);margin-bottom:32px">Monthly Plans — All Month-to-Month</div>
+    <div class="price-row">
+      <div class="prx reveal reveal-d1">
+        <div class="prx-tag">Maintain</div>
+        <h3>Hosting + Monitoring</h3>
+        <div class="prx-price">$249 <span>/month</span></div>
+        <p class="prx-desc">Keep the lights on and the rankings tracked. Hosting, security, and SEO/AEO monitoring so you always know where you stand.</p>
+        <div class="prx-feats">
+          <div class="prx-feat">Hosting, SSL, uptime monitoring</div>
+          <div class="prx-feat">Monthly backups</div>
+          <div class="prx-feat">SEO rank tracking</div>
+          <div class="prx-feat">AEO citation monitoring</div>
+          <div class="prx-feat">30 min of edits per month</div>
+          <div class="prx-feat">Monthly status report</div>
+        </div>
+        <a href="#cta" class="prx-btn">Get Started</a>
+      </div>
+      <div class="prx pop reveal reveal-d2">
+        <div class="prx-tag">Grow</div>
+        <h3>Content + Optimization</h3>
+        <div class="prx-price">$749 <span>/month</span></div>
+        <p class="prx-desc">Everything in Maintain plus active content creation and quarterly site refreshes. This is where rankings start climbing.</p>
+        <div class="prx-feats">
+          <div class="prx-feat">Everything in Maintain</div>
+          <div class="prx-feat">2 SEO/AEO articles per month</div>
+          <div class="prx-feat">Quarterly site refresh & design updates</div>
+          <div class="prx-feat">Google Business Profile management</div>
+          <div class="prx-feat">Review monitoring & generation strategy</div>
+          <div class="prx-feat">Monthly analytics deep-dive</div>
+          <div class="prx-feat">Citation building & cleanup</div>
+        </div>
+        <a href="#cta" class="prx-btn">Get Started</a>
+      </div>
+      <div class="prx reveal reveal-d3">
+        <div class="prx-tag">Dominate</div>
+        <h3>Full-Stack Growth</h3>
+        <div class="prx-price">$1,499 <span>/month</span></div>
+        <p class="prx-desc">The complete engine. Google Ads, content, AEO, and a dedicated strategist. This is how you own your market.</p>
+        <div class="prx-feats">
+          <div class="prx-feat">Everything in Grow</div>
+          <div class="prx-feat">Google Ads build + management</div>
+          <div class="prx-feat">4 SEO/AEO articles per month</div>
+          <div class="prx-feat">AI search optimization & monitoring</div>
+          <div class="prx-feat">Reputation management & review response</div>
+          <div class="prx-feat">Dedicated strategist</div>
+          <div class="prx-feat">Quarterly strategy reviews</div>
+        </div>
+        <a href="#cta" class="prx-btn">Get Started</a>
+      </div>
+    </div>
+    <div class="pricing-note reveal">All plans month-to-month. No contracts. Cancel anytime with an email.</div>
+  </div>
+</section>
+
+<!-- CTA + LEAD CAPTURE -->
+<section class="cta" id="cta">
+  <h2 class="reveal">Ready to be <em>found?</em></h2>
+  <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
+  <div class="audit-form reveal reveal-d2">
+    <div class="form-row">
+      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" type="text" placeholder="Jane Smith" required></div>
+      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" type="email" placeholder="jane@business.com" required></div>
+    </div>
+    <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" type="url" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
+    <div><label class="form-label" for="audit-need">What do you need most?</label>
+    <select id="audit-need">
+      <option value="" disabled selected>Select one...</option>
+      <option>New website</option>
+      <option>Website redesign</option>
+      <option>SEO & content</option>
+      <option>Google Ads</option>
+      <option>AEO / AI search</option>
+      <option>All of the above</option>
+    </select></div>
+    <button type="submit">Get My Free Audit</button>
+    <div class="form-note">No spam. No sales calls unless you want one. Just a free audit in your inbox.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="logo">FLINT<span>.</span><em>digital</em></div><p>AI-first digital agency built for small businesses in the Kansas City area. Websites. SEO. AEO. Google Ads.</p></div>
+    <div class="footer-links"><h5>Services</h5><a href="#services">Websites</a><a href="#services">SEO & Content</a><a href="#services">AEO</a><a href="#services">Google Ads</a></div>
+    <div class="footer-links"><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="how-it-works.html">How It Works</a><a href="#pricing">Pricing</a><a href="faq.html">FAQ</a><a href="insights.html">Insights</a><a href="#cta">Free Audit</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Flint Digital · Kansas City Area</span><span>(913) 831-9463</span><a href="https://flintdigital.ai">flintdigital.ai</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

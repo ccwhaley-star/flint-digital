@@ -1,0 +1,203 @@
+/* V1 Redesign — How It Works Page */
+
+/* Visual Timeline */
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px 120px;
+  position: relative;
+  z-index: 2;
+}
+.timeline-steps {
+  position: relative;
+  padding-left: 48px;
+}
+.timeline-steps::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--copper), var(--slate), var(--sage), var(--copper2));
+}
+.tl-step {
+  position: relative;
+  padding: 0 0 56px 0;
+}
+.tl-step:last-child { padding-bottom: 0 }
+.tl-node {
+  position: absolute;
+  left: -44px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--v1-bg);
+  border: 2px solid var(--copper);
+}
+.tl-step:nth-child(2) .tl-node { border-color: var(--copper) }
+.tl-step:nth-child(3) .tl-node { border-color: var(--slate) }
+.tl-step:nth-child(4) .tl-node { border-color: var(--slate) }
+.tl-step:nth-child(5) .tl-node { border-color: var(--sage) }
+.tl-step:nth-child(6) .tl-node { border-color: var(--sage) }
+.tl-step:nth-child(7) .tl-node { border-color: var(--copper2) }
+.tl-time {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--copper);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tl-card {
+  background: var(--v1-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 24px 28px;
+}
+.tl-card p {
+  font-size: 15px;
+  color: var(--dim);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Process Section */
+.how-process {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px 120px;
+  position: relative;
+  z-index: 2;
+}
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+.step:last-child { border-bottom: none }
+.step-num {
+  font-family: var(--mono);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+.step:nth-child(1) .step-num { color: var(--copper) }
+.step:nth-child(2) .step-num { color: var(--slate) }
+.step:nth-child(3) .step-num { color: var(--sage) }
+.step:nth-child(4) .step-num { color: var(--copper2) }
+.step h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--v1-text2);
+  margin-bottom: 12px;
+  letter-spacing: -.3px;
+}
+.step p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--dim);
+  font-weight: 300;
+  max-width: 640px;
+}
+.step-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 2px;
+}
+.step:nth-child(1) .step-tag { color: var(--copper); border: 1px solid rgba(196,122,74,.2) }
+.step:nth-child(2) .step-tag { color: var(--slate); border: 1px solid rgba(122,138,150,.2) }
+.step:nth-child(3) .step-tag { color: var(--sage); border: 1px solid rgba(122,148,120,.2) }
+.step:nth-child(4) .step-tag { color: var(--copper2); border: 1px solid rgba(212,149,106,.2) }
+
+/* Why Flint */
+.why-how {
+  position: relative;
+  z-index: 2;
+}
+.why-how-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 48px;
+}
+.why-how-title {
+  font-size: clamp(32px,4vw,44px);
+  font-weight: 100;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin-bottom: 20px;
+  color: var(--v1-text2);
+}
+.why-how-title strong { font-weight: 700; color: var(--v1-text) }
+.why-how-intro {
+  color: var(--dim);
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+.why-how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.why-how-card {
+  background: var(--v1-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 36px 28px;
+  transition: transform .3s;
+}
+.why-how-card:hover { transform: translateY(-2px) }
+.why-how-idx {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.why-how-card:nth-child(1) .why-how-idx { color: var(--copper) }
+.why-how-card:nth-child(2) .why-how-idx { color: var(--slate) }
+.why-how-card:nth-child(3) .why-how-idx { color: var(--sage) }
+.why-how-card:nth-child(4) .why-how-idx { color: var(--copper2) }
+.why-how-card h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--v1-text2) }
+.why-how-card p { font-size: 14px; line-height: 1.75; color: var(--dim); font-weight: 300 }
+
+/* Typical Timeline */
+.tl-section {
+  position: relative;
+  z-index: 2;
+}
+.tl-section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 48px;
+}
+.tl-section-title {
+  font-size: clamp(28px,3.5vw,40px);
+  font-weight: 100;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin-bottom: 48px;
+  color: var(--v1-text2);
+}
+.tl-section-title strong { font-weight: 700; color: var(--v1-text) }
+
+@media(max-width:900px) {
+  .timeline { padding: 0 20px 60px }
+  .how-process { padding: 0 20px 60px }
+  .step { grid-template-columns: 48px 1fr; gap: 16px; padding: 32px 0 }
+  .step-num { font-size: 28px }
+  .why-how-inner { padding: 60px 20px }
+  .why-how-grid { grid-template-columns: 1fr }
+  .tl-section-inner { padding: 60px 20px }
+}
