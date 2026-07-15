@@ -4,13 +4,15 @@
 .about-hero{max-width:900px;margin:0 auto;padding:140px 48px 0;position:relative;z-index:2}
 .about-hero .section-label{color:var(--copper2)}
 
-.founder-card{margin-top:48px}
+.founder-card{margin-top:48px;display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:start}
+.founder-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;display:block;border:1px solid var(--line)}
 .founder-avatar{
   width:140px;height:140px;border-radius:50%;background:var(--warm);border:2px solid var(--line);
   display:flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:36px;font-weight:700;color:var(--copper);flex-shrink:0;
 }
 .founder-name{font-size:32px;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-.5px}
+.founder-name em{font-style:italic;color:var(--copper);font-weight:300}
 .founder-role{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--text2);margin-bottom:20px}
 .founder-bio{font-size:23px;line-height:1.85;color:var(--text2);font-weight:400;margin-bottom:20px}
 .founder-bio strong{color:var(--text2);font-weight:500}
@@ -53,7 +55,7 @@
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
   .about-hero{padding:100px 20px 0}
-  .founder-card{grid-template-columns:1fr;gap:24px;text-align:center}
+  .founder-card{grid-template-columns:1fr;gap:24px;text-align:center;justify-items:center}
   .founder-avatar{margin:0 auto}
   .why-inner{padding:60px 20px}
   .stats-inner{grid-template-columns:1fr 1fr;padding:40px 20px}

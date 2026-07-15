@@ -330,7 +330,7 @@
   .hero{padding:0 20px}
   .hero-inner{padding:80px 0 40px}
   .spark{display:none}
-  .hero-eyebrow{font-size:10px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
+  .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
   .hero h1{font-size:34px;letter-spacing:-1px}
   /* Keep hero metrics as 2-column grid on mobile */
   .hero-metrics{grid-template-columns:1fr 1fr;margin-top:32px}
