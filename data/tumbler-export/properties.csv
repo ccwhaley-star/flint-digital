@@ -1,0 +1,9 @@
+id,name,location,county,units_total,status,gri_annual,noi_annual,lat,lng,website_url,purchase_date,purchase_price,valuation_cap_rate
+5,Bourbon County Storage,"2510 Richards Rd, Fort Scott, KS 66701",Bourbon,84,owned,0,0,37.8095564,-94.6965837,www.bourboncountystorage.com,,0,0.08
+6,Labette County Storage,"Parsons, KS",Labette,244,owned,0,0,37.34033840000001,-95.2610838,https://labettecountystorage.com,,0,0.08
+7,Reno County Storage,"Hutchinson, KS",Reno,328,owned,0,0,38.0608445,-97.9297743,https://www.renocountystorage.com,,0,0.08
+8,Reno County Storage South,"South Hutchinson, KS",Reno,149,owned,0,0,38.0247,-97.9404,https://www.renocountystorage.com,,0,0.08
+9,SandHills Storage - Plum St,"Hutchinson, KS",Reno,304,lease-option,0,0,38.0608,-97.9298,https://sandhillsstorage.com,,0,0.08
+10,SandHills South Hutchinson,"South Hutchinson, KS",Reno,62,lease-option,0,0,,,https://sandhillsstorage.com,,0,0.08
+11,SandHills Buhler,"Buhler, KS",Reno,48,lease-option,0,0,,,https://sandhillsstorage.com,,0,0.08
+12,SandHills Haven,"Haven, KS",Reno,55,lease-option,0,0,,,https://sandhillsstorage.com,,0,0.08

@@ -1,0 +1,42 @@
+{
+  "org_id": "b0daced6-5683-4a4f-857b-69e22ff73dad",
+  "exported_at": "2026-08-02T14:18:39.313Z",
+  "tables": {
+    "properties": {
+      "rows": 8
+    },
+    "occupancy_history": {
+      "rows": 139
+    },
+    "move_activity": {
+      "rows": 128
+    },
+    "rent_roll": {
+      "rows": 1021
+    },
+    "revenue_transactions": {
+      "rows": 8552
+    },
+    "expected_revenue": {
+      "rows": 18
+    },
+    "unit_rates": {
+      "rows": 2072
+    },
+    "past_due": {
+      "rows": 169
+    },
+    "market_rates": {
+      "rows": 0
+    },
+    "ga_metrics": {
+      "rows": 20
+    },
+    "quo_calls": {
+      "rows": 4367
+    },
+    "quo_messages": {
+      "rows": 5019
+    }
+  }
+}
