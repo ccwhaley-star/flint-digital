@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Flint Digital is an AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads — delivered in days, not months.">
+<meta name="description" content="Flint Digital is an AI-first digital agency for small businesses. Websites, SEO, AEO, and Google Ads — delivered in days, not months.">
 <meta property="og:title" content="Flint Digital — AI-First Agency for Small Business">
 <meta property="og:description" content="We make small businesses impossible to ignore online. Websites, SEO, AEO, and Google Ads — delivered in days at a fraction of agency cost.">
 <meta property="og:type" content="website">
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://flintdigital.ai/og-image.png">
 <link rel="canonical" href="https://flintdigital.ai/">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Flint Digital — AI-First Digital Agency · Kansas City Area</title>
+<title>Flint Digital — AI-First Digital Agency for Small Business</title>
 <link rel="preload" href="/fonts/outfit-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="shared/css/tokens.css">
 <link rel="stylesheet" href="shared/css/reset.css">
@@ -27,18 +27,13 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Flint Digital",
-  "description": "AI-first digital agency for small businesses in the Kansas City area. Websites, SEO, AEO, and Google Ads.",
+  "description": "AI-first digital agency for small businesses. Websites, SEO, AEO, and Google Ads.",
   "url": "https://flintdigital.ai",
   "logo": "https://flintdigital.ai/og-image.png",
   "image": "https://flintdigital.ai/og-image.png",
   "founder": {
     "@type": "Person",
     "name": "Chris Whaley"
-  },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 39.0997, "longitude": -94.5786 },
-    "geoRadius": "80000"
   },
   "serviceType": ["Web Design", "SEO", "Answer Engine Optimization", "Google Ads", "Digital Marketing"],
   "priceRange": "$$",
@@ -100,7 +95,7 @@
     <div class="spark-core"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow reveal">AI-first Digital Agency.<br><span class="eyebrow-geo">Serving the Kansas City Area.</span><br>Built for small business, by small business.</div>
+    <div class="hero-eyebrow reveal">Authentic websites optimized for social media, AI search and mobile.<br>Built for small business, by small business.</div>
     <h1 class="reveal reveal-d1"><strong>Stop losing customers</strong><br>to <em>worse competitors.</em></h1>
     <div class="hero-ctas reveal reveal-d3">
       <a href="#cta" class="btn-primary">Find Out Why They Have a Better Website</a>
@@ -359,11 +354,11 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a><p>AI-first digital agency built for small businesses in the Kansas City area.</p></div>
+    <div class="footer-brand"><a href="index.html" class="logo">FLINT<span>.</span><em>digital</em></a><p>AI-first digital agency built for small businesses.</p></div>
     <div class="footer-links"><h5>Services</h5><a href="#services">Websites</a><a href="#services">SEO &amp; Content</a><a href="#services">AEO</a><a href="#services">Google Ads</a></div>
     <div class="footer-links"><h5>Company</h5><a href="work.html">Work</a><a href="about.html">About</a><a href="how-it-works.html">How It Works</a><a href="#pricing">Pricing</a><a href="faq.html">FAQ</a><a href="insights.html">Insights</a><a href="#cta">Free Audit</a></div>
   </div>
-  <div class="footer-bottom"><span>&#169; 2026 Flint Digital · Kansas City Area</span><a href="tel:9137351163">(913) 735-1163</a><a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a><a href="https://flintdigital.ai">flintdigital.ai</a></div>
+  <div class="footer-bottom"><span>&#169; 2026 Flint Digital</span><a href="tel:9137351163">(913) 735-1163</a><a href="mailto:info@flintdigital.ai">info@flintdigital.ai</a><a href="https://flintdigital.ai">flintdigital.ai</a></div>
 </footer>
 
 <script src="shared/js/reveal.js"></script>
@@ -493,7 +488,7 @@
           model:'claude-sonnet-4-20250514',
           max_tokens:4000,
           tools:[{type:'web_search_20250305',name:'web_search'}],
-          messages:[{role:'user',content:'You are a website auditor for Flint Digital, an AI-first agency in Kansas City.\n\nAudit the website: '+withProto+' (domain: '+domain+')\n\nDo these searches:\n1. Search for: '+domain+'\n2. Search for the business name + location to find competitors\n3. Search for: '+domain+' reviews\n\nAfter researching, respond with ONLY a valid JSON object. No explanation, no markdown. Just raw JSON.\n\nThe JSON must have this structure:\n{"business_name":"string","domain":"'+domain+'","business_type":"string","location":"string","overall_score":0,"summary":"string","technical":{"platform":"string","ssl":true,"title_tag":"string","title_quality":"good","meta_quality":"good","schema_markup":false,"schema_types":[],"rich_results":false,"pages_indexed":"string","mobile_friendly":true,"score":0,"findings":["string"]},"seo":{"score":0,"primary_keyword":"string","estimated_rank":"string","findings":["string"]},"local_search":{"score":0,"google_reviews":"string","findings":["string"]},"aeo":{"score":0,"ai_ready":false,"findings":["string"]},"content":{"score":0,"findings":["string"]},"reputation":{"score":0,"findings":["string"]},"competitors":[{"name":"string","advantage":"string"}],"top_3_fixes":["string","string","string"]}\n\nRespond with ONLY the JSON object.'}]
+          messages:[{role:'user',content:'You are a website auditor for Flint Digital, an AI-first digital agency.\n\nAudit the website: '+withProto+' (domain: '+domain+')\n\nDo these searches:\n1. Search for: '+domain+'\n2. Search for the business name + location to find competitors\n3. Search for: '+domain+' reviews\n\nAfter researching, respond with ONLY a valid JSON object. No explanation, no markdown. Just raw JSON.\n\nThe JSON must have this structure:\n{"business_name":"string","domain":"'+domain+'","business_type":"string","location":"string","overall_score":0,"summary":"string","technical":{"platform":"string","ssl":true,"title_tag":"string","title_quality":"good","meta_quality":"good","schema_markup":false,"schema_types":[],"rich_results":false,"pages_indexed":"string","mobile_friendly":true,"score":0,"findings":["string"]},"seo":{"score":0,"primary_keyword":"string","estimated_rank":"string","findings":["string"]},"local_search":{"score":0,"google_reviews":"string","findings":["string"]},"aeo":{"score":0,"ai_ready":false,"findings":["string"]},"content":{"score":0,"findings":["string"]},"reputation":{"score":0,"findings":["string"]},"competitors":[{"name":"string","advantage":"string"}],"top_3_fixes":["string","string","string"]}\n\nRespond with ONLY the JSON object.'}]
         })
       }).then(function(res){return res.json()}).then(function(data){
         clearInterval(dotTimer);clearInterval(stepTimer);

@@ -1,6 +1,6 @@
 # Flint Digital
 
-> AI-first digital agency for small businesses in the Kansas City area. We build hand-coded websites and grow visibility across Google search, AI answer engines (AEO), and Google Ads — delivered in days, not months.
+> AI-first digital agency for small businesses. We build hand-coded websites and grow visibility across Google search, AI answer engines (AEO), and Google Ads — delivered in days, not months.
 
 Flint Digital was founded by Chris Whaley, an operator who built and ranked his own portfolio of businesses before starting the agency. The focus: making small businesses easy to find on Google and in AI assistants (ChatGPT, Google AI Overviews, Perplexity).
 
@@ -30,7 +30,6 @@ All monthly plans are month-to-month with no long-term contract.
 - Phone: (913) 735-1163
 - Email: info@flintdigital.ai
 - Book a call: https://calendly.com/chris-whaley-flintdigital/30min
-- Service area: Kansas City metropolitan area
 
 ## Profiles
 <!-- TODO: replace with real URLs when available -->
