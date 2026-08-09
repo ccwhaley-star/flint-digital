@@ -21,14 +21,18 @@ review of all CSS/JS. Ordered by priority.
 
 ## P0 — visible bugs
 
-### 1. FAQ answers get clipped on mobile
+### 1. FAQ answers get clipped on mobile — FIXED 2026-08-09
 `.faq-answer` opens to `max-height:300px` (v2-global.css). The longest
 answers are ~280 characters at 22px/1.85 line-height — roughly 370px tall
 when wrapped at phone width — so the tail of long answers is cut off with no
 indication. Fix: raise the clamp (e.g. 600px) or set `max-height` from
 `scrollHeight` in the accordion JS.
 
-### 2. Live iframes as portfolio previews (12 across home + work)
+**Status:** fixed — the accordion now sets `max-height` from `scrollHeight`
+(+20px padding allowance) in `js/v2-interactions.js`; the CSS clamp is gone.
+Verified: the longest answer opens un-clipped at 390px width.
+
+### 2. Live iframes as portfolio previews (12 across home + work) — PARTIALLY FIXED 2026-08-09
 Each preview embeds the real client site in an `<iframe>`:
 
 - **Performance:** scrolling the homepage loads six complete external
@@ -48,12 +52,23 @@ Each preview embeds the real client site in an `<iframe>`:
 browser-chrome styling — same look, ~30KB each, can't break, and the card
 itself already links to the live site.
 
-### 3. Case color-coding stops at card 3
+**Status:** scaling and accessibility are fixed — iframes now scale to their
+real container width via JS (`shared/js/nav.js`) and carry `tabindex="-1"`.
+Weight and fragility remain: swapping in static screenshots requires
+capturing the live client sites, which this sandbox's network policy blocks.
+Capture them from a normal machine and drop them into the existing frames.
+
+### 3. Case color-coding stops at card 3 — FIXED 2026-08-09
 `v2-work.css` colors `.case-tag`, `.case-metric h4`, and `.case-link` via
 `:nth-child(1/2/3)` (copper/slate/sage) — but the work page has **six**
 cases. Cards 4–6 (Bourbon County, Vintage Bloom, Sandhill) fall back to
 default white for tags, metrics, and links, which reads as a mistake next to
 the first three. Fix: cycle with `:nth-child(3n+1/3n+2/3n)`.
+
+**Also found while fixing:** the metric-color rules targeted `.case-metric h4`
+but the markup uses `<h3>` — so metric numbers were unstyled on *all six*
+cards, not just 4–6. Selectors corrected to `h3`; the same fix cycles the
+homepage `.proof-meta` colors, which had the identical 1/2/3 limitation.
 
 ## P1 — consistency & polish
 

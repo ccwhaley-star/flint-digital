@@ -68,9 +68,9 @@
 }
 .proof-name{font-size:13px;font-weight:600;color:var(--text2);margin-top:12px;letter-spacing:-.2px;transition:color .3s}
 .proof-meta{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-top:4px;transition:color .3s}
-.proof-card:nth-child(1) .proof-meta{color:var(--copper)}
-.proof-card:nth-child(2) .proof-meta{color:var(--slate)}
-.proof-card:nth-child(3) .proof-meta{color:var(--sage)}
+.proof-card:nth-child(3n+1) .proof-meta{color:var(--copper)}
+.proof-card:nth-child(3n+2) .proof-meta{color:var(--slate)}
+.proof-card:nth-child(3n) .proof-meta{color:var(--sage)}
 .proof-card:hover .proof-name{color:var(--copper2)}
 
 /* WHO WE HELP */
