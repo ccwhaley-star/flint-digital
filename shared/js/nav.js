@@ -33,3 +33,24 @@
     link.addEventListener('click', closeMenu);
   });
 })();
+
+/* Flint Digital — Portfolio Preview Scaling
+   Preview iframes render a fixed 1440px-wide page; scale each to its
+   wrapper's real width so nothing crops on mobile or under-fills on wide. */
+(function(){
+  var wraps = document.querySelectorAll('.case-iframe-wrap, .proof-iframe-wrap');
+  if(!wraps.length) return;
+  function fit(wrap){
+    var frame = wrap.querySelector('iframe');
+    if(frame && wrap.clientWidth) frame.style.transform = 'scale(' + (wrap.clientWidth / 1440) + ')';
+  }
+  wraps.forEach(fit);
+  if('ResizeObserver' in window){
+    var ro = new ResizeObserver(function(entries){
+      entries.forEach(function(e){ fit(e.target); });
+    });
+    wraps.forEach(function(w){ ro.observe(w); });
+  } else {
+    window.addEventListener('resize', function(){ wraps.forEach(fit); });
+  }
+})();

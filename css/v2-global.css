@@ -181,8 +181,9 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 .faq-answer{
   max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;
 }
+/* open-state max-height is set from scrollHeight in v2-interactions.js */
 .faq-open .faq-answer{
-  max-height:300px;padding-top:14px;
+  padding-top:14px;
 }
 
 /* Audit Form */
