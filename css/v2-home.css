@@ -24,7 +24,7 @@
 @keyframes core-pulse{0%,100%{box-shadow:0 0 24px var(--copper),0 0 80px rgba(196,122,74,.5)}50%{box-shadow:0 0 44px var(--copper),0 0 120px rgba(196,122,74,.75)}}
 
 .hero-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--text2);margin-bottom:32px;line-height:1.8}
-.eyebrow-geo{color:var(--copper);letter-spacing:4px}
+.eyebrow-accent{color:var(--copper);letter-spacing:4px}
 .hero h1{font-size:clamp(38px,5.5vw,68px);font-weight:200;line-height:1.08;letter-spacing:-2px;max-width:780px;color:var(--text2)}
 .hero h1 strong{font-weight:700;color:var(--text)}
 .hero h1 em{font-style:italic;color:var(--copper);font-weight:300}
@@ -331,6 +331,7 @@
   .hero-inner{padding:80px 0 40px}
   .spark{display:none}
   .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
+  .eyebrow-accent,.eyebrow-accent+br{display:none}
   .hero h1{font-size:34px;letter-spacing:-1px}
   /* Keep hero metrics as 2-column grid on mobile */
   .hero-metrics{grid-template-columns:1fr 1fr;margin-top:32px}
