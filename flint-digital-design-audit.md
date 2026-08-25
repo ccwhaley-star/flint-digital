@@ -102,7 +102,12 @@ for Work and About in desktop and mobile nav; hero CTA shortened to
    wraps to two lines on mobile. Something like "See What They're Doing
    Better" keeps the hook in one line.
 
-## P2 — hygiene
+## P2 — hygiene — FIXED 2026-08-09 (item 13 needed no action)
+
+Resolutions: deleted `sandhills-preview.png` and `chris-whaley.png` (3.4MB
+off every deploy); founder photo converted to `chris-whaley-clean.webp`
+(240KB PNG → 8.6KB WebP at the same rendered 400px, markup updated);
+`rel="noopener"` added to all 15 `target="_blank"` links (9 home, 6 work).
 
 10. **3.4MB of dead assets deploy with the site** (`publish = "."`):
     `sandhills-preview.png` (3.3MB) and `chris-whaley.png` (62KB) are
