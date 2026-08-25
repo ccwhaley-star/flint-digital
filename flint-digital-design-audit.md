@@ -57,6 +57,8 @@ real container width via JS (`shared/js/nav.js`) and carry `tabindex="-1"`.
 Weight and fragility remain: swapping in static screenshots requires
 capturing the live client sites, which this sandbox's network policy blocks.
 Capture them from a normal machine and drop them into the existing frames.
+The staging-URL half of the fragility concern is resolved — Vintage Bloom
+now points at its production domain, vintagebloomskc.com (2026-08-25).
 
 ### 3. Case color-coding stops at card 3 — FIXED 2026-08-09
 `v2-work.css` colors `.case-tag`, `.case-metric h4`, and `.case-link` via
