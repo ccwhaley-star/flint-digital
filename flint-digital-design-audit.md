@@ -70,7 +70,17 @@ but the markup uses `<h3>` — so metric numbers were unstyled on *all six*
 cards, not just 4–6. Selectors corrected to `h3`; the same fix cycles the
 homepage `.proof-meta` colors, which had the identical 1/2/3 limitation.
 
-## P1 — consistency & polish
+## P1 — consistency & polish — ALL FIXED 2026-08-09
+
+Resolutions: unified the savings claim on **40–60%** (the honest range);
+FAQ questions now 20px/`--text` over 17px answers (homepage `.faq-grid`
+rules turned out to be dead code — index has no FAQ section); **Insights
+unlinked** from all footers, sitemap.xml, and llms.txt until real posts
+exist (the page itself stays live at /insights.html — relink when content
+ships); `--dim` micro-text bumped to `--text2` (audit-form note + all
+browser-bar URL labels); `aria-current="page"` + copper active state added
+for Work and About in desktop and mobile nav; hero CTA shortened to
+**"See What They're Doing Better"** (one line on mobile).
 
 4. **Conflicting stat:** the homepage metric card says **"60% below agency
    rates"**; the About stats row says **"40–60%"**. Pick one number.
