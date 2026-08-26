@@ -42,4 +42,6 @@
   .cases{padding:0 20px 60px}
   .case{grid-template-columns:1fr;gap:32px;padding:48px 0}
   .case:nth-child(even){direction:ltr}
+  /* Mobile typography: scale body copy down from desktop's 22px */
+  .case-desc{font-size:17px;line-height:1.7}
 }
