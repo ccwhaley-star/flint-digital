@@ -60,6 +60,9 @@
   .why-inner{padding:60px 20px}
   .stats-inner{grid-template-columns:1fr 1fr;padding:40px 20px}
   .stat{padding:20px 0}
+  /* Mobile typography: scale body copy down from desktop's 21-23px */
+  .founder-bio{font-size:18px;line-height:1.75}
+  .why-intro,.why-item p{font-size:17px;line-height:1.7}
 }
 @media(max-width:480px){
   .stats-inner{grid-template-columns:1fr}

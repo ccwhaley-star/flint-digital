@@ -21,4 +21,6 @@
   .articles{padding:0 20px 60px}
   .article{grid-template-columns:1fr;gap:8px;padding:32px 0}
   .article-tag{min-width:0}
+  /* Mobile typography: scale body copy down from desktop's 22px */
+  .article p{font-size:17px;line-height:1.75}
 }
