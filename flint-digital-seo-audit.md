@@ -94,6 +94,17 @@ How It Works and FAQ — the highest-intent support pages — are reachable
 only from the footer (same finding as the design audit's nav item). Adding
 them to the top nav strengthens both UX and crawl priority.
 
+## Status — 2026-08-26
+
+Everything not requiring client input is FIXED: schema now carries
+`telephone` + `email` (#1, partial — sameAs still needs real profile URLs);
+insights.html is `noindex` until content ships (#3); sitemap lastmod
+refreshed (#4); about.html has a ProfilePage/Person block for Chris (#6);
+netlify.toml sets long-lived caching for fonts and 7-day caching for
+images, and a branded 404.html exists (#7). Open: geo/vertical positioning
+(#2, client call), sameAs/GBP (#1 remainder), Insights content (#3
+follow-through), nav promotion (#8).
+
 ## Suggested order
 
 1. Schema NAP (+ About Person schema) — no client input needed

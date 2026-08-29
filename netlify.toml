@@ -6,3 +6,20 @@
   from = "/api/audit"
   to = "/.netlify/functions/audit"
   status = 200
+
+# Fonts never change without a filename change — cache hard.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images change rarely; a week of caching is safe (filenames change with content).
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
