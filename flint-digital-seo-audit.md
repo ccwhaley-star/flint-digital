@@ -101,9 +101,17 @@ Everything not requiring client input is FIXED: schema now carries
 insights.html is `noindex` until content ships (#3); sitemap lastmod
 refreshed (#4); about.html has a ProfilePage/Person block for Chris (#6);
 netlify.toml sets long-lived caching for fonts and 7-day caching for
-images, and a branded 404.html exists (#7). Open: geo/vertical positioning
-(#2, client call), sameAs/GBP (#1 remainder), Insights content (#3
-follow-through), nav promotion (#8).
+images, and a branded 404.html exists (#7). Open: sameAs/GBP (#1 remainder), Insights content (#3 follow-through),
+nav promotion (#8).
+
+**#2 decided 2026-08-26 — quiet local.** `areaServed` (80km GeoCircle
+centered on the KC metro) is restored to the homepage schema; page copy
+stays geography-free. Remaining client action: create the Google Business
+Profile as a **service-area business** (no street address shown) with NAP
+matching the site exactly — name "Flint Digital", phone (913) 735-1163,
+site https://flintdigital.ai, service area = the KC metro, primary
+category "Website designer" (secondaries: Marketing agency, Internet
+marketing service). When it's live, its URL goes into the schema `sameAs`.
 
 ## Suggested order
 
