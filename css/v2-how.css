@@ -51,12 +51,12 @@
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .process{padding:0 20px 60px}
+  .process{padding:0 24px 72px}
   .step{grid-template-columns:48px 1fr;gap:16px;padding:32px 0}
   .step-num{font-size:28px}
-  .why-inner{padding:60px 20px}
+  .why-inner{padding:64px 24px}
   .why-grid{grid-template-columns:1fr}
-  .timeline-inner{padding:60px 20px}
+  .timeline-inner{padding:64px 24px}
   .tl-row{grid-template-columns:1fr;gap:4px}
   /* Mobile typography: scale body copy down from desktop's 21px */
   .step p,.why-card p,.why-intro{font-size:17px;line-height:1.7}

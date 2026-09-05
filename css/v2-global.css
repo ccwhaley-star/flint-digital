@@ -240,13 +240,13 @@ html{scroll-padding-top:84px}
   .nav-right-mobile{display:flex}
   .nav-cta-mobile{display:inline-block}
   .nav-menu{top:60px;padding:24px 20px;width:100%;max-width:100vw;overflow-x:hidden}
-  .page-header{padding:100px 20px 32px}
-  .section{padding:48px 20px}
-  .section-title{margin-bottom:32px}
-  .cta{padding:48px 20px}
+  .page-header{padding:100px 24px 40px}
+  .section{padding:64px 24px}
+  .section-title{margin-bottom:36px}
+  .cta{padding:64px 24px}
   .audit-form .form-row{grid-template-columns:1fr}
   /* 16px stops iOS Safari zooming the viewport on input focus */
   .audit-form input,.audit-form select{font-size:16px}
-  .footer-inner{grid-template-columns:1fr;padding:40px 20px}
+  .footer-inner{grid-template-columns:1fr;padding:56px 24px}
   .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}
 }

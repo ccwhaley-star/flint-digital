@@ -61,6 +61,12 @@
 .proof-card:nth-child(3n+2) .proof-meta{color:var(--slate)}
 .proof-card:nth-child(3n) .proof-meta{color:var(--sage)}
 .proof-card:hover .proof-name{color:var(--copper2)}
+.proof-more{
+  display:block;text-align:center;margin-top:40px;
+  font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--copper);text-decoration:none;transition:color .3s;
+}
+.proof-more:hover{color:var(--copper2)}
 
 /* WHO WE HELP */
 .audience-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
@@ -135,11 +141,11 @@
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .hero{padding:0 20px}
+  .hero{padding:0 24px}
   .hero-inner{padding:80px 0 40px}
   .spark{display:none}
   .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
-  .eyebrow-accent,.eyebrow-accent+br{display:none}
+  .eyebrow-accent{letter-spacing:3px}
   .hero h1{font-size:34px;letter-spacing:-1px}
   /* Keep hero metrics as 2-column grid on mobile */
   .hero-metrics{grid-template-columns:1fr 1fr;margin-top:32px}
@@ -150,13 +156,18 @@
   .metric-card>div{font-size:16px!important;letter-spacing:-.5px!important}
   .metric-card p{font-size:11px!important;margin-top:4px!important}
   .proof{padding:0}
-  .proof-inner{padding:48px 20px;gap:16px}
+  .proof-inner{padding:64px 24px;gap:16px}
   .proof-cards{grid-template-columns:1fr;gap:16px;max-width:400px;margin:0 auto}
+  /* Phones see the top 3 cards; "See all case studies" covers the rest */
+  .proof-card:nth-child(n+4){display:none}
+  .proof-more{margin-top:28px}
+  /* Cap the tag cloud on phones */
+  .audience-tag:nth-child(n+10){display:none}
   .svc-row,.price-row{grid-template-columns:1fr;background:none;gap:1px}
   /* Mobile typography: scale body copy down from desktop's 21-22px */
   .svc p,.prx-desc,.build-card p{font-size:17px;line-height:1.7}
   .build-card{grid-template-columns:1fr;gap:24px}
-  .pricing-inner{padding:48px 20px}
+  .pricing-inner{padding:64px 24px}
 }
 @media(max-width:480px){
   /* Keep hero metrics as 2-column even on small screens */

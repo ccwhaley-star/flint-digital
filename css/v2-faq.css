@@ -9,6 +9,6 @@
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .faq-list{padding:0 20px 60px}
+  .faq-list{padding:0 24px 72px}
   .faq-item{padding:28px 0}
 }

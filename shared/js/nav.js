@@ -32,6 +32,13 @@
   menu.querySelectorAll('a').forEach(function(link){
     link.addEventListener('click', closeMenu);
   });
+
+  // Close on tap/click outside the open menu
+  document.addEventListener('click', function(e){
+    if(!menu.classList.contains('open')) return;
+    if(menu.contains(e.target) || hamburger.contains(e.target)) return;
+    closeMenu();
+  });
 })();
 
 /* Flint Digital — Portfolio Preview Scaling

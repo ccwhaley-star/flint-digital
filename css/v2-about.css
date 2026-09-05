@@ -54,11 +54,11 @@
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .about-hero{padding:100px 20px 0}
+  .about-hero{padding:100px 24px 0}
   .founder-card{grid-template-columns:1fr;gap:24px;text-align:center;justify-items:center}
   .founder-avatar{margin:0 auto}
-  .why-inner{padding:60px 20px}
-  .stats-inner{grid-template-columns:1fr 1fr;padding:40px 20px}
+  .why-inner{padding:64px 24px}
+  .stats-inner{grid-template-columns:1fr 1fr;padding:56px 24px}
   .stat{padding:20px 0}
   /* Mobile typography: scale body copy down from desktop's 21-23px */
   .founder-bio{font-size:18px;line-height:1.75}

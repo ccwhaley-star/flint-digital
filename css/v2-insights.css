@@ -18,7 +18,7 @@
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .articles{padding:0 20px 60px}
+  .articles{padding:0 24px 72px}
   .article{grid-template-columns:1fr;gap:8px;padding:32px 0}
   .article-tag{min-width:0}
   /* Mobile typography: scale body copy down from desktop's 22px */
