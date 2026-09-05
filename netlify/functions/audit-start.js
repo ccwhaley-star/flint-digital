@@ -39,16 +39,22 @@ exports.handler = async (event) => {
   });
 
   // Fire the background worker. Netlify answers 202 immediately; the worker has up to 15 minutes.
-  const base = process.env.URL || ("https://" + (event.headers.host || "www.flintdigital.ai"));
+  // Dispatch to the same deploy that received this request (deploy previews have their own host),
+  // never to process.env.URL, which always points at production.
+  const host = event.headers["x-forwarded-host"] || event.headers.host || "www.flintdigital.ai";
+  let dispatch;
   try {
-    await fetch(base + "/.netlify/functions/audit-run-background", {
+    dispatch = await fetch("https://" + host + "/.netlify/functions/audit-run-background", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, token }),
     });
   } catch (e) {
-    await store.setJSON(id, { status: "error", error: "dispatch_failed", createdAt: new Date().toISOString() });
-    return json(502, { error: "dispatch_failed" });
+    dispatch = { status: 0 };
+  }
+  if (dispatch.status !== 202 && dispatch.status !== 200) {
+    await store.setJSON(id, { status: "error", error: "dispatch_" + dispatch.status, createdAt: new Date().toISOString() });
+    return json(502, { error: "dispatch_failed", status: dispatch.status });
   }
 
   return json(202, { id, status: "pending" });
