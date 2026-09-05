@@ -54,6 +54,33 @@ nav{
 }
 .nav-links a:hover{color:var(--text)}
 .nav-links a[aria-current="page"],.nav-menu a[aria-current="page"]{color:var(--copper)}
+
+/* Resources dropdown (desktop nav) */
+.nav-drop{position:relative}
+.nav-drop-btn{
+  background:none;border:none;cursor:pointer;padding:0;
+  font-family:var(--sans);font-size:15px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text2);transition:color .3s;display:flex;align-items:center;gap:6px;
+}
+.nav-drop-btn:hover{color:var(--text)}
+.nav-drop-btn.current{color:var(--copper)}
+.nav-drop-btn span{font-size:11px;transition:transform .3s}
+.nav-drop.open .nav-drop-btn span{transform:rotate(180deg)}
+.nav-drop-menu{
+  display:none;position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);
+  background:var(--bg);border:1px solid var(--line);border-radius:4px;
+  min-width:190px;padding:8px 0;z-index:10002;
+}
+/* invisible bridge so the hover path from button to menu doesn't drop */
+.nav-drop-menu::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px}
+.nav-drop:hover .nav-drop-menu,.nav-drop.open .nav-drop-menu{display:block}
+.nav-drop-menu a{
+  display:block;padding:11px 20px;color:var(--text2);text-decoration:none;
+  font-size:14px;letter-spacing:1.5px;text-transform:uppercase;
+  transition:color .3s,background .3s;white-space:nowrap;
+}
+.nav-drop-menu a:hover{color:var(--text);background:var(--card)}
+.nav-drop-menu a[aria-current="page"]{color:var(--copper)}
 .nav-cta{
   color:var(--copper)!important;border:1px solid rgba(196,122,74,.3);
   padding:13px 22px;border-radius:2px;transition:all .3s;font-size:15px;

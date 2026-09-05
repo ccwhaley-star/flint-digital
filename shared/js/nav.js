@@ -41,6 +41,29 @@
   });
 })();
 
+/* Flint Digital — Resources Dropdown (desktop nav)
+   Hover-open comes from CSS; this adds click/keyboard toggle with
+   aria-expanded, plus outside-click and Escape to close. */
+(function(){
+  var drop = document.querySelector('.nav-drop');
+  if(!drop) return;
+  var btn = drop.querySelector('.nav-drop-btn');
+  function setOpen(open){
+    drop.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setOpen(!drop.classList.contains('open'));
+  });
+  document.addEventListener('click', function(e){
+    if(drop.classList.contains('open') && !drop.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drop.classList.contains('open')){ setOpen(false); btn.focus(); }
+  });
+})();
+
 /* Flint Digital — Portfolio Preview Scaling
    Preview iframes render a fixed 1440px-wide page; scale each to its
    wrapper's real width so nothing crops on mobile or under-fills on wide. */
