@@ -40,7 +40,18 @@ on mobile.
 - Page heights are reasonable after the September typography scaling
   (about 4.7k, faq 2.5k, insights 3.0k, work/how ~5.8k).
 
-## Open observations (small, optional)
+## Update 2026-09-05 — all three open items FIXED (2e4d8f5)
+
+5 → menu closes on outside tap. 6 → How It Works + FAQ added to desktop
+nav and mobile menu on every page, with aria-current on their own pages.
+7 → phones show the top 3 portfolio cards with a "See all case studies →"
+link (visible at all sizes) and the tag cloud caps at 9. Also in this
+pass: mobile section padding opened up (24px sides, ~64px vertical), and
+the copper "Websites that get found" eyebrow line now shows on mobile —
+the hero still fits one viewport and the homepage is net ~700px shorter
+(9,694 → 9,001).
+
+## Original open observations (now fixed above)
 
 5. **Menu doesn't close on outside tap.** It covers only the top half of
    the screen; tapping the visible page below it does nothing (only the
