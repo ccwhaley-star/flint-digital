@@ -12,18 +12,18 @@
 /* SPARK */
 .spark{position:absolute;top:50%;right:12%;transform:translateY(-50%);width:400px;height:400px;pointer-events:none}
 .spark-ring{position:absolute;top:50%;left:50%;border-radius:50%;animation:spark-breathe 7s ease-in-out infinite}
-.spark-ring:nth-child(1){width:120px;height:120px;margin:-60px 0 0 -60px;border:1px solid rgba(196,122,74,.1);animation-delay:0s}
-.spark-ring:nth-child(2){width:220px;height:220px;margin:-110px 0 0 -110px;border:1px solid rgba(122,138,150,.06);animation-delay:1.5s}
-.spark-ring:nth-child(3){width:320px;height:320px;margin:-160px 0 0 -160px;border:1px solid rgba(122,148,120,.04);animation-delay:3s}
-@keyframes spark-breathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.03)}}
+.spark-ring:nth-child(1){width:120px;height:120px;margin:-60px 0 0 -60px;border:1.5px solid rgba(196,122,74,.4);animation-delay:0s}
+.spark-ring:nth-child(2){width:220px;height:220px;margin:-110px 0 0 -110px;border:1.5px solid rgba(212,149,106,.22);animation-delay:1.5s}
+.spark-ring:nth-child(3){width:320px;height:320px;margin:-160px 0 0 -160px;border:1.5px solid rgba(196,122,74,.14);animation-delay:3s}
+@keyframes spark-breathe{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
 .spark-core{
   position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
   background:var(--copper2);box-shadow:0 0 20px var(--copper),0 0 70px rgba(196,122,74,.45);
   animation:core-pulse 3.5s ease-in-out infinite;
 }
 @keyframes core-pulse{
-  0%,100%{transform:scale(1);box-shadow:0 0 20px var(--copper),0 0 70px rgba(196,122,74,.45)}
-  50%{transform:scale(1.5);box-shadow:0 0 60px var(--copper),0 0 160px rgba(196,122,74,.9)}
+  0%,100%{box-shadow:0 0 20px var(--copper),0 0 70px rgba(196,122,74,.45)}
+  50%{box-shadow:0 0 44px var(--copper),0 0 130px rgba(196,122,74,.8)}
 }
 
 .hero h1{margin-bottom:28px}
