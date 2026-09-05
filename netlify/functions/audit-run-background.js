@@ -1,7 +1,7 @@
 // Background worker (the "-background" suffix gives it a 15-minute limit and an immediate 202).
 // Runs the Claude web-search audit for one job and stores the parsed result in Blobs.
 const Anthropic = require("@anthropic-ai/sdk");
-const { audits } = require("./lib/shared");
+const { connect, audits } = require("./lib/shared");
 
 const MODEL = "claude-opus-5";
 const MAX_SEARCHES = 6;
@@ -67,6 +67,7 @@ async function runAudit(client, url, domain) {
 }
 
 exports.handler = async (event) => {
+  connect(event);
   if (event.httpMethod !== "POST") return { statusCode: 405, body: "" };
   let body;
   try { body = JSON.parse(event.body || "{}"); } catch (e) { return { statusCode: 400, body: "" }; }

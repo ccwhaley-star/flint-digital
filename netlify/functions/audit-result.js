@@ -1,7 +1,8 @@
 // GET /api/audit-result?id=...   -> { status: pending|running|done|error, result? }
-const { json, originAllowed, audits } = require("./lib/shared");
+const { connect, json, originAllowed, audits } = require("./lib/shared");
 
 exports.handler = async (event) => {
+  connect(event);
   if (event.httpMethod !== "GET") return json(405, { error: "method_not_allowed" });
   // Same-origin fetches from the page carry no Origin header; cross-site ones do.
   if (event.headers.origin && !originAllowed(event)) return json(403, { error: "forbidden" });

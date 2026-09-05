@@ -1,5 +1,5 @@
 // Shared helpers for the free-audit functions.
-const { getStore } = require("@netlify/blobs");
+const { getStore, connectLambda } = require("@netlify/blobs");
 
 const ALLOWED_ORIGIN = /^https:\/\/(www\.)?flintdigital\.ai$|^https:\/\/([a-z0-9-]+--)?flint-digital\.netlify\.app$|^http:\/\/localhost(:\d+)?$/;
 
@@ -67,4 +67,7 @@ function randomToken() {
   return require("crypto").randomBytes(16).toString("hex");
 }
 
-module.exports = { json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken };
+// Legacy (exports.handler) functions must attach the Blobs context from the event before getStore().
+function connect(event) { try { connectLambda(event); } catch (e) { console.error("blobs connect failed", e && e.message); } }
+
+module.exports = { connect, json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken };
