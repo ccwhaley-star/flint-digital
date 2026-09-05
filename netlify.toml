@@ -4,7 +4,12 @@
 
 [[redirects]]
   from = "/api/audit"
-  to = "/.netlify/functions/audit"
+  to = "/.netlify/functions/audit-start"
+  status = 200
+
+[[redirects]]
+  from = "/api/audit-result"
+  to = "/.netlify/functions/audit-result"
   status = 200
 
 # Fonts never change without a filename change — cache hard.

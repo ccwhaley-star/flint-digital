@@ -337,12 +337,17 @@
 <section class="cta" id="cta">
   <h2 class="reveal">Let's get you <em>noticed!</em></h2>
   <p class="reveal reveal-d1">Drop your info below. We'll pull up your site, your competitors, and your search presence — and send you a free audit showing exactly where the opportunities are.</p>
-  <form class="audit-form reveal reveal-d2" id="audit-form" name="free-audit" netlify>
+  <form class="audit-form reveal reveal-d2" id="audit-form" name="free-audit" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="free-audit">
+    <p class="hp-field" hidden aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <div class="form-row">
-      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required aria-required="true"></div>
-      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required aria-required="true"></div>
+      <div><label class="form-label" for="audit-name">Your name</label><input id="audit-name" name="name" type="text" placeholder="Jane Smith" required aria-required="true" autocomplete="name"></div>
+      <div><label class="form-label" for="audit-email">Email address</label><input id="audit-email" name="email" type="email" placeholder="jane@business.com" required aria-required="true" autocomplete="email"></div>
     </div>
-    <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" name="website" type="text" placeholder="yourbusiness.com (or leave blank if you don't have one)"></div>
+    <div class="form-row">
+      <div><label class="form-label" for="audit-phone">Phone number</label><input id="audit-phone" name="phone" type="tel" placeholder="(913) 555-0100" required aria-required="true" autocomplete="tel"></div>
+      <div><label class="form-label" for="audit-url">Your website URL</label><input id="audit-url" name="website" type="text" placeholder="yourbusiness.com (or leave blank)" autocomplete="url"></div>
+    </div>
     <div><label class="form-label" for="audit-need">What do you need most?</label>
     <select id="audit-need" name="need">
       <option value="" disabled selected>Select one...</option>
@@ -475,69 +480,55 @@
     return h;
   }
 
+  var resultsDiv=document.getElementById('audit-results');
+  var loading=document.getElementById('audit-loading');
+  var HTML_THANKS='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! We\x27ll be in <em style="color:var(--copper);font-style:italic">touch shortly.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">We have your details. Chris will look at your site and reach out within one business day.</p></div>';
+  var HTML_AUDIT_LATER='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">The instant report could not finish for this site, so we will build it by hand and email it within one business day.</p></div>';
+  var HTML_LEAD_FAILED='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Something went wrong <em style="color:var(--copper);font-style:italic">on our end.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your details did not send. Please email <a href="mailto:info@flintdigital.ai" style="color:var(--copper)">info@flintdigital.ai</a> or call <a href="tel:9137351163" style="color:var(--copper)">(913) 735-1163</a> and we will take it from there.</p></div>';
+  function show(html){form.style.display='none';loading.style.display='none';resultsDiv.innerHTML=html;resultsDiv.style.display='block';}
+  function newId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();return Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12);}
+
+  function runAudit(payload){
+    form.style.display='none';
+    loading.style.display='block';
+    var steps=['Scanning website','Checking SEO','Analyzing competitors','Grading AEO readiness','Building report'];
+    var stepIdx=0;var dots='';
+    var stepEl=document.getElementById('audit-step');
+    stepEl.textContent=steps[0];
+    var dotTimer=setInterval(function(){dots=dots.length>=3?'':dots+'.';stepEl.textContent=steps[stepIdx]+dots;},500);
+    var stepTimer=setInterval(function(){stepIdx=Math.min(stepIdx+1,steps.length-1);},15000);
+    var started=Date.now();var MAX_WAIT=240000;
+    function finish(html){clearInterval(dotTimer);clearInterval(stepTimer);show(html);}
+    function poll(){
+      fetch('/api/audit-result?id='+encodeURIComponent(payload.id),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+        if(d.status==='done'&&d.result){finish(renderResults(d.result));return;}
+        if(d.status==='error'||Date.now()-started>MAX_WAIT){finish(HTML_AUDIT_LATER);return;}
+        setTimeout(poll,3000);
+      }).catch(function(){ if(Date.now()-started>MAX_WAIT){finish(HTML_AUDIT_LATER);}else{setTimeout(poll,4000);} });
+    }
+    fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(r.status===202){setTimeout(poll,4000);} else {finish(HTML_AUDIT_LATER);} })
+      .catch(function(){finish(HTML_AUDIT_LATER);});
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var urlVal = document.getElementById('audit-url').value.trim();
+    if(form.querySelector('[name="bot-field"]').value) return;
+    var btn=form.querySelector('button[type="submit"]');
+    btn.disabled=true;btn.textContent='Sending…';
+    var fd=new FormData(form);
+    var urlVal=(fd.get('website')||'').trim();
 
-    // 1. Submit lead to Netlify
-    fetch('/', {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams(new FormData(form)).toString()
-    }).catch(function(){});
-
-    // 2. If URL provided, run the audit
-    if(urlVal){
-      form.style.display='none';
-      var loading=document.getElementById('audit-loading');
-      var resultsDiv=document.getElementById('audit-results');
-      loading.style.display='block';
-
-      var steps=['Scanning website','Checking SEO','Analyzing competitors','Grading AEO readiness','Building report'];
-      var stepIdx=0;var dots='';
-      var stepEl=document.getElementById('audit-step');
-      stepEl.textContent=steps[0];
-      var dotTimer=setInterval(function(){dots=dots.length>=3?'':dots+'.';stepEl.textContent=steps[stepIdx]+dots;},500);
-      var stepTimer=setInterval(function(){stepIdx=Math.min(stepIdx+1,steps.length-1);},12000);
-
-      var withProto=urlVal.startsWith('http')?urlVal:'https://'+urlVal;
-      var domain=withProto.replace(/https?:\/\/(www\.)?/,'').replace(/\/.*/,'');
-
-      fetch('/api/audit',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:4000,
-          tools:[{type:'web_search_20250305',name:'web_search'}],
-          messages:[{role:'user',content:'You are a website auditor for Flint Digital, an AI-first digital agency.\n\nAudit the website: '+withProto+' (domain: '+domain+')\n\nDo these searches:\n1. Search for: '+domain+'\n2. Search for the business name + location to find competitors\n3. Search for: '+domain+' reviews\n\nAfter researching, respond with ONLY a valid JSON object. No explanation, no markdown. Just raw JSON.\n\nThe JSON must have this structure:\n{"business_name":"string","domain":"'+domain+'","business_type":"string","location":"string","overall_score":0,"summary":"string","technical":{"platform":"string","ssl":true,"title_tag":"string","title_quality":"good","meta_quality":"good","schema_markup":false,"schema_types":[],"rich_results":false,"pages_indexed":"string","mobile_friendly":true,"score":0,"findings":["string"]},"seo":{"score":0,"primary_keyword":"string","estimated_rank":"string","findings":["string"]},"local_search":{"score":0,"google_reviews":"string","findings":["string"]},"aeo":{"score":0,"ai_ready":false,"findings":["string"]},"content":{"score":0,"findings":["string"]},"reputation":{"score":0,"findings":["string"]},"competitors":[{"name":"string","advantage":"string"}],"top_3_fixes":["string","string","string"]}\n\nRespond with ONLY the JSON object.'}]
-        })
-      }).then(function(res){return res.json()}).then(function(data){
-        clearInterval(dotTimer);clearInterval(stepTimer);
-        var allText=(data.content||[]).filter(function(i){return i.type==='text'}).map(function(i){return i.text}).join('\n');
-        var parsed=extractJSON(allText);
-        if(parsed&&(parsed.business_name||parsed.overall_score)){
-          loading.style.display='none';
-          resultsDiv.innerHTML=renderResults(parsed);
-          resultsDiv.style.display='block';
-        }else{
-          loading.style.display='none';
-          resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-          resultsDiv.style.display='block';
-        }
-      }).catch(function(){
-        clearInterval(dotTimer);clearInterval(stepTimer);
-        loading.style.display='none';
-        resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-        resultsDiv.style.display='block';
+    // 1. Record the lead in Netlify Forms (this is what notifies us).
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+      .then(function(r){ return r.ok; })
+      .catch(function(){ return false; })
+      .then(function(leadOk){
+        if(!leadOk){ btn.disabled=false;btn.textContent='Get My Free Audit'; show(HTML_LEAD_FAILED); return; }
+        if(!urlVal){ show(HTML_THANKS); return; }
+        // 2. Kick off the instant audit and poll for the report.
+        runAudit({id:newId(),website:urlVal,name:fd.get('name'),email:fd.get('email'),phone:fd.get('phone')});
       });
-    } else {
-      // No URL — just show thank you
-      form.style.display='none';
-      var resultsDiv=document.getElementById('audit-results');
-      resultsDiv.innerHTML='<div style="text-align:center;padding:40px 0"><div style="font-family:monospace;font-size:10px;letter-spacing:3px;color:var(--copper);margin-bottom:16px;text-transform:uppercase">Received</div><h3 style="font-size:28px;font-weight:200;color:var(--text2);margin-bottom:12px">Thank you! Your audit is <em style="color:var(--copper);font-style:italic">on the way.</em></h3><p style="font-size:14px;color:var(--dim);font-weight:300;line-height:1.7">Your audit is being built now — check your inbox shortly.</p></div>';
-      resultsDiv.style.display='block';
-    }
   });
 })();
 </script>
