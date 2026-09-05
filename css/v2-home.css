@@ -17,11 +17,14 @@
 .spark-ring:nth-child(3){width:320px;height:320px;margin:-160px 0 0 -160px;border:1px solid rgba(122,148,120,.04);animation-delay:3s}
 @keyframes spark-breathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.8;transform:scale(1.03)}}
 .spark-core{
-  position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;
-  background:var(--copper);box-shadow:0 0 24px var(--copper),0 0 80px rgba(196,122,74,.6);
-  animation:core-pulse 4s ease-in-out infinite;
+  position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
+  background:var(--copper2);box-shadow:0 0 20px var(--copper),0 0 70px rgba(196,122,74,.45);
+  animation:core-pulse 3.5s ease-in-out infinite;
 }
-@keyframes core-pulse{0%,100%{box-shadow:0 0 24px var(--copper),0 0 80px rgba(196,122,74,.5)}50%{box-shadow:0 0 44px var(--copper),0 0 120px rgba(196,122,74,.75)}}
+@keyframes core-pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 20px var(--copper),0 0 70px rgba(196,122,74,.45)}
+  50%{transform:scale(1.5);box-shadow:0 0 60px var(--copper),0 0 160px rgba(196,122,74,.9)}
+}
 
 .hero-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--text2);margin-bottom:44px;line-height:1.8}
 .eyebrow-accent{color:var(--copper);letter-spacing:4px}
@@ -145,6 +148,7 @@
      instead of centering in the full viewport */
   .hero{padding:0 24px;align-items:flex-start;min-height:0}
   .hero-inner{padding:92px 0 56px}
+  /* No clean negative space for the spark in the dense mobile hero — desktop only */
   .spark{display:none}
   .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
   .eyebrow-accent{letter-spacing:3px}
