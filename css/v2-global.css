@@ -225,8 +225,12 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   .faq-icon{transition:none}
 }
 
+/* Anchor targets clear the fixed nav (72px desktop / 60px mobile) */
+html{scroll-padding-top:84px}
+
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
+  html{scroll-padding-top:72px}
   nav{padding:0 16px;height:60px}
   .logo{font-size:16px;letter-spacing:3px}
   .logo em{font-size:15px}
@@ -241,6 +245,8 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   .section-title{margin-bottom:32px}
   .cta{padding:48px 20px}
   .audit-form .form-row{grid-template-columns:1fr}
+  /* 16px stops iOS Safari zooming the viewport on input focus */
+  .audit-form input,.audit-form select{font-size:16px}
   .footer-inner{grid-template-columns:1fr;padding:40px 20px}
   .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;align-items:center;text-align:center}
 }
