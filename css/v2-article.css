@@ -1,0 +1,30 @@
+/* Flint Digital V2 — Insights Article Styles */
+
+.article-header{padding-bottom:32px}
+.article-header h1{max-width:820px}
+.article-cat{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:400}
+.cat-copper{color:var(--copper)}
+.cat-slate{color:var(--slate)}
+.cat-sage{color:var(--sage)}
+.article-meta{font-family:var(--mono);font-size:12px;letter-spacing:1.5px;color:var(--text2);margin-top:14px}
+.article-meta a{color:var(--copper);text-decoration:none;transition:color .3s}
+.article-meta a:hover{color:var(--copper2)}
+
+.article-hero{max-width:1100px;margin:0 auto 8px;padding:0 48px;position:relative;z-index:2}
+.article-hero img{width:100%;height:auto;border-radius:6px;border:1px solid var(--line);display:block}
+
+.article-body{max-width:820px;margin:0 auto;padding:24px 48px 96px;position:relative;z-index:2}
+.article-body p{font-size:19px;line-height:1.85;color:var(--text2);font-weight:400;margin-bottom:20px}
+.article-body h2{font-size:25px;font-weight:600;color:var(--text);margin:44px 0 14px;letter-spacing:-.3px}
+.article-body ul,.article-body ol{margin:0 0 20px;padding-left:24px}
+.article-body li{font-size:19px;line-height:1.8;color:var(--text2);font-weight:400;margin-bottom:10px}
+.article-body strong{color:var(--text);font-weight:600}
+.article-body em{color:var(--copper2)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .article-hero{padding:0 24px}
+  .article-body{padding:16px 24px 64px}
+  .article-body p,.article-body li{font-size:17px;line-height:1.75}
+  .article-body h2{font-size:21px;margin:36px 0 12px}
+}

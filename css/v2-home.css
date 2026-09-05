@@ -26,7 +26,8 @@
   50%{transform:scale(1.5);box-shadow:0 0 60px var(--copper),0 0 160px rgba(196,122,74,.9)}
 }
 
-.hero-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--text2);margin-bottom:44px;line-height:1.8}
+.hero h1{margin-bottom:28px}
+.hero-eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--text2);margin-bottom:0;line-height:1.8}
 .eyebrow-accent{color:var(--copper);letter-spacing:4px}
 .hero h1{font-size:clamp(38px,5.5vw,68px);font-weight:200;line-height:1.08;letter-spacing:-2px;max-width:780px;color:var(--text2)}
 .hero h1 strong{font-weight:700;color:var(--text)}
@@ -150,7 +151,8 @@
   .hero-inner{padding:92px 0 56px}
   /* No clean negative space for the spark in the dense mobile hero — desktop only */
   .spark{display:none}
-  .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px;line-height:1.6}
+  .hero h1{margin-bottom:20px}
+  .hero-eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:0;line-height:1.6}
   .eyebrow-accent{letter-spacing:3px}
   .hero h1{font-size:34px;letter-spacing:-1px}
   /* Keep hero metrics as 2-column grid on mobile */
