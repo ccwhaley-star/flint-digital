@@ -1,7 +1,7 @@
 // GET /api/audit-result?id=...   -> { status: pending|running|done|error, result? }
-const { connect, json, originAllowed, audits } = require("./lib/shared");
+const { safe, connect, json, originAllowed, audits } = require("./lib/shared");
 
-exports.handler = async (event) => {
+exports.handler = safe(async (event) => {
   connect(event);
   if (event.httpMethod !== "GET") return json(405, { error: "method_not_allowed" });
   // Same-origin fetches from the page carry no Origin header; cross-site ones do.
@@ -18,4 +18,4 @@ exports.handler = async (event) => {
   if (rec.status === "done") out.result = rec.result;
   if (rec.status === "error") out.error = rec.error || "failed";
   return json(200, out);
-};
+});

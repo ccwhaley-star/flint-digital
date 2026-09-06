@@ -40,9 +40,10 @@ function normalizeSite(raw) {
   return { url: u.origin + (u.pathname === "/" ? "" : u.pathname), domain: host.replace(/^www\./, "") };
 }
 
-// Strong consistency: the page polls seconds after the job is created.
-const audits = () => getStore({ name: "audits", consistency: "strong" });
-const limits = () => getStore({ name: "audit-limits", consistency: "strong" });
+// Default (eventual) consistency: strong reads are not available to legacy handlers. The page waits
+// a few seconds before its first poll and keeps polling on "unknown", so this is fine in practice.
+const audits = () => getStore("audits");
+const limits = () => getStore("audit-limits");
 
 // Best-effort rate limiting persisted in Blobs: per IP per hour, and a global daily cap.
 async function checkLimits(ip, perIpPerHour, perDay) {
@@ -71,4 +72,11 @@ function randomToken() {
 // Legacy (exports.handler) functions must attach the Blobs context from the event before getStore().
 function connect(event) { try { connectLambda(event); } catch (e) { console.error("blobs connect failed", e && e.message); } }
 
-module.exports = { connect, json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken };
+function safe(handler) {
+  return async (event) => {
+    try { return await handler(event); }
+    catch (err) { console.error("unhandled", err && err.message); return json(500, { error: "internal" }); }
+  };
+}
+
+module.exports = { safe, connect, json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken };

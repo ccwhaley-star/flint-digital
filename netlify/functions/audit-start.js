@@ -1,11 +1,11 @@
 // POST /api/audit  { id, url, name, email, phone }
 // Validates the request, records a pending job, and kicks off the background audit.
-const { connect, json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken } = require("./lib/shared");
+const { safe, connect, json, originAllowed, clientIp, normalizeSite, audits, checkLimits, randomToken } = require("./lib/shared");
 
 const PER_IP_PER_HOUR = 3;
 const PER_DAY = 60;
 
-exports.handler = async (event) => {
+exports.handler = safe(async (event) => {
   connect(event);
   if (event.httpMethod !== "POST") return json(405, { error: "method_not_allowed" });
   if (!originAllowed(event)) return json(403, { error: "forbidden" });
@@ -58,4 +58,4 @@ exports.handler = async (event) => {
   }
 
   return json(202, { id, status: "pending" });
-};
+});
