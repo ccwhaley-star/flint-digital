@@ -1,0 +1,9 @@
+{
+  "name": "flint-digital",
+  "private": true,
+  "description": "flintdigital.ai — static site plus the free-audit Netlify functions",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.110.0",
+    "@netlify/blobs": "^8.2.0"
+  }
+}
