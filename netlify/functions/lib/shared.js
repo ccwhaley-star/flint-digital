@@ -40,8 +40,9 @@ function normalizeSite(raw) {
   return { url: u.origin + (u.pathname === "/" ? "" : u.pathname), domain: host.replace(/^www\./, "") };
 }
 
-const audits = () => getStore("audits");
-const limits = () => getStore("audit-limits");
+// Strong consistency: the page polls seconds after the job is created.
+const audits = () => getStore({ name: "audits", consistency: "strong" });
+const limits = () => getStore({ name: "audit-limits", consistency: "strong" });
 
 // Best-effort rate limiting persisted in Blobs: per IP per hour, and a global daily cap.
 async function checkLimits(ip, perIpPerHour, perDay) {

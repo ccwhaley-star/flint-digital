@@ -60,9 +60,28 @@ async function runAudit(client, url, domain) {
     messages.push({ role: "assistant", content: response.content });
   }
   if (response.stop_reason === "refusal") throw new Error("refused");
-  const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
-  const parsed = extractJSON(text);
-  if (!parsed || !(parsed.business_name || parsed.overall_score)) throw new Error("no_json");
+  // Citations split text into several blocks; join with no separator so JSON strings survive.
+  const textOf = (r) => r.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+  let text = textOf(response);
+  let parsed = extractJSON(text);
+  if (!parsed || !(parsed.business_name || parsed.overall_score)) {
+    // Repair pass: no tools, just turn the research above into the JSON object.
+    messages.push({ role: "assistant", content: response.content });
+    messages.push({ role: "user", content: "Now output ONLY the JSON object described above, based on your research. No prose, no markdown fences, no citations." });
+    const fix = await client.beta.messages.create({
+      model: MODEL,
+      max_tokens: 8000,
+      output_config: { effort: "low" },
+      messages,
+      betas: ["server-side-fallback-2026-07-01"],
+      fallbacks: "default",
+    });
+    text = textOf(fix);
+    parsed = extractJSON(text);
+  }
+  if (!parsed || !(parsed.business_name || parsed.overall_score)) {
+    const err = new Error("no_json"); err.rawText = text.slice(0, 3000); throw err;
+  }
   return { parsed, usage: response.usage };
 }
 
@@ -94,6 +113,7 @@ exports.handler = async (event) => {
     await store.setJSON(body.id, Object.assign({}, rec, {
       status: "error",
       error: (err && err.message) || "failed",
+      rawText: err && err.rawText,
       finishedAt: new Date().toISOString(),
     }));
   }
