@@ -92,7 +92,12 @@ exports.handler = async (event) => {
   try { body = JSON.parse(event.body || "{}"); } catch (e) { return { statusCode: 400, body: "" }; }
 
   const store = audits();
-  const rec = body.id ? await store.get(body.id, { type: "json" }) : null;
+  // The job record was written moments ago and Blobs reads are eventually consistent: retry briefly.
+  let rec = null;
+  for (let i = 0; i < 10 && body.id && !rec; i++) {
+    rec = await store.get(body.id, { type: "json" });
+    if (!rec) await new Promise((r) => setTimeout(r, 2000));
+  }
   if (!rec || rec.status !== "pending" || !body.token || body.token !== rec.token) {
     return { statusCode: 403, body: "" };
   }
