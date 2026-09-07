@@ -84,3 +84,15 @@
     window.addEventListener('resize', function(){ wraps.forEach(fit); });
   }
 })();
+
+/* Flint Digital — Click-to-call tracking
+   Reports tel: link clicks to GA4 when gtag is present; harmless otherwise. */
+(function(){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      if(typeof window.gtag === 'function'){
+        window.gtag('event', 'click_to_call', { link_url: link.getAttribute('href'), link_location: link.className || 'body' });
+      }
+    });
+  });
+})();
