@@ -1,4 +1,99 @@
-/* Flint Digital V2 — Global Styles */
+/* Flint Digital V2 — Global Styles
+   (design tokens + reset are inlined at the top so every page loads ONE base stylesheet) */
+
+/* Flint Digital — Design Tokens */
+
+/* Self-hosted fonts (replaces render-blocking Google Fonts) */
+@font-face{
+  font-family:'Outfit';
+  src:url('/fonts/outfit-var.woff2') format('woff2');
+  font-weight:200 700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Space Mono';
+  src:url('/fonts/space-mono-400.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Space Mono';
+  src:url('/fonts/space-mono-700.woff2') format('woff2');
+  font-weight:700;font-style:normal;font-display:swap;
+}
+
+:root {
+  /* Backgrounds */
+  --bg: #0c0b09;
+  --surface: #121110;
+  --card: #15140f;
+
+  /* Text */
+  --text: #e2ddd4;
+  --text2: #c8c0b4;
+  --dim: #6b6459;
+
+  /* Brand Accents */
+  --copper: #c47a4a;
+  --copper2: #d4956a;
+  --slate: #7a8a96;
+  --slate2: #9aacb8;
+  --sage: #7a9478;
+  --sage2: #9ab898;
+  --sand: #b8a88a;
+  --warm: #3d3529;
+
+  /* Borders */
+  --line: rgba(255,255,255,.06);
+  --line2: rgba(255,255,255,.025);
+
+  /* Typography */
+  --mono: 'Space Mono', monospace;
+  --sans: 'Outfit', system-ui, sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 80px;
+  --space-3xl: 120px;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+}
+
+/* Flint Digital — Reset & Base */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* Skip-to-content link for accessibility */
+.skip-link{
+  position:absolute;
+  top:-100%;
+  left:16px;
+  padding:8px 16px;
+  background:var(--copper);
+  color:var(--bg);
+  font-size:13px;
+  font-weight:600;
+  z-index:99999;
+  border-radius:var(--radius-sm);
+  text-decoration:none;
+}
+.skip-link:focus{top:8px}
+
+a{color:inherit}
+img{max-width:100%;display:block}
 
 /* Noise Texture Overlay */
 body::after{
@@ -184,7 +279,7 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 }
 .footer-brand .logo{margin-bottom:14px}
 .footer-brand p{line-height:1.75;font-weight:400;max-width:320px;font-size:16px;color:var(--text2)}
-.footer-links h5{
+.footer-links h3{
   font-family:var(--mono);font-size:14px;text-transform:uppercase;
   letter-spacing:3px;color:var(--text2);margin-bottom:16px;font-weight:400;
 }

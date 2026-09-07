@@ -14,9 +14,13 @@
       if(!wasOpen){
         item.classList.add('faq-open');
         var answer = item.querySelector('.faq-answer');
-        // +20px covers the open-state padding, which is still animating when measured
-        answer.style.maxHeight = (answer.scrollHeight + 20) + 'px';
         this.setAttribute('aria-expanded','true');
+        // Measure on the next frame so the class/attribute writes above are flushed
+        // in one layout pass instead of forcing a synchronous reflow here.
+        window.requestAnimationFrame(function(){
+          // +20px covers the open-state padding, which is still animating when measured
+          answer.style.maxHeight = (answer.scrollHeight + 20) + 'px';
+        });
       }
     });
   });

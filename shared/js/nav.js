@@ -70,18 +70,28 @@
 (function(){
   var wraps = document.querySelectorAll('.case-iframe-wrap, .proof-iframe-wrap');
   if(!wraps.length) return;
-  function fit(wrap){
-    var frame = wrap.querySelector('iframe');
-    if(frame && wrap.clientWidth) frame.style.transform = 'scale(' + (wrap.clientWidth / 1440) + ')';
-  }
-  wraps.forEach(fit);
-  if('ResizeObserver' in window){
-    var ro = new ResizeObserver(function(entries){
-      entries.forEach(function(e){ fit(e.target); });
+  // Batch all layout READS first, then all WRITES, inside one animation frame,
+  // so the browser never has to force a synchronous reflow mid-loop.
+  var pending = null;
+  function fitAll(){
+    pending = null;
+    var widths = [];
+    wraps.forEach(function(wrap){ widths.push(wrap.clientWidth); });   // reads
+    wraps.forEach(function(wrap, i){                                     // writes
+      var frame = wrap.querySelector('iframe');
+      if(frame && widths[i]) frame.style.transform = 'scale(' + (widths[i] / 1440) + ')';
     });
+  }
+  function scheduleFit(){
+    if(pending) return;
+    pending = window.requestAnimationFrame(fitAll);
+  }
+  scheduleFit();
+  if('ResizeObserver' in window){
+    var ro = new ResizeObserver(scheduleFit);
     wraps.forEach(function(w){ ro.observe(w); });
   } else {
-    window.addEventListener('resize', function(){ wraps.forEach(fit); });
+    window.addEventListener('resize', scheduleFit);
   }
 })();
 
