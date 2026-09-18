@@ -67,3 +67,7 @@ footer .m6-mark { height: 34px; }
   transform: translateY(7px);
 }
 footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
+
+/* Inline wordmark treatment for body/headline mentions */
+.m6-inline { font-family: 'Archivo', system-ui, sans-serif; font-style: normal; font-weight: 400; }
+.m6-inline .m6-six-i { color: var(--copper); font-weight: 700; }
