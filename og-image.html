@@ -2,58 +2,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@200;300;400;500;600;700&display=swap');
   body {
-    width: 1200px; height: 630px; overflow: hidden;
-    background: #0c0b09; display: flex; align-items: center; justify-content: center;
-    position: relative;
+    width: 1200px; height: 630px; overflow: hidden; background: #F5F2EC;
+    display: flex; align-items: center; justify-content: center; position: relative;
+    font-family: 'Archivo', sans-serif;
   }
-  /* Subtle glow */
-  .glow {
-    position: absolute; top: 50%; right: 20%; width: 400px; height: 400px;
-    transform: translateY(-50%);
-    background: radial-gradient(circle, rgba(196,122,74,.08) 0%, transparent 70%);
-    filter: blur(80px); pointer-events: none;
-  }
-  .content {
-    position: relative; z-index: 2; text-align: left; padding: 0 120px;
-    width: 100%;
-  }
-  .logo {
-    font-family: 'Space Mono', monospace; font-size: 48px; font-weight: 700;
-    letter-spacing: 8px; text-transform: uppercase; color: #c8c0b4;
-    margin-bottom: 32px;
-  }
-  .logo span { color: #c47a4a; }
-  .logo em {
-    font-style: italic; font-weight: 300; color: #c47a4a;
-    font-family: 'Outfit', sans-serif; font-size: 42px; letter-spacing: 2px;
-    text-transform: none; margin-left: -4px;
-  }
-  .tagline {
-    font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 300;
-    color: #6b6459; line-height: 1.5; max-width: 600px;
-  }
-  .line {
-    width: 60px; height: 2px; background: #c47a4a; margin-bottom: 24px;
-    border-radius: 1px;
-  }
-  .url {
-    position: absolute; bottom: 48px; left: 120px;
-    font-family: 'Space Mono', monospace; font-size: 14px;
-    letter-spacing: 2px; color: rgba(196,122,74,.4);
-  }
+  .lock { display: flex; align-items: center; gap: 44px; }
+  .mark { height: 210px; width: auto; }
+  .word { font-weight: 400; font-size: 84px; letter-spacing: .005em; color: #16201C; }
+  .six { color: #A0662C; font-weight: 700; }
+  .tm { font-size: 22px; font-weight: 500; color: #5A6660; display: inline-block; transform: translateY(24px); margin-left: 8px; }
+  .tag { position: absolute; left: 50%; transform: translateX(-50%); bottom: 120px;
+    font-size: 27px; font-weight: 400; color: #5A6660; }
+  .url { position: absolute; left: 50%; transform: translateX(-50%); bottom: 56px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 16px; letter-spacing: 2px; color: #A0662C; }
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="content">
-    <div class="logo">FLINT<span>.</span><em>digital</em></div>
-    <div class="line"></div>
-    <div class="tagline">An AI-first digital agency,<br>built for small business,<br>by small business.</div>
+  <div class="lock">
+    <svg class="mark" viewBox="0 0 120 132">
+      <g stroke="#16201C" stroke-width="2" opacity="0.45">
+        <line x1="0" y1="26" x2="120" y2="26"/><line x1="0" y1="46" x2="120" y2="46"/>
+        <line x1="0" y1="66" x2="120" y2="66"/><line x1="0" y1="86" x2="120" y2="86"/>
+        <line x1="0" y1="106" x2="120" y2="106"/>
+        <line x1="20" y1="6" x2="20" y2="126"/><line x1="40" y1="6" x2="40" y2="126"/>
+        <line x1="80" y1="6" x2="80" y2="126"/><line x1="100" y1="6" x2="100" y2="126"/>
+      </g>
+      <rect x="40" y="46" width="17.75" height="20" fill="#A0662C"/>
+      <rect x="0" y="6" width="120" height="120" fill="none" stroke="#16201C" stroke-width="3.5"/>
+      <line x1="60" y1="0" x2="60" y2="132" stroke="#16201C" stroke-width="4.5"/>
+    </svg>
+    <span class="word">Meridian<span class="six">6</span><span class="tm">&#8482;</span></span>
   </div>
-  <div class="url">flintdigital.ai</div>
+  <div class="tag">AI-first digital agency, built for small business, by small business.</div>
+  <div class="url">meridian6.ai</div>
 </body>
 </html>

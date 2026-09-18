@@ -1,7 +1,7 @@
-/* Flint Digital V2 — Global Styles
+/* Meridian6 V2 — Global Styles
    (design tokens + reset are inlined at the top so every page loads ONE base stylesheet) */
 
-/* Flint Digital — Design Tokens */
+/* Meridian6 — Design Tokens */
 
 /* Self-hosted fonts (replaces render-blocking Google Fonts) */
 @font-face{
@@ -64,7 +64,7 @@
   --radius-lg: 6px;
 }
 
-/* Flint Digital — Reset & Base */
+/* Meridian6 — Reset & Base */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{

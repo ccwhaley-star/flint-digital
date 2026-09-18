@@ -1,4 +1,4 @@
-/* Flint Digital — Navigation Module */
+/* Meridian6 — Navigation Module */
 (function(){
   var hamburger = document.querySelector('.hamburger');
   var menu = document.querySelector('.nav-menu');
@@ -41,7 +41,7 @@
   });
 })();
 
-/* Flint Digital — Resources Dropdown (desktop nav)
+/* Meridian6 — Resources Dropdown (desktop nav)
    Hover-open comes from CSS; this adds click/keyboard toggle with
    aria-expanded, plus outside-click and Escape to close. */
 (function(){
@@ -64,7 +64,7 @@
   });
 })();
 
-/* Flint Digital — Portfolio Preview Scaling
+/* Meridian6 — Portfolio Preview Scaling
    Preview iframes render a fixed 1440px-wide page; scale each to its
    wrapper's real width so nothing crops on mobile or under-fills on wide. */
 (function(){
@@ -95,7 +95,7 @@
   }
 })();
 
-/* Flint Digital — Click-to-call tracking
+/* Meridian6 — Click-to-call tracking
    Reports tel: link clicks to GA4 when gtag is present; harmless otherwise. */
 (function(){
   document.querySelectorAll('a[href^="tel:"]').forEach(function(link){

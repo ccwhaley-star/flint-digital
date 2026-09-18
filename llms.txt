@@ -1,8 +1,8 @@
-# Flint Digital
+# Meridian6
 
 > Kansas City based, AI-first digital agency for small businesses. We build hand-coded websites and grow visibility across Google search, AI answer engines (AEO), and Google Ads — delivered in days, not months.
 
-Flint Digital was founded by Chris Whaley, an operator who built and ranked his own portfolio of businesses before starting the agency. The focus: making small businesses easy to find on Google and in AI assistants (ChatGPT, Google AI Overviews, Perplexity).
+Meridian6 was founded by Chris Whaley, an operator who built and ranked his own portfolio of businesses before starting the agency. The focus: making small businesses easy to find on Google and in AI assistants (ChatGPT, Google AI Overviews, Perplexity).
 
 ## Services
 - Websites & E-Commerce — hand-coded, fast, fully hosted; delivered in days.
@@ -19,27 +19,27 @@ Flint Digital was founded by Chris Whaley, an operator who built and ranked his 
 All monthly plans are month-to-month with no long-term contract.
 
 ## Key pages
-- Home: https://flintdigital.ai/
-- About / founder: https://flintdigital.ai/about.html
-- Work / case studies: https://flintdigital.ai/work.html
-- How it works: https://flintdigital.ai/how-it-works.html
-- FAQ: https://flintdigital.ai/faq.html
-- Insights (articles): https://flintdigital.ai/insights.html
+- Home: https://meridian6.ai/
+- About / founder: https://meridian6.ai/about.html
+- Work / case studies: https://meridian6.ai/work.html
+- How it works: https://meridian6.ai/how-it-works.html
+- FAQ: https://meridian6.ai/faq.html
+- Insights (articles): https://meridian6.ai/insights.html
 
 ## Contact
 - Phone: (913) 735-1163
-- Email: info@flintdigital.ai
+- Email: info@meridian6.ai
 - Book a call: https://calendly.com/chris-whaley-flintdigital/30min
 - Service area: Kansas City metropolitan area (and beyond)
 
 ## Articles
-- What Is AEO and Why Your Small Business Needs It in 2026: https://flintdigital.ai/what-is-aeo.html
-- How to Get Your Business Recommended by ChatGPT: https://flintdigital.ai/get-recommended-by-chatgpt.html
-- Why Your Wix Site Is Costing You Customers: https://flintdigital.ai/wix-site-costing-you-customers.html
-- How to Stop Wasting Money on Google Ads: https://flintdigital.ai/stop-wasting-money-google-ads.html
-- Local SEO in Kansas City: How Small Businesses Actually Rank: https://flintdigital.ai/local-seo-kansas-city.html
-- How Much Should a Small Business Website Cost in 2026?: https://flintdigital.ai/small-business-website-cost.html
-- Google Business Profile: The Free Marketing Tool Most Small Businesses Ignore: https://flintdigital.ai/google-business-profile-guide.html
+- What Is AEO and Why Your Small Business Needs It in 2026: https://meridian6.ai/what-is-aeo.html
+- How to Get Your Business Recommended by ChatGPT: https://meridian6.ai/get-recommended-by-chatgpt.html
+- Why Your Wix Site Is Costing You Customers: https://meridian6.ai/wix-site-costing-you-customers.html
+- How to Stop Wasting Money on Google Ads: https://meridian6.ai/stop-wasting-money-google-ads.html
+- Local SEO in Kansas City: How Small Businesses Actually Rank: https://meridian6.ai/local-seo-kansas-city.html
+- How Much Should a Small Business Website Cost in 2026?: https://meridian6.ai/small-business-website-cost.html
+- Google Business Profile: The Free Marketing Tool Most Small Businesses Ignore: https://meridian6.ai/google-business-profile-guide.html
 
 ## Profiles
 <!-- TODO: replace with real URLs when available -->

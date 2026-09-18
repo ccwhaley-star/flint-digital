@@ -1,4 +1,4 @@
-/* Flint Digital — Scroll Reveal Animations */
+/* Meridian6 — Scroll Reveal Animations */
 (function(){
   const obs = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){

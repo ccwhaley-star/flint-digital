@@ -41,7 +41,7 @@ exports.handler = safe(async (event) => {
   // Fire the background worker. Netlify answers 202 immediately; the worker has up to 15 minutes.
   // Dispatch to the same deploy that received this request (deploy previews have their own host),
   // never to process.env.URL, which always points at production.
-  const host = event.headers["x-forwarded-host"] || event.headers.host || "www.flintdigital.ai";
+  const host = event.headers["x-forwarded-host"] || event.headers.host || "www.meridian6.ai";
   let dispatch;
   try {
     dispatch = await fetch("https://" + host + "/.netlify/functions/audit-run-background", {

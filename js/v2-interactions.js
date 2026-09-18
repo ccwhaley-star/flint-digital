@@ -1,4 +1,4 @@
-/* Flint Digital V2 — FAQ Accordion */
+/* Meridian6 V2 — FAQ Accordion */
 (function(){
   document.querySelectorAll('.faq-question').forEach(function(q){
     q.addEventListener('click', function(){

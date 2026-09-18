@@ -1,7 +1,7 @@
 // Shared helpers for the free-audit functions.
 const { getStore, connectLambda } = require("@netlify/blobs");
 
-const ALLOWED_ORIGIN = /^https:\/\/(www\.)?flintdigital\.ai$|^https:\/\/([a-z0-9-]+--)?flint-digital\.netlify\.app$|^http:\/\/localhost(:\d+)?$/;
+const ALLOWED_ORIGIN = /^https:\/\/(www\.)?meridian6\.ai$|^https:\/\/(www\.)?flintdigital\.ai$|^https:\/\/([a-z0-9-]+--)?flint-digital\.netlify\.app$|^http:\/\/localhost(:\d+)?$/;
 
 function json(statusCode, body, extraHeaders) {
   return {

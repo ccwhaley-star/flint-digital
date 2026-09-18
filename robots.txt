@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /og-image.html
 
-Sitemap: https://flintdigital.ai/sitemap.xml
+Sitemap: https://meridian6.ai/sitemap.xml

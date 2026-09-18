@@ -8,7 +8,7 @@ const MAX_SEARCHES = 6;
 
 function buildPrompt(url, domain) {
   return [
-    "You are a website auditor for Flint Digital, an AI-first digital agency in Kansas City.",
+    "You are a website auditor for Meridian6, an AI-first digital agency in Kansas City.",
     "",
     "Audit the website: " + url + " (domain: " + domain + ")",
     "",
