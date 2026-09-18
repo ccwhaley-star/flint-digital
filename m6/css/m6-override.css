@@ -11,7 +11,7 @@
 h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
 
 /* Horizontal lockup — simplified mark (below 48px) in reverse */
-.logo { display: inline-flex; align-items: center; gap: 10px; letter-spacing: 0; text-transform: none; }
+.logo { display: inline-flex; align-items: center; gap: 14px; letter-spacing: 0; text-transform: none; }
 .m6-mark { height: 40px; width: auto; flex: none; }
 @media (max-width: 768px) { .logo .m6-mark { height: 30px; } }
 .logo .m6-word {
