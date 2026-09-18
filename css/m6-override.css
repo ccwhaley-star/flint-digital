@@ -80,3 +80,14 @@ footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
   .founder-card .founder-bio { text-align: left; }
   .m6-why-copy p { font-size: 17px; line-height: 1.7; }
 }
+
+/* About page — section order: why model first (page hero), operator last */
+.why { margin-top: 0; border-top: none; }
+.why-inner { padding-top: 150px; }
+.about-hero { padding-top: 40px; padding-bottom: 90px; border-top: 1px solid var(--line); margin-top: 0; }
+.about-hero .section-label { margin-top: 60px; }
+@media (max-width: 900px) {
+  .why-inner { padding-top: 110px; }
+  .about-hero { padding-top: 24px; padding-bottom: 64px; }
+  .about-hero .section-label { margin-top: 40px; }
+}
