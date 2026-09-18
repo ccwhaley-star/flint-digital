@@ -12,7 +12,8 @@ h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
 
 /* Horizontal lockup — simplified mark (below 48px) in reverse */
 .logo { display: inline-flex; align-items: center; gap: 10px; letter-spacing: 0; text-transform: none; }
-.m6-mark { height: 26px; width: auto; flex: none; }
+.m6-mark { height: 40px; width: auto; flex: none; }
+@media (max-width: 768px) { .logo .m6-mark { height: 30px; } }
 .logo .m6-word {
   font-family: 'Archivo', system-ui, sans-serif;
   font-weight: 400; font-size: 22px; letter-spacing: 0.005em;
@@ -20,7 +21,7 @@ h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
 }
 .logo .m6-word .m6-six { color: var(--m6-brass-alt); font-weight: 700; }
 footer .logo .m6-word { font-size: 19px; }
-footer .m6-mark { height: 24px; }
+footer .m6-mark { height: 34px; }
 
 /* Spark: core goes bold brass (matches the 6); rings retinted to brass */
 .spark-core { background: #C98A46; box-shadow: 0 0 24px #C98A46, 0 0 80px rgba(201,138,70,.6); }
