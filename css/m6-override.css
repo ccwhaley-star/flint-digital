@@ -34,7 +34,7 @@ footer .m6-mark { height: 34px; }
 }
 
 /* Why Meridian6 */
-.m6-why { display: flex; gap: 64px; align-items: center; max-width: 1080px; margin: 0 auto; }
+.m6-why { display: flex; gap: 64px; align-items: flex-start; max-width: 1080px; margin: 0 auto; }
 .m6-why-mark { flex: 0 0 260px; }
 .m6-why-mark svg { width: 100%; height: auto; }
 .m6-why-copy { flex: 1; min-width: 0; }
@@ -101,3 +101,4 @@ footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
 .founder-name { color: var(--text2); }
 .founder-name .m6-inline { color: var(--text); }
 @media (max-width: 900px) { #why.section { padding: 64px 24px; } }
+#why.section .section-label { color: var(--copper); }
