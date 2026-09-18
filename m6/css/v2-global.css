@@ -360,7 +360,7 @@ html{scroll-padding-top:84px}
   .nav-links,.nav-cta,.nav-right{display:none}
   .hamburger{display:flex}
   .nav-right-mobile{display:flex}
-  .nav-cta-mobile{display:inline-block}
+  .nav-cta-mobile{display:none}
   .nav-menu{top:60px;padding:24px 20px;width:100%;max-width:100vw;overflow-x:hidden}
   .page-header{padding:100px 24px 40px}
   .section{padding:64px 24px}
