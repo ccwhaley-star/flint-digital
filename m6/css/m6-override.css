@@ -47,3 +47,12 @@ footer .m6-mark { height: 34px; }
   .m6-why { flex-direction: column; gap: 36px; }
   .m6-why-mark { flex: none; width: 180px; }
 }
+
+/* Origin line (about page) */
+.m6-origin {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13.5px; letter-spacing: .06em;
+  color: var(--copper);
+  border-left: 2px solid rgba(201,138,70,.45);
+  padding-left: 14px; margin-top: 18px;
+}
