@@ -32,3 +32,18 @@ footer .m6-mark { height: 34px; }
   0%,100% { box-shadow: 0 0 20px var(--copper), 0 0 70px rgba(201,138,70,.45); }
   50% { box-shadow: 0 0 44px var(--copper), 0 0 130px rgba(201,138,70,.8); }
 }
+
+/* Why Meridian6 */
+.m6-why { display: flex; gap: 64px; align-items: center; max-width: 1080px; margin: 0 auto; }
+.m6-why-mark { flex: 0 0 260px; }
+.m6-why-mark svg { width: 100%; height: auto; }
+.m6-why-copy { flex: 1; min-width: 0; }
+.m6-why-copy p { color: var(--text2); max-width: 58ch; line-height: 1.65; margin: 0 0 18px; }
+.m6-why-points { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
+.m6-why-point { flex: 1; min-width: 180px; border-top: 1px solid rgba(201,138,70,.35); padding-top: 14px; }
+.m6-why-k { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
+.m6-why-point p { font-size: 14.5px; margin: 0; }
+@media (max-width: 860px) {
+  .m6-why { flex-direction: column; gap: 36px; }
+  .m6-why-mark { flex: none; width: 180px; }
+}
