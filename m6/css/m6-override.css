@@ -1,0 +1,33 @@
+/* Meridian6 identity mockup — loaded after all site CSS. Dark site kept; dark-bg brand rules apply. */
+:root {
+  --m6-ink: #16201C;
+  --m6-brass: #A0662C;
+  --m6-brass-alt: #C98A46;
+  --m6-limestone: #F5F2EC;
+  --copper: #C98A46;      /* accent on dark = brass-alt */
+  --copper2: #D9A86A;     /* derived light brass for glow/core */
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
+
+/* Horizontal lockup — simplified mark (below 48px) in reverse */
+.logo { display: inline-flex; align-items: center; gap: 10px; letter-spacing: 0; text-transform: none; }
+.m6-mark { height: 26px; width: auto; flex: none; }
+.m6-word {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 400; font-size: 22px; letter-spacing: 0.005em;
+  color: var(--text);
+}
+.m6-six { color: var(--m6-brass-alt); font-weight: 700; }
+footer .m6-word { font-size: 19px; }
+footer .m6-mark { height: 24px; }
+
+/* Spark: core goes bold brass (matches the 6); rings retinted to brass */
+.spark-core { background: #C98A46; box-shadow: 0 0 24px #C98A46, 0 0 80px rgba(201,138,70,.6); }
+.spark-ring:nth-child(1) { border-color: rgba(201,138,70,.4); }
+.spark-ring:nth-child(2) { border-color: rgba(217,168,106,.22); }
+.spark-ring:nth-child(3) { border-color: rgba(201,138,70,.14); }
+@keyframes core-pulse {
+  0%,100% { box-shadow: 0 0 20px var(--copper), 0 0 70px rgba(201,138,70,.45); }
+  50% { box-shadow: 0 0 44px var(--copper), 0 0 130px rgba(201,138,70,.8); }
+}
