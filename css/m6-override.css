@@ -40,7 +40,7 @@ footer .m6-mark { height: 34px; }
 .m6-why-copy { flex: 1; min-width: 0; }
 .m6-why-copy p { color: var(--text2); max-width: 58ch; line-height: 1.65; margin: 0 0 18px; }
 .m6-why-points { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
-.m6-why-point { flex: 1; min-width: 180px; border-top: 1px solid rgba(201,138,70,.35); padding-top: 14px; }
+.m6-why-point { flex: 1; min-width: 150px; border-top: 1px solid rgba(201,138,70,.35); padding-top: 14px; }
 .m6-why-k { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
 .m6-why-point p { font-size: 14.5px; margin: 0; }
 @media (max-width: 860px) {
@@ -91,3 +91,13 @@ footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
   .about-hero { padding-top: 24px; padding-bottom: 64px; }
   .about-hero .section-label { margin-top: 40px; }
 }
+
+/* About page — one grid, one label color, one heading voice */
+#why.section { max-width: 900px; padding: 100px 48px; }
+.m6-why { max-width: none; margin: 0; gap: 48px; }
+.m6-why-mark { flex: 0 0 200px; }
+.m6-why-head { margin-bottom: 40px; }
+.about-hero .section-label { color: var(--copper); }
+.founder-name { color: var(--text2); }
+.founder-name .m6-inline { color: var(--text); }
+@media (max-width: 900px) { #why.section { padding: 64px 24px; } }
