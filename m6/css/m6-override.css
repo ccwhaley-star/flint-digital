@@ -56,3 +56,14 @@ footer .m6-mark { height: 34px; }
   border-left: 2px solid rgba(201,138,70,.45);
   padding-left: 14px; margin-top: 18px;
 }
+
+/* TM — small, seated at the wordmark's bottom right */
+.logo .m6-word .m6-tm {
+  display: inline-block;
+  font-family: 'Archivo', sans-serif;
+  font-size: 9px; font-weight: 500;
+  color: var(--text2);
+  margin-left: 3px;
+  transform: translateY(7px);
+}
+footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
