@@ -112,3 +112,23 @@ nav { background: rgba(16,24,20,.95); }
 /* Hero: identity eyebrow leads, headline follows */
 .hero-eyebrow { margin-bottom: 26px; }
 .hero h1 { margin-bottom: 36px; }
+
+/* Client marquee */
+.m6-marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; position: relative; z-index: 2; background: rgba(16,24,20,.5); }
+.m6-marquee-track { display: flex; align-items: center; gap: 36px; width: max-content; animation: m6-scroll 45s linear infinite; }
+.m6-marquee:hover .m6-marquee-track { animation-play-state: paused; }
+.m6-marquee-track span { font-family: var(--mono); font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+.m6-marquee-track .m6-mq-dot { color: var(--copper); }
+@keyframes m6-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .m6-marquee-track { animation: none; } }
+
+/* Insights teaser */
+.m6-insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.m6-insight { display: block; border-top: 1px solid rgba(201,138,70,.35); padding-top: 18px; text-decoration: none; }
+.m6-insight-tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+.m6-insight h3 { font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+.m6-insight p { font-size: 14.5px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+.m6-insight-more { font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--copper); }
+.m6-insight:hover h3 { color: var(--copper); }
+.m6-insights-all { display: inline-block; margin-top: 32px; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
+@media (max-width: 860px) { .m6-insights { grid-template-columns: 1fr; gap: 24px; } }
