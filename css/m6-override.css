@@ -57,16 +57,6 @@ footer .m6-mark { height: 34px; }
   padding-left: 14px; margin-top: 18px;
 }
 
-/* TM — small, seated at the wordmark's bottom right */
-.logo .m6-word .m6-tm {
-  display: inline-block;
-  font-family: 'Archivo', sans-serif;
-  font-size: 9px; font-weight: 500;
-  color: var(--text2);
-  margin-left: 3px;
-  transform: translateY(7px);
-}
-footer .logo .m6-word .m6-tm { font-size: 8px; transform: translateY(6px); }
 
 /* Inline wordmark treatment for body/headline mentions */
 .m6-inline { font-family: 'Archivo', system-ui, sans-serif; font-style: normal; font-weight: 400; }
