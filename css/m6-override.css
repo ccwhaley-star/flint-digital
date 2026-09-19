@@ -113,14 +113,6 @@ nav { background: rgba(16,24,20,.95); }
 .hero-eyebrow { margin-bottom: 26px; }
 .hero h1 { margin-bottom: 36px; }
 
-/* Client marquee */
-.m6-marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; position: relative; z-index: 2; background: rgba(16,24,20,.5); }
-.m6-marquee-track { display: flex; align-items: center; gap: 36px; width: max-content; animation: m6-scroll 45s linear infinite; }
-.m6-marquee:hover .m6-marquee-track { animation-play-state: paused; }
-.m6-marquee-track span { font-family: var(--mono); font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
-.m6-marquee-track .m6-mq-dot { color: var(--copper); }
-@keyframes m6-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .m6-marquee-track { animation: none; } }
 
 /* Insights teaser */
 .m6-insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
