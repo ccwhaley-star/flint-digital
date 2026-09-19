@@ -95,3 +95,14 @@ footer .m6-mark { height: 34px; }
 @media (max-width: 600px) {
   .m6-why-points { flex-direction: column; gap: 18px; }
 }
+
+/* Green ink accents — the mark's ink (#16201C family) grounds the brand moments */
+footer { background: #101814; }
+#why.section { position: relative; }
+#why.section::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+  transform: translateX(-50%); width: 100vw;
+  background: #101814;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  z-index: -1;
+}
