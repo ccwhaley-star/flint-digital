@@ -124,3 +124,6 @@ nav { background: rgba(16,24,20,.95); }
 .m6-insight:hover h3 { color: var(--copper); }
 .m6-insights-all { display: inline-block; margin-top: 32px; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
 @media (max-width: 860px) { .m6-insights { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Taller desktop header (mobile stays 72px) */
+@media (min-width: 769px) { nav { height: 84px; } }
