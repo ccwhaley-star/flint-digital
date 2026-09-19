@@ -106,3 +106,5 @@ footer { background: #101814; }
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   z-index: -1;
 }
+nav { background: rgba(16,24,20,.95); }
+.nav-menu, .nav-drop-menu { background: #101814; }
