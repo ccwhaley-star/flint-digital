@@ -108,3 +108,7 @@ footer { background: #101814; }
 }
 nav { background: rgba(16,24,20,.95); }
 .nav-menu, .nav-drop-menu { background: #101814; }
+
+/* Hero: identity eyebrow leads, headline follows */
+.hero-eyebrow { margin-bottom: 26px; }
+.hero h1 { margin-bottom: 36px; }
