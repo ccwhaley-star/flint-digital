@@ -28,3 +28,16 @@
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Host-level 301s: legacy hostnames hand everything to the primary domain
+[[redirects]]
+  from = "https://www.flintdigital.ai/*"
+  to = "https://meridian6.ai/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://flint-digital.netlify.app/*"
+  to = "https://meridian6.ai/:splat"
+  status = 301
+  force = true
