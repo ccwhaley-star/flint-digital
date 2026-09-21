@@ -130,7 +130,7 @@ nav { background: rgba(16,24,20,.95); }
 @media (max-width: 860px) { .m6-insights { grid-template-columns: 1fr; gap: 24px; } }
 
 /* Taller desktop header (mobile stays 72px) */
-@media (min-width: 769px) { nav { height: 84px; } }
+nav { height: 84px; }
 
 /* Work previews click through to the live site */
 .case-iframe-wrap { position: relative; }
@@ -149,7 +149,7 @@ a.case-url:hover { color: var(--copper); }
 
 /* Mobile menu — best-practice touch targets and air (desktop untouched) */
 @media (max-width: 768px) {
-  .nav-menu { top: 72px; padding: 36px 28px 44px; }
+  .nav-menu { top: 84px; padding: 36px 28px 44px; }
   .nav-menu a { font-size: 20px; padding: 22px 0; }
   .nav-menu .menu-cta { font-size: 18px; padding: 18px; margin-top: 28px; }
   .nav-menu .menu-phone { font-size: 18px; padding: 18px 0; }
