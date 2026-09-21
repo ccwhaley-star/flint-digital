@@ -134,3 +134,11 @@ nav { background: rgba(16,24,20,.95); }
 a.case-url { color: inherit; text-decoration: none; }
 a.case-url:hover { color: var(--copper); }
 .case-browser:hover { cursor: pointer; }
+
+/* Hero eyebrow: full three lines on desktop, one condensed line on mobile */
+.eyebrow-mobile { display: none; }
+@media (max-width: 768px) {
+  .eyebrow-desktop { display: none; }
+  .eyebrow-mobile { display: inline; }
+}
+.eyebrow-desktop .eyebrow-accent { display: block; margin-top: 12px; }
