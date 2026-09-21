@@ -15,7 +15,7 @@ h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
 .m6-mark { height: 40px; width: auto; flex: none; }
 @media (max-width: 768px) {
   .logo .m6-mark { height: 46px; }
-  .logo .m6-word { font-size: 29px; }
+  .logo .m6-word { font-size: 31px; }
   .eyebrow-mobile .eyebrow-accent { display: block; margin-top: 8px; }
 }
 .logo .m6-word {
