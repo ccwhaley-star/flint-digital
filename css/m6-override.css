@@ -146,3 +146,11 @@ a.case-url:hover { color: var(--copper); }
   .eyebrow-mobile { display: inline; }
 }
 .eyebrow-desktop .eyebrow-accent { display: block; margin-top: 12px; }
+
+/* Mobile menu — best-practice touch targets and air (desktop untouched) */
+@media (max-width: 768px) {
+  .nav-menu { top: 72px; padding: 36px 28px 44px; }
+  .nav-menu a { font-size: 20px; padding: 22px 0; }
+  .nav-menu .menu-cta { font-size: 18px; padding: 18px; margin-top: 28px; }
+  .nav-menu .menu-phone { font-size: 18px; padding: 18px 0; }
+}
