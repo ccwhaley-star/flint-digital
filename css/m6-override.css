@@ -154,3 +154,7 @@ a.case-url:hover { color: var(--copper); }
   .nav-menu .menu-cta { font-size: 18px; padding: 18px; margin-top: 28px; }
   .nav-menu .menu-phone { font-size: 18px; padding: 18px 0; }
 }
+
+/* Clearance below the fixed 84px header: ~48px of visible air before the eyebrow */
+.hero-inner { padding-top: 148px; }
+@media (max-width: 768px) { .hero-inner { padding-top: 132px; } }
