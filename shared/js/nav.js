@@ -25,7 +25,7 @@
 
   // Close on Escape
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+    if(e.key === 'Escape' && menu.classList.contains('open')){ closeMenu(); hamburger.focus(); }
   });
 
   // Close when clicking a menu link

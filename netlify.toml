@@ -41,3 +41,19 @@
   to = "https://meridian6.ai/:splat"
   status = 301
   force = true
+
+# CSS/JS are cache-busted with ?v= query strings — cache hard.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/shared/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
