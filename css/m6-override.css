@@ -158,3 +158,10 @@ a.case-url:hover { color: var(--copper); }
 /* Clearance below the fixed 84px header: ~48px of visible air before the eyebrow */
 .hero-inner { padding-top: 148px; }
 @media (max-width: 768px) { .hero-inner { padding-top: 132px; } }
+
+/* Mobile reading sizes for stacked cards (desktop keeps compact 3-col sizing) */
+@media (max-width: 860px) {
+  .m6-insight p { font-size: 16px; line-height: 1.65; }
+  .m6-insight h3 { font-size: 20px; }
+  .m6-why-point p { font-size: 16px; }
+}
