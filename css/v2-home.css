@@ -115,19 +115,6 @@
 /* PRICING */
 .pricing{border-top:1px solid var(--line);position:relative;z-index:2}
 .pricing-inner{max-width:1100px;margin:0 auto;padding:var(--section-pad-y) var(--section-pad-x)}
-.build-card{
-  background:var(--card);border:1px solid var(--line);border-top:2px solid var(--copper);
-  padding:48px;margin-top:48px;display:grid;grid-template-columns:1fr 1fr;
-  gap:48px;align-items:center;margin-bottom:64px;
-}
-.build-card h3{font-size:var(--fs-lg);font-weight:var(--fw-semibold);color:var(--text2);margin-bottom:8px;letter-spacing:var(--ls-h3);line-height:var(--lh-head)}
-.build-card .build-price{font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:var(--fw-light);letter-spacing:var(--ls-h2);color:var(--text);margin-bottom:8px}
-.build-card .build-price span{font-family:var(--sans);font-size:var(--fs-sm);color:var(--text3);font-weight:400;letter-spacing:0}
-.build-card p{font-size:var(--fs-base);line-height:var(--lh-body);color:var(--text2);font-weight:400}
-.build-card .build-tag{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--copper);margin-bottom:12px;font-weight:400}
-.build-feats{display:flex;flex-direction:column;gap:8px}
-.build-feat{font-size:var(--fs-sm);color:var(--text2);display:flex;align-items:center;gap:10px;font-weight:400}
-.build-feat::before{content:'\2014';font-family:var(--mono);font-size:var(--fs-xs);color:var(--copper)}
 .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
 .prx{background:var(--bg);padding:44px 32px;transition:background .3s}
 .prx:hover{background:var(--card)}
@@ -186,7 +173,6 @@
   /* Cap the tag cloud on phones */
   .audience-tag:nth-child(n+10){display:none}
   .svc-row,.price-row{grid-template-columns:1fr;background:none;gap:1px}
-  .build-card{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:480px){
   /* Keep hero metrics as 2-column even on small screens */
