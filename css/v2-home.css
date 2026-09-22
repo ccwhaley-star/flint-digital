@@ -167,7 +167,8 @@
   /* No clean negative space for the spark in the dense mobile hero — desktop only */
   .spark{display:none}
   .hero h1{margin-bottom:20px}
-  .hero-eyebrow{line-height:1.8}
+  /* One step up from --fs-xs: the identity lines were hard to read on phones */
+  .hero-eyebrow{font-size:var(--fs-sm);line-height:1.8}
   /* Keep hero metrics as 2-column grid on mobile */
   .hero-metrics{grid-template-columns:1fr 1fr;margin-top:32px}
   /* Metric cards: compact 3-across row on mobile */
