@@ -24,7 +24,7 @@ h1, h2, h3, .hero h1 { font-family: 'Archivo', system-ui, sans-serif; }
   color: var(--text);
 }
 .logo .m6-word .m6-six { color: var(--m6-brass-alt); font-weight: 700; }
-footer .logo .m6-word { font-size: 19px; }
+footer .logo .m6-word { font-size: var(--fs-md); }
 footer .m6-mark { height: 34px; }
 
 /* Spark: core goes bold brass (matches the 6); rings retinted to brass */
@@ -45,8 +45,8 @@ footer .m6-mark { height: 34px; }
 .m6-why-copy p { color: var(--text2); max-width: 58ch; line-height: 1.65; margin: 0 0 18px; }
 .m6-why-points { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
 .m6-why-point { flex: 1; min-width: 150px; border-top: 1px solid rgba(201,138,70,.35); padding-top: 14px; }
-.m6-why-k { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
-.m6-why-point p { font-size: 14.5px; margin: 0; }
+.m6-why-k { font-family: 'IBM Plex Mono', monospace; font-size: var(--fs-xs); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
+.m6-why-point p { font-size: var(--fs-base); margin: 0; }
 @media (max-width: 860px) {
   .m6-why { flex-direction: column; gap: 36px; }
   .m6-why-mark { flex: none; width: 180px; }
@@ -55,7 +55,7 @@ footer .m6-mark { height: 34px; }
 /* Origin line (about page) */
 .m6-origin {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 13.5px; letter-spacing: .06em;
+  font-size: var(--fs-sm); letter-spacing: .06em;
   color: var(--copper);
   border-left: 2px solid rgba(201,138,70,.45);
   padding-left: 14px; margin-top: 18px;
@@ -67,12 +67,10 @@ footer .m6-mark { height: 34px; }
 .m6-inline .m6-six-i { color: var(--copper); font-weight: 700; }
 
 /* About page — unified type scale & flow */
-.founder-name { font-size: 36px; font-weight: 200; letter-spacing: -1px; }
-.m6-why-copy p { font-size: 21px; line-height: 1.85; }
-.m6-why-point p { font-size: 15.5px; }
+.founder-name { font-size: var(--fs-xl); font-weight: var(--fw-thin); letter-spacing: -1px; }
+.m6-why-copy p { font-size: var(--fs-md); line-height: var(--lh-body); }
 @media (max-width: 900px) {
   .founder-card .founder-bio { text-align: left; }
-  .m6-why-copy p { font-size: 17px; line-height: 1.7; }
 }
 
 /* About page — section order: why model first (page hero), operator last */
@@ -121,12 +119,12 @@ nav { background: rgba(16,24,20,.95); }
 /* Insights teaser */
 .m6-insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .m6-insight { display: block; border-top: 1px solid rgba(201,138,70,.35); padding-top: 18px; text-decoration: none; }
-.m6-insight-tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
-.m6-insight h3 { font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
-.m6-insight p { font-size: 14.5px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
-.m6-insight-more { font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--copper); }
+.m6-insight-tag { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+.m6-insight h3 { font-size: var(--fs-md); font-weight: var(--fw-semibold); color: var(--text); line-height: var(--lh-head); margin-bottom: 10px; }
+.m6-insight p { font-size: var(--fs-base); color: var(--text2); line-height: var(--lh-body); margin-bottom: 12px; }
+.m6-insight-more { font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: .1em; text-transform: uppercase; color: var(--copper); }
 .m6-insight:hover h3 { color: var(--copper); }
-.m6-insights-all { display: inline-block; margin-top: 32px; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
+.m6-insights-all { display: inline-block; margin-top: 32px; font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--copper); text-decoration: none; }
 @media (max-width: 860px) { .m6-insights { grid-template-columns: 1fr; gap: 24px; } }
 
 /* Taller desktop header (mobile stays 72px) */
@@ -158,10 +156,3 @@ a.case-url:hover { color: var(--copper); }
 /* Clearance below the fixed 84px header: ~48px of visible air before the eyebrow */
 .hero-inner { padding-top: 148px; }
 @media (max-width: 768px) { .hero-inner { padding-top: 132px; } }
-
-/* Mobile reading sizes for stacked cards (desktop keeps compact 3-col sizing) */
-@media (max-width: 860px) {
-  .m6-insight p { font-size: 16px; line-height: 1.65; }
-  .m6-insight h3 { font-size: 20px; }
-  .m6-why-point p { font-size: 16px; }
-}
