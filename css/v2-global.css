@@ -339,6 +339,10 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
 }
 .footer-brand .logo{margin-bottom:14px}
 .footer-brand p{line-height:var(--lh-body);font-weight:400;max-width:320px;font-size:var(--fs-sm);color:var(--text3)}
+.footer-brand-contact{display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:var(--fs-sm)}
+.footer-brand-contact a{color:var(--text3);text-decoration:none;transition:color .3s}
+.footer-brand-contact a:hover{color:var(--text)}
+.footer-brand-contact .social{display:inline-flex;align-items:center;margin-top:4px}
 .footer-links h3{
   font-family:var(--mono);font-size:var(--fs-xs);text-transform:uppercase;
   letter-spacing:var(--ls-eyebrow);color:var(--copper);margin-bottom:16px;font-weight:var(--fw-medium);
