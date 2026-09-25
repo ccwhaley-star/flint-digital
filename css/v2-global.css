@@ -354,6 +354,9 @@ footer{border-top:1px solid var(--line);position:relative;z-index:2}
   display:flex;justify-content:space-between;font-size:var(--fs-sm);color:var(--text3);letter-spacing:1px;
 }
 .footer-bottom a{color:var(--text3);text-decoration:none}
+.footer-bottom-right{display:flex;gap:28px}
+.client-login{transition:color .3s}
+.footer-bottom a:hover{color:var(--text2)}
 
 /* FAQ Accordion (shared between homepage and FAQ page) */
 .faq-question{
