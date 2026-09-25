@@ -195,5 +195,26 @@
 
 <script src="shared/js/reveal.js?v=20260923b" defer></script>
 <script src="shared/js/nav.js?v=20260923b" defer></script>
+<script>
+/* m6-site-beacon: if someone arrives from their own mockup or outreach email (a ?p= tag on
+   the link), their visit is logged against that prospect in the CRM. The tag is remembered
+   on this browser so later visits still count. No tag, no logging: an anonymous visitor
+   stays anonymous. Add ?nt=1 to look without logging. */
+(function () {
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("nt") === "1") return;
+    var tag = (q.get("p") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 80);
+    if (tag) { try { localStorage.setItem("m6p", tag); } catch (e) {} }
+    else { try { tag = localStorage.getItem("m6p") || ""; } catch (e) {} }
+    if (!tag) return;
+    var path = location.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/home";
+    var buying = /how-it-works|work|cost|pricing|contact|faq|about/.test(path);
+    var i = new Image();
+    i.src = "https://meridian-six-crm.netlify.app/api/visit?s=" + encodeURIComponent(tag) +
+      "&e=" + (buying ? "buying" : "site") + "&p=" + encodeURIComponent(path.slice(1, 40)) + "&r=" + Date.now();
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
