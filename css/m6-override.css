@@ -249,6 +249,19 @@ a.case-url:hover { color: var(--copper); }
 }
 @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
 
+/* Phones: one-line eyebrow, equal full-width buttons, metric cards as rows */
+@media (max-width: 600px) {
+  .hero-tile .hero-eyebrow { letter-spacing: .14em; }
+  .hero-tile .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-tile .hero-ctas .btn-primary, .hero-tile .hero-ctas .btn-secondary { width: 100%; text-align: center; }
+  .hero-tile .hero-ctas .flip-tab { margin: 6px auto 0; align-self: center; }
+  .hero-metrics.metric-cards { grid-template-columns: 1fr; gap: 10px; }
+  .hero-metrics .metric-card { display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 14px; text-align: left; padding: 14px 18px; }
+  .hero-metrics .metric-card svg { width: 22px; height: 22px; margin: 0; }
+  .hero-metrics .metric-num { font-size: var(--fs-md); letter-spacing: -.5px; white-space: nowrap; }
+  .hero-metrics .metric-label { margin: 0; text-align: right; font-size: var(--fs-sm); }
+}
+
 /* Softer corners, site-wide (was 2-6px) */
 :root { --radius-sm: 10px; --radius-md: 12px; --radius-lg: 14px; }
 .btn-primary, .btn-secondary, .nav-cta, .nav-cta-mobile, .prx-btn, .audit-form button, .nav-menu .menu-cta, .skip-link { border-radius: 10px; }
