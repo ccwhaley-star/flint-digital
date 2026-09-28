@@ -199,3 +199,10 @@ a.case-url:hover { color: var(--copper); }
 .svc-tag, .audience-tag, .step-tag { border-radius: 999px; }
 .case-url { border-radius: 8px; }
 #audit-results > div { border-radius: 14px !important; }
+
+/* Footer bottom on phones: Client Login and the domain stack instead of reading as one phrase */
+@media (max-width: 900px) {
+  .footer-bottom { gap: 14px; }
+  .footer-bottom-right { flex-direction: column; align-items: center; gap: 12px; }
+  .footer-bottom .client-login { border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px; color: var(--text2); }
+}
