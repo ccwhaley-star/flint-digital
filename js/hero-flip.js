@@ -24,7 +24,15 @@
       if(top < 60 || top > window.innerHeight * 0.4) wrap.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     }
   }
-  open.addEventListener('click', function(){ set(true); });
+  // The before/after screenshots (~265 KB) load only when a visitor reaches for "See sample":
+  // hover/touch starts the download early, the tap guarantees it.
+  var shotsLoaded = false;
+  function loadShots(){
+    if(shotsLoaded) return; shotsLoaded = true;
+    [].forEach.call(back.querySelectorAll('img[data-src]'), function(img){ img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); });
+  }
+  ['pointerenter','touchstart','focus'].forEach(function(ev){ open.addEventListener(ev, loadShots, { passive: true }); });
+  open.addEventListener('click', function(){ loadShots(); set(true); });
   close.addEventListener('click', function(){ set(false); });
   cta.addEventListener('click', function(){ setTimeout(function(){ set(false); }, 400); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && wrap.classList.contains('flipped')) set(false); });
