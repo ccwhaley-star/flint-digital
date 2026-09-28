@@ -33,7 +33,20 @@
     ['wheel','touchstart','keydown'].forEach(function(ev){
       el.addEventListener(ev, function(){ s.hold = performance.now() + 2500; live(); }, { passive: true });
     });
-    el.addEventListener('scroll', function(){ if(s.hover || performance.now() < s.hold) s.pos = el.scrollTop; }, { passive: true });
+    // progress line in place of a scrollbar
+    var bar = document.createElement('span'); bar.className = 'fb-progress'; bar.setAttribute('aria-hidden','true');
+    bar.appendChild(document.createElement('i')); el.parentNode.appendChild(bar);
+    function progress(){ var max = el.scrollHeight - el.clientHeight; bar.style.setProperty('--p', max > 0 ? (el.scrollTop / max).toFixed(3) : 0); }
+    el.addEventListener('scroll', function(){ if(s.hover || performance.now() < s.hold) s.pos = el.scrollTop; progress(); }, { passive: true });
+    // mouse: grab anywhere and drag to scroll (touch already swipes natively)
+    var drag = null;
+    el.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { y: e.clientY, top: el.scrollTop }; el.classList.add('dragging'); el.setPointerCapture(e.pointerId); live();
+    });
+    el.addEventListener('pointermove', function(e){ if(drag){ el.scrollTop = drag.top - (e.clientY - drag.y); s.pos = el.scrollTop; } });
+    function end(){ if(drag){ drag = null; el.classList.remove('dragging'); s.hold = performance.now() + 2500; } }
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
     return s;
   });
   if(reduce || !S.length) return;
