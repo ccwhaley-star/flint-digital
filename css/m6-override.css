@@ -212,7 +212,7 @@ a.case-url:hover { color: var(--copper); }
 .fb-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .fb-k { font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--copper); }
 .fb-head h2 { font-size: var(--fs-xl); font-weight: 600; color: var(--text); line-height: 1.15; margin-top: 8px; }
-.fb-head h2 span { display: block; font-family: var(--sans); font-size: var(--fs-sm); font-weight: 400; color: var(--text3); margin-top: 4px; }
+.fb-head h2 > span { display: block; font-family: var(--sans); font-size: var(--fs-sm); font-weight: 400; color: var(--text3); margin-top: 4px; }
 .fb-head h2 a { color: var(--copper); text-decoration: none; }
 .fb-head h2 a:hover { color: var(--copper2); text-decoration: underline; }
 .fb-head h2:focus { outline: none; }
@@ -269,6 +269,7 @@ a.case-url:hover { color: var(--copper); }
   .hero-tile .hero-ctas .flip-tab { margin: 6px 0 0 auto; align-self: flex-end; }
   /* report card: drop the "Real client · before & after" eyebrow; title sits level with Back */
   .fb-head .fb-k { display: none; }
+  .fb-head .fb-url { display: none; }
   .fb-head h2 { margin-top: 0; }
   /* metrics: one panel, three equal columns (70%+ | 3.5x | Days), no icons */
   .hero-metrics.metric-cards { grid-template-columns: repeat(3, 1fr); gap: 0; background: linear-gradient(rgba(201,138,70,.06), rgba(201,138,70,.06)), var(--card); border: 1px solid rgba(201,138,70,.14); border-radius: 14px; overflow: hidden; }
