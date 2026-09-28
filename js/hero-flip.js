@@ -18,6 +18,11 @@
     if(on){ back.removeAttribute('inert'); front.setAttribute('inert',''); setTimeout(function(){ title.focus({preventScroll:true}); }, 60); }
     else  { front.removeAttribute('inert'); back.setAttribute('inert',''); setTimeout(function(){ open.focus({preventScroll:true}); }, 60); }
     if(on && typeof gtag === 'function') gtag('event', 'hero_sample_open');
+    // phones: the trigger sits at the bottom of the card, so bring the card's top into view
+    if(window.innerWidth <= 900){
+      var top = wrap.getBoundingClientRect().top;
+      if(top < 60 || top > window.innerHeight * 0.4) wrap.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
   }
   open.addEventListener('click', function(){ set(true); });
   close.addEventListener('click', function(){ set(false); });

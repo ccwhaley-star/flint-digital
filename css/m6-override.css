@@ -246,12 +246,17 @@ a.case-url:hover { color: var(--copper); }
 .fb-card .btn-primary { text-align: center; margin-top: 6px; }
 
 @media (max-width: 900px) {
-  /* phones: no 3D; quick cross-fade between faces */
-  .hero-flip { perspective: none; }
-  .flip-inner { transform: none !important; transition: none; position: relative; }
-  .flip-face { backface-visibility: visible; -webkit-backface-visibility: visible; transition: opacity .35s ease; }
-  .hero-tile.flip-back { transform: none; padding: 26px 20px; grid-template-columns: 1fr; gap: 22px; }
-  .hero-flip:not(.flipped) .flip-back, .hero-flip.flipped .flip-front { opacity: 0; visibility: hidden; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; }
+  /* phones: same 3D flip as desktop; the back is compacted so both faces share one card size */
+  .hero-flip { perspective: 1400px; }
+  .hero-tile.flip-back { padding: 22px 18px; grid-template-columns: 1fr; gap: 14px; align-content: start; }
+  .fb-pair { gap: 10px; }
+  .fb-scroll { aspect-ratio: 16 / 10; }
+  .fb-cap { padding: 7px 10px; gap: 8px; }
+  .fb-cap .gr { width: 22px; height: 22px; font-size: 11px; }
+  .fb-card { gap: 10px; }
+  .fb-rows div { padding: 4px 0; }
+  .fb-rows .fb-total { padding: 4px 0 7px; }
+  .fb-card .btn-primary { margin-top: 2px; padding-top: 13px; padding-bottom: 13px; }
   .fb-head { flex-direction: row; align-items: flex-start; gap: 12px; }
   .fb-head > div { flex: 1; min-width: 0; }
   .fb-head .fb-back { flex: none; }
