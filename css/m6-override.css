@@ -265,6 +265,12 @@ a.case-url:hover { color: var(--copper); }
   .fb-hint::before { content: "\2195"; font-size: 12px; line-height: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
+/* Desktop: previews stretch to the full height of the report-card column (more of each site visible) */
+@media (min-width: 901px) {
+  .fb-pair { grid-template-rows: 1fr; align-items: stretch; }
+  .fb-shot { display: flex; flex-direction: column; min-height: 280px; }
+  .fb-scroll { aspect-ratio: auto; flex: 1 1 0; min-height: 0; }
+}
 
 /* Phones: one-line eyebrow, equal full-width buttons, metric cards as rows */
 @media (max-width: 600px) {
