@@ -261,6 +261,14 @@ a.case-url:hover { color: var(--copper); }
   .hero-metrics .metric-num { font-size: var(--fs-md); letter-spacing: -.5px; white-space: nowrap; }
   .hero-metrics .metric-label { margin: 0; text-align: right; font-size: var(--fs-sm); }
 }
+/* Narrow phones (360-420px): a little more room inside the hero card */
+@media (max-width: 420px) {
+  .hero { padding: 0 14px; }
+  .hero-tile.flip-front { padding: 28px 18px; }
+  .hero-tile .hero-eyebrow { font-size: 12px; letter-spacing: .12em; }
+  .hero-sub { font-size: 1rem; }
+  .hero-tile .hero-ctas .btn-primary, .hero-tile .hero-ctas .btn-secondary { padding-left: 14px; padding-right: 14px; }
+}
 
 /* Softer corners, site-wide (was 2-6px) */
 :root { --radius-sm: 10px; --radius-md: 12px; --radius-lg: 14px; }
