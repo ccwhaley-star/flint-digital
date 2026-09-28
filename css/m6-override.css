@@ -248,7 +248,9 @@ a.case-url:hover { color: var(--copper); }
   .flip-face { backface-visibility: visible; -webkit-backface-visibility: visible; transition: opacity .35s ease; }
   .hero-tile.flip-back { transform: none; padding: 26px 20px; grid-template-columns: 1fr; gap: 22px; }
   .hero-flip:not(.flipped) .flip-back, .hero-flip.flipped .flip-front { opacity: 0; visibility: hidden; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; }
-  .fb-head { flex-direction: column-reverse; gap: 14px; }
+  .fb-head { flex-direction: row; align-items: flex-start; gap: 12px; }
+  .fb-head > div { flex: 1; min-width: 0; }
+  .fb-head .fb-back { flex: none; }
   /* scroll hint shrinks to a small icon badge so it doesn't cover the tiny previews */
   .fb-hint { font-size: 0; letter-spacing: 0; padding: 0; width: 22px; height: 22px; display: grid; place-items: center; right: 6px; top: 6px; }
   .fb-hint::before { content: "\2195"; font-size: 12px; line-height: 1; }
@@ -260,12 +262,16 @@ a.case-url:hover { color: var(--copper); }
   .hero-tile .hero-eyebrow { letter-spacing: .14em; }
   .hero-tile .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; }
   .hero-tile .hero-ctas .btn-primary, .hero-tile .hero-ctas .btn-secondary { width: 100%; text-align: center; }
-  .hero-tile .hero-ctas .flip-tab { margin: 6px auto 0; align-self: center; }
-  .hero-metrics.metric-cards { grid-template-columns: 1fr; gap: 10px; }
-  .hero-metrics .metric-card { display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 14px; text-align: left; padding: 14px 18px; }
-  .hero-metrics .metric-card svg { width: 22px; height: 22px; margin: 0; }
+  .hero-tile .hero-ctas .flip-tab { margin: 6px 0 0 auto; align-self: flex-end; }
+  /* metrics: 70%+ and 3.5x side by side, "Launch in days" full width below */
+  .hero-metrics.metric-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero-metrics .metric-card { display: block; text-align: center; padding: 16px 10px; }
+  .hero-metrics .metric-card svg { width: 22px; height: 22px; margin: 0 auto 6px; }
   .hero-metrics .metric-num { font-size: var(--fs-md); letter-spacing: -.5px; white-space: nowrap; }
-  .hero-metrics .metric-label { margin: 0; text-align: right; font-size: var(--fs-sm); }
+  .hero-metrics .metric-label { margin: 4px 0 0; font-size: var(--fs-sm); }
+  .hero-metrics .metric-card:first-child { grid-column: 1 / -1; order: 3; display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 14px; text-align: left; padding: 14px 18px; }
+  .hero-metrics .metric-card:first-child svg { margin: 0; }
+  .hero-metrics .metric-card:first-child .metric-label { margin: 0; text-align: right; }
 }
 /* Narrow phones (360-420px): a little more room inside the hero card */
 @media (max-width: 420px) {
