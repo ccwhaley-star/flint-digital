@@ -202,6 +202,8 @@ a.case-url:hover { color: var(--copper); }
 
 /* Footer bottom on phones: Client Login and the domain stack instead of reading as one phrase */
 @media (max-width: 900px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; column-gap: 24px; row-gap: 40px; }
+  .footer-inner .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { gap: 14px; }
   .footer-bottom-right { flex-direction: column; align-items: center; gap: 12px; }
   .footer-bottom .client-login { border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px; color: var(--text2); }
