@@ -178,7 +178,7 @@ a.case-url:hover { color: var(--copper); }
   background: radial-gradient(circle, rgba(201,138,70,.09) 0%, rgba(201,138,70,.04) 35%, rgba(201,138,70,0) 68%);
 }
 .hero-tile h1 { margin-bottom: 0; }
-.hero-sub { margin-top: 26px; font-size: var(--fs-md); line-height: 1.5; font-weight: var(--fw-light); color: var(--text2); max-width: 34ch; }
+.hero-sub { margin-top: 26px; font-size: var(--fs-md); line-height: 1.5; font-weight: var(--fw-light); color: var(--text2); max-width: 44ch; }
 .hero-tile .hero-ctas { margin-top: 40px; }
 .hero-tile + .hero-metrics { margin-top: 16px; }
 @media (max-width: 900px) {
