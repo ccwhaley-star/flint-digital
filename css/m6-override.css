@@ -243,6 +243,9 @@ a.case-url:hover { color: var(--copper); }
   .hero-tile.flip-back { transform: none; padding: 26px 20px; grid-template-columns: 1fr; gap: 22px; }
   .hero-flip:not(.flipped) .flip-back, .hero-flip.flipped .flip-front { opacity: 0; visibility: hidden; pointer-events: none; position: absolute; top: 0; left: 0; right: 0; }
   .fb-head { flex-direction: column-reverse; gap: 14px; }
+  /* scroll hint shrinks to a small icon badge so it doesn't cover the tiny previews */
+  .fb-hint { font-size: 0; letter-spacing: 0; padding: 0; width: 22px; height: 22px; display: grid; place-items: center; right: 6px; top: 6px; }
+  .fb-hint::before { content: "\2195"; font-size: 12px; line-height: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
 
