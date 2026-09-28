@@ -1,0 +1,56 @@
+/* Meridian6 — hero flip card: "See sample" turns the hero over to a before/after
+   report card. The two previews drift slowly through the full pages while the
+   back is showing; hovering (or scrolling/swiping) hands control to the visitor. */
+(function(){
+  var wrap = document.getElementById('hero-flip');
+  if(!wrap) return;
+  var front = document.getElementById('flip-front'),
+      back  = document.getElementById('flip-back'),
+      open  = document.getElementById('flip-open'),
+      close = document.getElementById('flip-close'),
+      title = document.getElementById('fb-title'),
+      cta   = document.getElementById('fb-cta');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function set(on){
+    wrap.classList.toggle('flipped', on);
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if(on){ back.removeAttribute('inert'); front.setAttribute('inert',''); setTimeout(function(){ title.focus({preventScroll:true}); }, 60); }
+    else  { front.removeAttribute('inert'); back.setAttribute('inert',''); setTimeout(function(){ open.focus({preventScroll:true}); }, 60); }
+    if(on && typeof gtag === 'function') gtag('event', 'hero_sample_open');
+  }
+  open.addEventListener('click', function(){ set(true); });
+  close.addEventListener('click', function(){ set(false); });
+  cta.addEventListener('click', function(){ setTimeout(function(){ set(false); }, 400); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && wrap.classList.contains('flipped')) set(false); });
+
+  // Gentle auto-scroll of the two page previews
+  var S = [].map.call(back.querySelectorAll('.fb-scroll'), function(el){
+    var s = { el: el, pos: 0, dir: 1, hold: 0, hover: false };
+    function live(){ el.parentNode.classList.add('live'); }
+    el.addEventListener('pointerenter', function(){ s.hover = true; live(); });
+    el.addEventListener('pointerleave', function(){ s.hover = false; s.hold = performance.now() + 1500; s.pos = el.scrollTop; });
+    ['wheel','touchstart','keydown'].forEach(function(ev){
+      el.addEventListener(ev, function(){ s.hold = performance.now() + 2500; live(); }, { passive: true });
+    });
+    el.addEventListener('scroll', function(){ if(s.hover || performance.now() < s.hold) s.pos = el.scrollTop; }, { passive: true });
+    return s;
+  });
+  if(reduce || !S.length) return;
+  var last = 0;
+  function tick(t){
+    var dt = last ? Math.min(t - last, 50) / 1000 : 0; last = t;
+    if(wrap.classList.contains('flipped')){
+      S.forEach(function(s){
+        if(s.hover || t < s.hold) return;
+        var max = s.el.scrollHeight - s.el.clientHeight; if(max <= 0) return;
+        s.pos += s.dir * 28 * dt;
+        if(s.pos >= max){ s.pos = max; s.dir = -1; s.hold = t + 1800; }
+        if(s.pos <= 0){ s.pos = 0; s.dir = 1; s.hold = t + 1800; }
+        s.el.scrollTop = s.pos;
+      });
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
