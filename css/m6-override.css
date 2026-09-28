@@ -216,6 +216,10 @@ a.case-url:hover { color: var(--copper); }
 .fb-head h2 a { color: var(--copper); text-decoration: none; }
 .fb-head h2 a:hover { color: var(--copper2); text-decoration: underline; }
 .fb-head h2:focus { outline: none; }
+.fb-head h2 a.fb-title-link { color: var(--text); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.fb-head h2 a.fb-title-link svg { color: var(--copper); transition: transform .25s; }
+.fb-head h2 a.fb-title-link:hover { color: var(--copper2); text-decoration: none; }
+.fb-head h2 a.fb-title-link:hover svg { transform: translate(2px,-2px); }
 
 .fb-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
 .fb-shot { position: relative; margin: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
