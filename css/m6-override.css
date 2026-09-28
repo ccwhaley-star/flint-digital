@@ -163,3 +163,39 @@ a.case-url:hover { color: var(--copper); }
 /* Clearance below the fixed 84px header: ~48px of visible air before the eyebrow */
 .hero-inner { padding-top: 148px; }
 @media (max-width: 768px) { .hero-inner { padding-top: 132px; } }
+
+/* Hero tile: headline, sub-line and CTAs sit on one rounded card; metrics row below */
+.hero { min-height: 0; }
+.hero-inner { padding-bottom: 88px; }
+.hero-tile {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 64px 56px 56px; position: relative; overflow: hidden;
+}
+.hero-tile > *:not(.hero-glow) { position: relative; }
+.hero-tile .hero-glow {
+  position: absolute; top: -30%; right: -20%; left: auto; width: 620px; height: 620px;
+  transform: none; filter: none; pointer-events: none;
+  background: radial-gradient(circle, rgba(201,138,70,.09) 0%, rgba(201,138,70,.04) 35%, rgba(201,138,70,0) 68%);
+}
+.hero-tile h1 { margin-bottom: 0; }
+.hero-sub { margin-top: 26px; font-size: var(--fs-md); line-height: 1.5; font-weight: var(--fw-light); color: var(--text2); max-width: 34ch; }
+.hero-tile .hero-ctas { margin-top: 40px; }
+.hero-tile + .hero-metrics { margin-top: 16px; }
+@media (max-width: 900px) {
+  .hero-inner { padding-bottom: 48px; }
+  .hero-tile { padding: 32px 22px; }
+  .hero-sub { margin-top: 18px; font-size: 1.0625rem; }
+  .hero-tile .hero-ctas { margin-top: 30px; }
+}
+
+/* Softer corners, site-wide (was 2-6px) */
+:root { --radius-sm: 10px; --radius-md: 12px; --radius-lg: 14px; }
+.btn-primary, .btn-secondary, .nav-cta, .nav-cta-mobile, .prx-btn, .audit-form button, .nav-menu .menu-cta, .skip-link { border-radius: 10px; }
+.audit-form input, .audit-form select { border-radius: 10px; }
+.proof-browser, .case-browser { border-radius: 12px; overflow: hidden; }
+.nav-drop-menu { border-radius: 12px; }
+.svc-row, .price-row, .why-grid { border-radius: 14px; overflow: hidden; }
+.metric-card, .article-hero img { border-radius: 14px; }
+.svc-tag, .audience-tag, .step-tag { border-radius: 999px; }
+.case-url { border-radius: 8px; }
+#audit-results > div { border-radius: 14px !important; }
