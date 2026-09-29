@@ -37,7 +37,7 @@
   force = true
 
 [[redirects]]
-  from = "https://flint-digital.netlify.app/*"
+  from = "https://meridian6.netlify.app/*"
   to = "https://meridian6.ai/:splat"
   status = 301
   force = true
