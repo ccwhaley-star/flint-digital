@@ -152,12 +152,21 @@ a.case-url:hover { color: var(--copper); }
 }
 .eyebrow-desktop .eyebrow-accent { display: block; margin-top: 12px; }
 
+/* Mobile header: click-to-call phone icon beside the hamburger (desktop untouched) */
+.nav-phone-mobile { display: none; }
+@media (max-width: 900px) {
+  .nav-phone-mobile {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; color: var(--text2); transition: color .3s;
+  }
+  .nav-phone-mobile:hover { color: var(--copper); }
+}
+
 /* Mobile menu — best-practice touch targets and air (desktop untouched) */
 @media (max-width: 768px) {
   .nav-menu { top: 84px; padding: 36px 28px 44px; }
   .nav-menu a { font-size: 20px; padding: 22px 0; }
   .nav-menu .menu-cta { font-size: 18px; padding: 18px; margin-top: 28px; }
-  .nav-menu .menu-phone { font-size: 18px; padding: 18px 0; }
 }
 
 /* Clearance below the fixed 84px header: ~48px of visible air before the eyebrow */
