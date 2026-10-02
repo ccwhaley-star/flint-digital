@@ -20,6 +20,8 @@
 .article-body li{font-size:var(--fs-md);line-height:var(--lh-body);color:var(--text2);font-weight:400;margin-bottom:10px}
 .article-body strong{color:var(--text);font-weight:600}
 .article-body em{color:var(--copper2)}
+.article-body a{color:var(--copper2);text-underline-offset:3px;transition:color .3s}
+.article-body a:hover{color:var(--copper)}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
