@@ -185,3 +185,12 @@
   .hero-metrics{grid-template-columns:1fr 1fr}
   .audience-tags{gap:6px}
 }
+
+/* Hero entrance runs from CSS alone. It used to wait for reveal.js, which held the
+   headline (the largest paint on a phone) back until the scripts had loaded. */
+@keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero-in{animation:heroIn .8s ease both}
+.hero-in-d1{animation-delay:.12s}
+.hero-in-d2{animation-delay:.24s}
+.hero-in-d3{animation-delay:.36s}
+@media (prefers-reduced-motion:reduce){.hero-in{animation:none}}
